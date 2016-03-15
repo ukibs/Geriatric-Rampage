@@ -8,6 +8,7 @@
   <sprites name="sprites">
     <sprite>sprites\cara_preuba</sprite>
     <sprite>sprites\sprite1</sprite>
+    <sprite>sprites\sprOlaCaracola</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
