@@ -9,12 +9,40 @@
     <sprite>sprites\cara_preuba</sprite>
     <sprite>sprites\sprite1</sprite>
     <sprite>sprites\sprOlaCaracola</sprite>
+    <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_exit</sprite>
+    <sprite>sprites\spr_place</sprite>
+    <sprite>sprites\spr_text_background</sprite>
+    <sprite>sprites\spr_walking_down</sprite>
+    <sprite>sprites\spr_walking_left</sprite>
+    <sprite>sprites\spr_walking_right</sprite>
+    <sprite>sprites\spr_walking_up</sprite>
+    <sprite>sprites\spr_interacter</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\objPrueba</object>
+    <object>objects\obj_menu_selector</object>
+    <object>objects\obj_map_selector</object>
+    <object>objects\obj_hud</object>
+    <object>objects\obj_menu_manager</object>
+    <object>objects\obj_wall</object>
+    <object>objects\obj_exit</object>
+    <objects name="Map markers">
+      <object>objects\obj_home_marker</object>
+      <object>objects\obj_park_marker</object>
+      <object>objects\obj_place</object>
+    </objects>
+    <object>objects\obj_base_talker</object>
+    <object>objects\obj_player</object>
+    <object>objects\obj_interactor</object>
   </objects>
+  <rooms name="rooms">
+    <room>rooms\room_menu</room>
+    <room>rooms\room_home</room>
+    <room>rooms\room_map</room>
+    <room>rooms\room_park</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
