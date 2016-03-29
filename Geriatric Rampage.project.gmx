@@ -37,8 +37,10 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
+    <object>objects\obj_player</object>
     <object>objects\obj_menu_selector</object>
     <object>objects\obj_map_selector</object>
+    <object>objects\obj_preload</object>
     <object>objects\obj_hud</object>
     <object>objects\obj_menu_manager</object>
     <objects name="Interactors">
@@ -55,15 +57,15 @@
     <objects name="People">
       <object>objects\obj_base_talker</object>
     </objects>
-    <object>objects\obj_player</object>
-    <object>objects\obj_preload</object>
     <objects name="Petanca">
       <object>objects\obj_petanca_square</object>
       <object>objects\obj_petanca_manager</object>
       <object>objects\obj_boliche</object>
       <object>objects\obj_pointer</object>
-      <object>objects\obj_player_ball</object>
       <object>objects\obj_power_meter</object>
+      <object>objects\obj_ball</object>
+      <object>objects\obj_player_ball</object>
+      <object>objects\obj_oponent_ball</object>
     </objects>
   </objects>
   <rooms name="rooms">

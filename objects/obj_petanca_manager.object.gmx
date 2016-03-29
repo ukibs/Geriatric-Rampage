@@ -26,8 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>//Decide a place for the boliche
+randomize();
 boliche_xPosition = random_range(room_width/2-200, room_width/2+200);
-boliche_yPosition = random_range(room_height/2, room_height/2+200);
+boliche_yPosition = random_range(room_height/2-200, room_height/2);
 //Place the boliche
 boliche = instance_create(boliche_xPosition, boliche_yPosition, obj_boliche);
 //Set the launching place
@@ -35,16 +36,23 @@ launching_placeX = room_width/2;
 launching_placeY = 450;
 /*Phases of the match
     0 - 
-    1 - Player´s turn
-    2 - Oponent´s turn
+    1 - 
+    2 - 
+    3 - 
 */
 phase = 0;
 //Match turns (3 in total)
 turn = 0;
 //Put the pointer
 pointer = instance_create(room_width/2, 450, obj_pointer);
-//Initalize the power of the throw
+x = pointer.x;
+y = pointer.y;
+//Initalize the power of the throw and set a max
 throwing_power = 0;
+max_power = 30;
+//
+winner = 0;
+checked = false;
 </string>
           </argument>
         </arguments>
@@ -86,21 +94,125 @@ if(turn &lt; 3){
     }
     //Charguing the shoot
     if(phase == 1){
-        if(throwing_power + 2 &lt;= 100)
-            throwing_power += 2;
-        power_meter.image_yscale = throwing_power / 100;
+        if(throwing_power + 1 &lt;= max_power)
+            throwing_power += 1;
+        power_meter.image_yscale = throwing_power / max_power;
         if(key_space_released == true){
-            phase = 2;
             //Throwing the ball
-            ball = instance_create(pointer.x, pointer.y, obj_player_ball);
-            ball.direction = pointer.direction;
-            ball.speed = throwing_power;
+            player_ball[turn] = instance_create(pointer.x, pointer.y, obj_player_ball);
+            player_ball[turn].direction = pointer.direction;
+            player_ball[turn].speed = throwing_power;
+            throwing_power = 0;
+            phase = 2;
         }
     }
-    //Waiting for the balls to stop
+    //Waiting for the launched ball to stop
     if(phase == 2){
-        
+        if(player_ball[turn].speed == 0){
+            pointer.direction = 90;
+            pointer.image_angle = pointer.direction;
+            power_meter.image_yscale = 0;
+            phase = 3;
+        }
     }
+    //Oponent´s turn
+    if(phase == 3){
+        boliche_direction = point_direction(pointer.x, pointer.y, boliche.x, boliche.y);
+        if(boliche_direction &gt; pointer.direction+5)
+            pointer.direction += 1;
+        else if(boliche_direction &lt; pointer.direction-5)
+            pointer.direction -= 1;
+        else
+            phase = 4;
+        pointer.image_angle = pointer.direction;
+    }
+    //Charguing the shoot
+    if(phase == 4){
+        if(throwing_power &lt; distance_to_object(boliche)/15){
+            throwing_power += 1;
+            power_meter.image_yscale = throwing_power / max_power;
+        }
+        else{
+            //Throwing the ball
+            oponent_ball[turn] = instance_create(pointer.x, pointer.y, obj_oponent_ball);
+            oponent_ball[turn].direction = pointer.direction;
+            oponent_ball[turn].speed = throwing_power;
+            throwing_power = 0;
+            phase = 5;
+        }
+    }
+    //Waiting for the launched ball to stop
+    if(phase == 5){
+        if(oponent_ball[turn].speed == 0){
+            pointer.direction = 90;
+            pointer.image_angle = pointer.direction;
+            power_meter.image_yscale = 0;
+            //Next turn
+            phase = 0;
+            turn += 1;
+        }
+    }
+}//When finished
+else if(checked == false){
+    min_player_ball_distance = 200;
+    for(i=0; i&lt;array_length_1d(player_ball); i++){
+        x = player_ball[i].x;
+        y = player_ball[i].y;
+        if(distance_to_object(boliche) &lt; min_player_ball_distance)
+            min_player_ball_distance = distance_to_object(boliche);
+    }
+    min_oponent_ball_distance = 200;
+    for(i=0; i&lt;array_length_1d(oponent_ball); i++){
+        x = player_ball[i].x;
+        y = player_ball[i].y;
+        if(distance_to_object(boliche) &lt; min_oponent_ball_distance)
+            min_oponent_ball_distance = distance_to_object(boliche);
+    }
+    if(min_player_ball_distance &lt; min_oponent_ball_distance)
+        winner = 1;
+    else
+        winner = 2;
+    checked = true;
+}//Then you can exit the game
+else{
+    if(key_space_pressed == true){
+        room_goto(room_park);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//If finished, show the winner
+if(checked == true){
+    if(winner = 1)
+        draw_text(room_width/2, room_height/2, "You win");
+    else
+        draw_text(room_width/2, room_height/2, "You lose");
+}//If not, show the current player
+else{
+    if(phase &lt;= 2)
+        draw_text(room_width/2, room_height/2, "Your turn");
+    else
+        draw_text(room_width/2, room_height/2, "Oponent turn");
 }
 </string>
           </argument>
