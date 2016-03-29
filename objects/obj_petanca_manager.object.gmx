@@ -25,18 +25,32 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Get the player
-player = instance_find(obj_player, 0);
-//Initalize text vector
-text[0] = "None";
-text[1] = "Nononon";
-text_counter = 0;
+            <string>//Decide a place for the boliche
+boliche_xPosition = random_range(room_width/2-200, room_width/2+200);
+boliche_yPosition = random_range(room_height/2, room_height/2+200);
+//Place the boliche
+boliche = instance_create(boliche_xPosition, boliche_yPosition, obj_boliche);
+//Set the launching place
+launching_placeX = room_width/2;
+launching_placeY = 450;
+/*Phases of the match
+    0 - 
+    1 - Player´s turn
+    2 - Oponent´s turn
+*/
+phase = 0;
+//Match turns (3 in total)
+turn = 0;
+//Put the pointer
+pointer = instance_create(room_width/2, 450, obj_pointer);
+//Initalize the power of the throw
+throwing_power = 0;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -53,12 +67,40 @@ text_counter = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Draw the map and inventory icons
-draw_sprite(spr_map_icon, 0, 500, 400);
-draw_sprite(spr_inventory_icon, 0, 400, 400);
-//Draw the inventory
-if(player.inventory_open = true){
-    draw_sprite(spr_inventory_window, 0, room_width/2, room_height/2);
+            <string>//Get the keys
+key_left = keyboard_check(vk_left);
+key_right = keyboard_check(vk_right);
+key_space_pressed = keyboard_check_pressed(vk_space);
+key_space_released = keyboard_check_released(vk_space);
+//Check turns played
+if(turn &lt; 3){
+    //Players turn
+    if(phase = 0){
+        pointer.direction -= -key_left + key_right;
+        pointer.direction = clamp(pointer.direction, 10, 170);
+        pointer.image_angle = pointer.direction;
+        if(key_space_pressed == true){
+            phase = 1;
+            power_meter = instance_create(550, 240, obj_power_meter);
+        }
+    }
+    //Charguing the shoot
+    if(phase == 1){
+        if(throwing_power + 2 &lt;= 100)
+            throwing_power += 2;
+        power_meter.image_yscale = throwing_power / 100;
+        if(key_space_released == true){
+            phase = 2;
+            //Throwing the ball
+            ball = instance_create(pointer.x, pointer.y, obj_player_ball);
+            ball.direction = pointer.direction;
+            ball.speed = throwing_power;
+        }
+    }
+    //Waiting for the balls to stop
+    if(phase == 2){
+        
+    }
 }
 </string>
           </argument>

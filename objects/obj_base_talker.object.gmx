@@ -36,6 +36,8 @@ usable = true;
 //Get the player
 player = instance_find(obj_player,0);
 interactor = instance_find(obj_interactor, 0);
+//Instance a collider
+//collider = instance_create(x,y,obj_character_collider);
 </string>
           </argument>
         </arguments>
@@ -90,7 +92,7 @@ if(interaction_key == true &amp;&amp; status_acting = true){
     else{
         text_counter = 0;
         status_acting = false;
-        player.status_talking = false;
+        player.status_still = false;
         //Alarm to not overlap conversations
         usable = false;
         alarm_set(0, 10);
@@ -121,7 +123,7 @@ if(interaction_key == true &amp;&amp; status_acting = true){
             <string>//Interaction
 if(interaction_key == true &amp;&amp; 
     usable == true){
-    player.status_talking = true;
+    player.status_still = true;
     status_acting = true;
 }
 </string>

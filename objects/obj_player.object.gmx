@@ -31,7 +31,8 @@ vsp = 0;
 h_direction = 0;
 v_direction = 0;
 //Status variables
-status_talking = false;
+status_still = false;
+inventory_open = false;
 sprite_to_use = spr_walking_down;
 /*Direction the player is looking
     0 - Right
@@ -64,14 +65,16 @@ interactor = instance_create(x,y,obj_interactor);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Atrapamos las teclas
+            <string>//Get the keys
 key_left = keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
 key_up = keyboard_check(vk_up);
 key_down = keyboard_check(vk_down);
-key_space = keyboard_check_pressed(vk_space);
-if(status_talking == false){
-//Para desplazar al personaje
+key_inventory = keyboard_check_pressed(ord("I"));
+key_map = keyboard_check_pressed(ord("M"));
+//If we aren´t still by the pause or conversation
+if(status_still == false){
+    //Move the player
     h_direction = -key_left + key_right;
     v_direction = -key_up + key_down;
     hsp = (-key_left + key_right) * 5;
@@ -79,33 +82,78 @@ if(status_talking == false){
     //Usando x,y
     x += hsp;
     y += vsp;
+    //Changing sprite
+    if(hsp &lt; 0)
+        sprite_index = spr_walking_left;
+    if(hsp &gt; 0)
+        sprite_index = spr_walking_right;
+    if(vsp &lt; 0)
+        sprite_index = spr_walking_up;
+    if(vsp &gt; 0)
+        sprite_index = spr_walking_down;
+    //Get that sprite
+        sprite_to_use = sprite_index;
+    //Get the direction
+    switch(sprite_to_use){
+        case spr_walking_left:
+            direction = 180;
+            break;
+        case spr_walking_right:
+            direction = 0;
+            break;
+        case spr_walking_up:
+            direction = 90;
+            break;
+        case spr_walking_down:
+            direction = 270;
+            break;
+    }
+    if(key_map == true){
+        room_goto(room_map);
+        //global.last_place = room_get_name(room);
+    }
+    if(key_inventory == true){
+        status_still = true;
+        inventory_open = true;
+        //"Release" the key
+        key_inventory = false;
+    }
 }
-//Changing sprite
-if(hsp &lt; 0)
-    sprite_index = spr_walking_left;
-if(hsp &gt; 0)
-    sprite_index = spr_walking_right;
-if(vsp &lt; 0)
-    sprite_index = spr_walking_up;
-if(vsp &gt; 0)
-    sprite_index = spr_walking_down;
-//Get that sprite
-    sprite_to_use = sprite_index;
-//Get the direction
-switch(sprite_to_use){
-    case spr_walking_left:
-        direction = 180;
-        break;
-    case spr_walking_right:
-        direction = 0;
-        break;
-    case spr_walking_up:
-        direction = 90;
-        break;
-    case spr_walking_down:
-        direction = 270;
-        break;
+//Controls for the inventory
+if(inventory_open == true){
+    if(key_inventory == true){
+        status_still = false;
+        inventory_open = false;
+        //"Release" the key
+        key_inventory = false;
+    }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_character_collider">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Relocate the player
+x -= hsp;
+y -= vsp;
+
 </string>
           </argument>
         </arguments>
@@ -152,7 +200,7 @@ room_goto(room_map);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Algo haremos
+            <string>//Relocate the player
 x -= hsp;
 y -= vsp;
 
@@ -184,9 +232,8 @@ if(hsp == 0 &amp;&amp; vsp == 0)
 //Or in movement
 else
     draw_self();
-    
-//Control stuff
-//draw_text(100, 100, status_talking);
+//
+//draw_text(60, 60, key_inventory);
 </string>
           </argument>
         </arguments>

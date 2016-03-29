@@ -6,18 +6,33 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\cara_preuba</sprite>
     <sprite>sprites\sprite1</sprite>
-    <sprite>sprites\sprOlaCaracola</sprite>
-    <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_exit</sprite>
-    <sprite>sprites\spr_place</sprite>
     <sprite>sprites\spr_text_background</sprite>
-    <sprite>sprites\spr_walking_down</sprite>
-    <sprite>sprites\spr_walking_left</sprite>
-    <sprite>sprites\spr_walking_right</sprite>
-    <sprite>sprites\spr_walking_up</sprite>
     <sprite>sprites\spr_interacter</sprite>
+    <sprites name="Player">
+      <sprite>sprites\spr_walking_left</sprite>
+      <sprite>sprites\spr_walking_down</sprite>
+      <sprite>sprites\spr_walking_up</sprite>
+      <sprite>sprites\spr_walking_right</sprite>
+    </sprites>
+    <sprite>sprites\spr_map_icon</sprite>
+    <sprite>sprites\spr_inventory_icon</sprite>
+    <sprites name="Interactors">
+      <sprite>sprites\spr_wall</sprite>
+      <sprite>sprites\spr_people_collider</sprite>
+      <sprite>sprites\spr_exit</sprite>
+      <sprite>sprites\spr_place</sprite>
+    </sprites>
+    <sprite>sprites\spr_gallata</sprite>
+    <sprites name="Petanca">
+      <sprite>sprites\spr_petanca_square</sprite>
+      <sprite>sprites\spr_boliche</sprite>
+      <sprite>sprites\spr_player_ball</sprite>
+      <sprite>sprites\spr_oponent_ball</sprite>
+      <sprite>sprites\spr_direction_meter</sprite>
+      <sprite>sprites\spr_power_meter</sprite>
+    </sprites>
+    <sprite>sprites\spr_inventory_window</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -26,18 +41,34 @@
     <object>objects\obj_map_selector</object>
     <object>objects\obj_hud</object>
     <object>objects\obj_menu_manager</object>
-    <object>objects\obj_wall</object>
-    <object>objects\obj_exit</object>
+    <objects name="Interactors">
+      <object>objects\obj_wall</object>
+      <object>objects\obj_exit</object>
+      <object>objects\obj_character_collider</object>
+      <object>objects\obj_interactor</object>
+    </objects>
     <objects name="Map markers">
       <object>objects\obj_home_marker</object>
       <object>objects\obj_park_marker</object>
       <object>objects\obj_place</object>
     </objects>
-    <object>objects\obj_base_talker</object>
+    <objects name="People">
+      <object>objects\obj_base_talker</object>
+    </objects>
     <object>objects\obj_player</object>
-    <object>objects\obj_interactor</object>
+    <object>objects\obj_preload</object>
+    <objects name="Petanca">
+      <object>objects\obj_petanca_square</object>
+      <object>objects\obj_petanca_manager</object>
+      <object>objects\obj_boliche</object>
+      <object>objects\obj_pointer</object>
+      <object>objects\obj_player_ball</object>
+      <object>objects\obj_power_meter</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room_petanca</room>
+    <room>rooms\room_preload</room>
     <room>rooms\room_menu</room>
     <room>rooms\room_home</room>
     <room>rooms\room_map</room>

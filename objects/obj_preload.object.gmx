@@ -25,41 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Get the player
-player = instance_find(obj_player, 0);
-//Initalize text vector
-text[0] = "None";
-text[1] = "Nononon";
-text_counter = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//Draw the map and inventory icons
-draw_sprite(spr_map_icon, 0, 500, 400);
-draw_sprite(spr_inventory_icon, 0, 400, 400);
-//Draw the inventory
-if(player.inventory_open = true){
-    draw_sprite(spr_inventory_window, 0, room_width/2, room_height/2);
-}
+            <string>//Initialize global variables
+global.currency = 0;
+global.reputation = 0;
+global.last_place = room_home;
+
+//Go to the menu
+room_goto_next();
 </string>
           </argument>
         </arguments>
