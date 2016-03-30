@@ -47,6 +47,8 @@ turn = 0;
 pointer = instance_create(room_width/2, 450, obj_pointer);
 x = pointer.x;
 y = pointer.y;
+//Put the power meter
+power_meter = instance_create(550, 240, obj_power_meter);
 //Initalize the power of the throw and set a max
 throwing_power = 0;
 max_power = 30;
@@ -82,75 +84,71 @@ key_space_pressed = keyboard_check_pressed(vk_space);
 key_space_released = keyboard_check_released(vk_space);
 //Check turns played
 if(turn &lt; 3){
-    //Players turn
-    if(phase = 0){
-        pointer.direction -= -key_left + key_right;
-        pointer.direction = clamp(pointer.direction, 10, 170);
-        pointer.image_angle = pointer.direction;
-        if(key_space_pressed == true){
-            phase = 1;
-            power_meter = instance_create(550, 240, obj_power_meter);
-        }
-    }
-    //Charguing the shoot
-    if(phase == 1){
-        if(throwing_power + 1 &lt;= max_power)
-            throwing_power += 1;
-        power_meter.image_yscale = throwing_power / max_power;
-        if(key_space_released == true){
-            //Throwing the ball
-            player_ball[turn] = instance_create(pointer.x, pointer.y, obj_player_ball);
-            player_ball[turn].direction = pointer.direction;
-            player_ball[turn].speed = throwing_power;
-            throwing_power = 0;
-            phase = 2;
-        }
-    }
-    //Waiting for the launched ball to stop
-    if(phase == 2){
-        if(player_ball[turn].speed == 0){
-            pointer.direction = 90;
+    switch(phase){
+        case 0: //Oponent´s turn
+            boliche_direction = point_direction(pointer.x, pointer.y, boliche.x, boliche.y);
+            if(boliche_direction &gt; pointer.direction+5)
+                pointer.direction += 1;
+            else if(boliche_direction &lt; pointer.direction-5)
+                pointer.direction -= 1;
+            else
+                phase ++;
             pointer.image_angle = pointer.direction;
-            power_meter.image_yscale = 0;
-            phase = 3;
-        }
-    }
-    //Oponent´s turn
-    if(phase == 3){
-        boliche_direction = point_direction(pointer.x, pointer.y, boliche.x, boliche.y);
-        if(boliche_direction &gt; pointer.direction+5)
-            pointer.direction += 1;
-        else if(boliche_direction &lt; pointer.direction-5)
-            pointer.direction -= 1;
-        else
-            phase = 4;
-        pointer.image_angle = pointer.direction;
-    }
-    //Charguing the shoot
-    if(phase == 4){
-        if(throwing_power &lt; distance_to_object(boliche)/15){
+            break;
+        case 1: //Charguing the shoot
+            if(throwing_power &lt; distance_to_object(boliche)/15){
+                throwing_power += 1;
+                power_meter.image_yscale = throwing_power / max_power;
+            }
+            else{
+                //Throwing the ball
+                oponent_ball[turn] = instance_create(pointer.x, pointer.y, obj_oponent_ball);
+                oponent_ball[turn].direction = pointer.direction;
+                oponent_ball[turn].speed = throwing_power;
+                throwing_power = 0;
+                phase ++;
+            }
+            break;
+        case 2: //Waiting for the launched ball to stop
+            if(oponent_ball[turn].speed == 0){
+                pointer.direction = 90;
+                pointer.image_angle = pointer.direction;
+                power_meter.image_yscale = 0;
+                phase ++;
+            }
+            break;
+        case 3: //Players turn
+            pointer.direction -= -key_left + key_right;
+            pointer.direction = clamp(pointer.direction, 10, 170);
+            pointer.image_angle = pointer.direction;
+            if(key_space_pressed == true){
+                phase ++;
+                power_meter.image_yscale = 0;
+            }
+            break;
+        case 4: //Charguing the shoot
+            if(throwing_power + 1 &lt;= max_power)
             throwing_power += 1;
             power_meter.image_yscale = throwing_power / max_power;
-        }
-        else{
-            //Throwing the ball
-            oponent_ball[turn] = instance_create(pointer.x, pointer.y, obj_oponent_ball);
-            oponent_ball[turn].direction = pointer.direction;
-            oponent_ball[turn].speed = throwing_power;
-            throwing_power = 0;
-            phase = 5;
-        }
-    }
-    //Waiting for the launched ball to stop
-    if(phase == 5){
-        if(oponent_ball[turn].speed == 0){
-            pointer.direction = 90;
-            pointer.image_angle = pointer.direction;
-            power_meter.image_yscale = 0;
-            //Next turn
-            phase = 0;
-            turn += 1;
-        }
+            if(key_space_released == true){
+                //Throwing the ball
+                player_ball[turn] = instance_create(pointer.x, pointer.y, obj_player_ball);
+                player_ball[turn].direction = pointer.direction;
+                player_ball[turn].speed = throwing_power;
+                throwing_power = 0;
+                phase ++;
+            }
+            break;
+        case 5: //Waiting for the launched ball to stop
+            if(player_ball[turn].speed == 0){
+                pointer.direction = 90;
+                pointer.image_angle = pointer.direction;
+                power_meter.image_yscale = 0;
+                //Next turn
+                phase = 0;
+                turn += 1;
+            }            
+            break;
     }
 }//When finished
 else if(checked == false){
@@ -163,8 +161,8 @@ else if(checked == false){
     }
     min_oponent_ball_distance = 200;
     for(i=0; i&lt;array_length_1d(oponent_ball); i++){
-        x = player_ball[i].x;
-        y = player_ball[i].y;
+        x = oponent_ball[i].x;
+        y = oponent_ball[i].y;
         if(distance_to_object(boliche) &lt; min_oponent_ball_distance)
             min_oponent_ball_distance = distance_to_object(boliche);
     }
@@ -209,7 +207,7 @@ if(checked == true){
         draw_text(room_width/2, room_height/2, "You lose");
 }//If not, show the current player
 else{
-    if(phase &lt;= 2)
+    if(phase &gt; 2)
         draw_text(room_width/2, room_height/2, "Your turn");
     else
         draw_text(room_width/2, room_height/2, "Oponent turn");

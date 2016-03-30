@@ -6,24 +6,24 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprite1</sprite>
+    <sprite>sprites\spr_generic_man</sprite>
+    <sprite>sprites\spr_police_officer</sprite>
     <sprite>sprites\spr_text_background</sprite>
     <sprite>sprites\spr_interacter</sprite>
+    <sprite>sprites\spr_map_icon</sprite>
+    <sprite>sprites\spr_inventory_icon</sprite>
     <sprites name="Player">
       <sprite>sprites\spr_walking_left</sprite>
       <sprite>sprites\spr_walking_down</sprite>
       <sprite>sprites\spr_walking_up</sprite>
       <sprite>sprites\spr_walking_right</sprite>
     </sprites>
-    <sprite>sprites\spr_map_icon</sprite>
-    <sprite>sprites\spr_inventory_icon</sprite>
     <sprites name="Interactors">
       <sprite>sprites\spr_wall</sprite>
       <sprite>sprites\spr_people_collider</sprite>
       <sprite>sprites\spr_exit</sprite>
       <sprite>sprites\spr_place</sprite>
     </sprites>
-    <sprite>sprites\spr_gallata</sprite>
     <sprites name="Petanca">
       <sprite>sprites\spr_petanca_square</sprite>
       <sprite>sprites\spr_boliche</sprite>
@@ -32,9 +32,12 @@
       <sprite>sprites\spr_direction_meter</sprite>
       <sprite>sprites\spr_power_meter</sprite>
     </sprites>
+    <sprite>sprites\spr_gallata</sprite>
     <sprite>sprites\spr_inventory_window</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -42,7 +45,6 @@
     <object>objects\obj_map_selector</object>
     <object>objects\obj_preload</object>
     <object>objects\obj_hud</object>
-    <object>objects\obj_menu_manager</object>
     <objects name="Interactors">
       <object>objects\obj_wall</object>
       <object>objects\obj_exit</object>
@@ -56,6 +58,8 @@
     </objects>
     <objects name="People">
       <object>objects\obj_base_talker</object>
+      <object>objects\obj_park_old_man</object>
+      <object>objects\obj_police_officer</object>
     </objects>
     <objects name="Petanca">
       <object>objects\obj_petanca_square</object>
@@ -67,14 +71,19 @@
       <object>objects\obj_player_ball</object>
       <object>objects\obj_oponent_ball</object>
     </objects>
+    <objects name="Managers">
+      <object>objects\obj_menu_manager</object>
+      <object>objects\obj_game_manager</object>
+      <object>objects\obj_minigame_manager</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room_petanca</room>
     <room>rooms\room_preload</room>
     <room>rooms\room_menu</room>
     <room>rooms\room_home</room>
     <room>rooms\room_map</room>
     <room>rooms\room_park</room>
+    <room>rooms\room_petanca</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
