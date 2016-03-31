@@ -58,6 +58,7 @@ x = player.x;
 y = player.y;
 //And his orientation
 direction = player.direction_looking;
+image_angle = direction;
 
 
 </string>

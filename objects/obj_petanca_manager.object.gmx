@@ -174,7 +174,7 @@ else if(checked == false){
 }//Then you can exit the game
 else{
     if(key_space_pressed == true){
-        room_goto(room_park);
+        room_goto(global.last_place);
     }
 }
 </string>

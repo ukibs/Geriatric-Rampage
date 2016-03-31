@@ -109,6 +109,7 @@ if(status_still == false){
             direction = 270;
             break;
     }
+    direction_looking = direction;
     if(key_map == true){
         room_goto(room_map);
         //global.last_place = room_get_name(room);
@@ -135,7 +136,7 @@ if(inventory_open == true){
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_character_collider">
+    <event eventtype="4" ename="obj_base_talker">
       <action>
         <libid>1</libid>
         <id>603</id>

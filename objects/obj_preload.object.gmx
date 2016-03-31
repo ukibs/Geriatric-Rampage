@@ -29,6 +29,9 @@
 global.currency = 0;
 global.reputation = 0;
 global.last_place = room_home;
+global.last_xPos = 300;
+global.last_yPos = 240;
+//global.returning = false;
 
 //Go to the menu
 room_goto_next();

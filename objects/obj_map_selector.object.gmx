@@ -60,6 +60,7 @@ key_right = keyboard_check(vk_right);
 key_up = keyboard_check(vk_up);
 key_down = keyboard_check(vk_down);
 key_space = keyboard_check_pressed(vk_space);
+key_map = keyboard_check_pressed(ord("M"));
 //Para desplazar al personaje
 h_direction = -key_left + key_right;
 v_direction = -key_up + key_down;
@@ -80,6 +81,10 @@ if(key_space = true &amp;&amp; place_to_go != "None"){
 //Set show place to false when finish
 show_place = false;
 place_to_go = "None";
+//
+if(key_map == true){
+    room_goto(global.last_place);
+}
 </string>
           </argument>
         </arguments>
@@ -104,8 +109,10 @@ place_to_go = "None";
             <kind>1</kind>
             <string>//
 draw_self();
-//
-
+//Control stuff
+draw_text(10, 10, global.last_place);
+draw_text(10, 20, global.last_xPos);
+draw_text(10, 30, global.last_yPos);
 </string>
           </argument>
         </arguments>

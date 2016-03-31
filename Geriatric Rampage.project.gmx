@@ -20,7 +20,6 @@
     </sprites>
     <sprites name="Interactors">
       <sprite>sprites\spr_wall</sprite>
-      <sprite>sprites\spr_people_collider</sprite>
       <sprite>sprites\spr_exit</sprite>
       <sprite>sprites\spr_place</sprite>
     </sprites>
@@ -48,7 +47,6 @@
     <objects name="Interactors">
       <object>objects\obj_wall</object>
       <object>objects\obj_exit</object>
-      <object>objects\obj_character_collider</object>
       <object>objects\obj_interactor</object>
     </objects>
     <objects name="Map markers">
@@ -84,6 +82,7 @@
     <room>rooms\room_map</room>
     <room>rooms\room_park</room>
     <room>rooms\room_petanca</room>
+    <room>rooms\room_king_of_the_park</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
