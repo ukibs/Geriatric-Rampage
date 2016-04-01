@@ -33,9 +33,17 @@
     </sprites>
     <sprite>sprites\spr_gallata</sprite>
     <sprite>sprites\spr_inventory_window</sprite>
+    <sprites name="Tiles_Room">
+      <sprite>sprites\spr_Pared_Basica</sprite>
+      <sprite>sprites\spr_Pared_Rodapie</sprite>
+    </sprites>
+    <sprite>sprites\spr_Bench</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\bck_Sand</background>
+    <background>background\bck_Floor_Wood</background>
+    <background>background\bck_Grass</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
@@ -74,6 +82,11 @@
       <object>objects\obj_game_manager</object>
       <object>objects\obj_minigame_manager</object>
     </objects>
+    <objects name="Tiles_Room">
+      <object>objects\obj_Pared_Basica</object>
+      <object>objects\obj_pared_Rodapie</object>
+    </objects>
+    <object>objects\obj_Bench</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_preload</room>
