@@ -64,12 +64,12 @@ key_map = keyboard_check_pressed(ord("M"));
 //Para desplazar al personaje
 h_direction = -key_left + key_right;
 v_direction = -key_up + key_down;
-hsp = (-key_left + key_right) * 5;
-vsp = (-key_up + key_down) * 5;
+hsp = (-key_left + key_right) * 10;
+vsp = (-key_up + key_down) * 10;
 //Screen limits
-if(x + hsp &lt; 16 || x + hsp &gt; room_height -16)
+if(x + hsp &lt; sprite_width/2 || x + hsp &gt; room_width - sprite_width/2)
     hsp = 0;
-if(y + vsp &lt; 16 || y + vsp &gt; room_width -16)
+if(y + vsp &lt; sprite_height/2 || y + vsp &gt; room_height -sprite_height/2)
     vsp = 0;
 //Usando x,y
 x += hsp;
@@ -81,7 +81,7 @@ if(key_space = true &amp;&amp; place_to_go != "None"){
 //Set show place to false when finish
 show_place = false;
 place_to_go = "None";
-//
+//Return to the previous place
 if(key_map == true){
     room_goto(global.last_place);
 }

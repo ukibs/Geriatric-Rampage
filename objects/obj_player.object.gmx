@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>spr_walking_down</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -30,6 +30,7 @@ hsp = 0;
 vsp = 0;
 h_direction = 0;
 v_direction = 0;
+movement_speed = 8;
 //Status variables
 status_still = false;
 inventory_open = false;
@@ -78,9 +79,18 @@ if(status_still == false){
     //Move the player
     h_direction = -key_left + key_right;
     v_direction = -key_up + key_down;
-    hsp = (-key_left + key_right) * 5;
-    vsp = (-key_up + key_down) * 5;
-    //Usando x,y
+    hsp = (-key_left + key_right) * movement_speed;
+    vsp = (-key_up + key_down) * movement_speed;
+    //(To not) Collision control
+    if(!place_free(x + hsp,y)){
+        while(!place_free(x + hsp,y))
+            hsp -= sign(hsp);
+    }
+    if(!place_free(x,y + vsp)){
+        while(!place_free(x,y + vsp))
+            vsp -= sign(vsp);
+    }
+    //Using x,y
     x += hsp;
     y += vsp;
     //Changing sprite
@@ -136,32 +146,6 @@ if(inventory_open == true){
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_base_talker">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//Relocate the player
-x -= hsp;
-y -= vsp;
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_exit">
       <action>
         <libid>1</libid>
@@ -181,32 +165,6 @@ y -= vsp;
             <kind>1</kind>
             <string>//Vamos al mapa
 room_goto(room_map);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_wall">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//Relocate the player
-x -= hsp;
-y -= vsp;
-
 </string>
           </argument>
         </arguments>

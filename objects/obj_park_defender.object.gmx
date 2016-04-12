@@ -28,14 +28,14 @@
             <string>//Inherit the create event from the parent
 event_inherited();
 //Apply your own text
-text[0] = "Viejo miserable";
-text[1] = "Ahi te mueras";
-text[2] = "¿Una partidita?";
+text[0] = "¡¡¡Eustaquioooo!!!";
+text[1] = "¡Putos niñatos!";
+text[2] = "¡Dales una lección!";
 
 text_length = array_length_1d(text);
 //Personal options
 minigame_activator = true; 
-assigned_room = room_petanca;
+assigned_room = room_king_of_the_barrio;
 </string>
           </argument>
         </arguments>

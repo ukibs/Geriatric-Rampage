@@ -38,6 +38,8 @@
       <sprite>sprites\spr_Pared_Rodapie</sprite>
     </sprites>
     <sprite>sprites\spr_Bench</sprite>
+    <sprite>sprites\spr_life_icon</sprite>
+    <sprite>sprites\spr_money_icon</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -46,8 +48,12 @@
     <background>background\bck_Grass</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\collision_controller.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
+    <object>objects\obj_minigame_player</object>
     <object>objects\obj_menu_selector</object>
     <object>objects\obj_map_selector</object>
     <object>objects\obj_preload</object>
@@ -56,15 +62,18 @@
       <object>objects\obj_wall</object>
       <object>objects\obj_exit</object>
       <object>objects\obj_interactor</object>
+      <object>objects\obj_minigame_interactor</object>
     </objects>
     <objects name="Map markers">
       <object>objects\obj_home_marker</object>
       <object>objects\obj_park_marker</object>
       <object>objects\obj_place</object>
+      <object>objects\obj_city_center_marker</object>
     </objects>
     <objects name="People">
       <object>objects\obj_base_talker</object>
       <object>objects\obj_park_old_man</object>
+      <object>objects\obj_park_defender</object>
       <object>objects\obj_police_officer</object>
     </objects>
     <objects name="Petanca">
@@ -86,16 +95,26 @@
       <object>objects\obj_Pared_Basica</object>
       <object>objects\obj_pared_Rodapie</object>
     </objects>
+    <objects name="KingOfTheBarrio">
+      <object>objects\obj_gang_boy</object>
+      <object>objects\obj_kotb_manager</object>
+    </objects>
     <object>objects\obj_Bench</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_preload</room>
     <room>rooms\room_menu</room>
-    <room>rooms\room_home</room>
     <room>rooms\room_map</room>
-    <room>rooms\room_park</room>
-    <room>rooms\room_petanca</room>
-    <room>rooms\room_king_of_the_park</room>
+    <rooms name="Places">
+      <room>rooms\room_home</room>
+      <room>rooms\room_park</room>
+      <room>rooms\room_city_center</room>
+    </rooms>
+    <rooms name="Minigames">
+      <room>rooms\room_petanca</room>
+      <room>rooms\room_king_of_the_barrio</room>
+      <room>rooms\room_bocata_time</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
