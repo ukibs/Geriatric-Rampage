@@ -6,8 +6,34 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_generic_man</sprite>
-    <sprite>sprites\spr_police_officer</sprite>
+    <sprites name="Secondary Characters ">
+      <sprites name="generic man">
+        <sprite>sprites\spr_generic_man_down</sprite>
+        <sprite>sprites\spr_generic_man_Right</sprite>
+        <sprite>sprites\spr_generic_man_up</sprite>
+        <sprite>sprites\spr_generic_man_Left</sprite>
+      </sprites>
+      <sprites name="police officers">
+        <sprite>sprites\spr_police_officer_down</sprite>
+        <sprite>sprites\spr_police_officer_right</sprite>
+        <sprite>sprites\spr_police_officer_left</sprite>
+        <sprite>sprites\spr_police_officer_up</sprite>
+        <sprite>sprites\spr_police_officer2_down</sprite>
+        <sprite>sprites\spr_police_officer2_right</sprite>
+        <sprite>sprites\spr_police_officer2_up</sprite>
+        <sprite>sprites\spr_police_officer2_left</sprite>
+      </sprites>
+      <sprites name="girls">
+        <sprite>sprites\spr_sexyGirl1_down</sprite>
+        <sprite>sprites\spr_sexyGirl1_right</sprite>
+        <sprite>sprites\spr_sexyGirl1_left</sprite>
+        <sprite>sprites\spr_sexyGirl1_up</sprite>
+        <sprite>sprites\spr_sexyGirl2_down</sprite>
+        <sprite>sprites\spr_sexyGirl2_left</sprite>
+        <sprite>sprites\spr_sexyGirl2_up</sprite>
+        <sprite>sprites\spr_sexyGirl2_right</sprite>
+      </sprites>
+    </sprites>
     <sprite>sprites\spr_text_background</sprite>
     <sprite>sprites\spr_interacter</sprite>
     <sprite>sprites\spr_map_icon</sprite>
@@ -30,6 +56,7 @@
       <sprite>sprites\spr_oponent_ball</sprite>
       <sprite>sprites\spr_direction_meter</sprite>
       <sprite>sprites\spr_power_meter</sprite>
+      <sprite>sprites\spr_tool_power</sprite>
     </sprites>
     <sprite>sprites\spr_gallata</sprite>
     <sprite>sprites\spr_inventory_window</sprite>
