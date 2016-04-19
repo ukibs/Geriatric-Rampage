@@ -202,15 +202,31 @@ else{
             <string>//If finished, show the winner
 if(checked == true){
     if(winner = 1)
-        draw_text(room_width/2, room_height/2, "You win");
+    {
+        draw_text(room_width/2, room_height/2, "¡¡YOU WIN!!");
+        draw_set_font(font_sacha);
+        draw_set_color(c_blue);
+    }
     else
-        draw_text(room_width/2, room_height/2, "You lose");
+    {
+        draw_text(room_width/2, room_height/2, "¡¡YOU LOSE!!");
+        draw_set_font(font_sacha);
+        draw_set_colour(c_red);
+    }
 }//If not, show the current player
 else{
     if(phase &gt; 2)
-        draw_text(room_width/2, room_height/2, "Your turn");
+    {
+        draw_text(10, room_height/2, "Your turn");
+        draw_set_font(font_culdesac);
+        draw_set_colour(c_white);
+    }
     else
-        draw_text(room_width/2, room_height/2, "Oponent turn");
+    {
+        draw_text(10, room_height/2, "Oponent turn");
+        draw_set_font(font_culdesac);
+        draw_set_colour(c_white);
+    }
 }
 </string>
           </argument>

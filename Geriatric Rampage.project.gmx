@@ -73,11 +73,19 @@
     <background>background\bck_Sand</background>
     <background>background\bck_Floor_Wood</background>
     <background>background\bck_Grass</background>
+    <background>background\bck_Petanca</background>
+    <background>background\background5</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\collision_controller.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font_cartoon</font>
+    <font>fonts\font_demolition</font>
+    <font>fonts\font_culdesac</font>
+    <font>fonts\font_sacha</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_minigame_player</object>
