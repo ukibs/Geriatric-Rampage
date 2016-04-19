@@ -94,13 +94,13 @@ if(status_still == false){
     x += hsp;
     y += vsp;
     //Changing sprite
-    if(hsp &lt; 0)
+    if(h_direction &lt; 0)
         sprite_index = spr_walking_left;
-    if(hsp &gt; 0)
+    if(h_direction &gt; 0)
         sprite_index = spr_walking_right;
-    if(vsp &lt; 0)
+    if(v_direction &lt; 0)
         sprite_index = spr_walking_up;
-    if(vsp &gt; 0)
+    if(v_direction &gt; 0)
         sprite_index = spr_walking_down;
     //Get that sprite
         sprite_to_use = sprite_index;

@@ -131,7 +131,7 @@ if(status_paused == true){
     draw_text(room_width/2, room_height/2 + 20, "ENTER to quit");
 }
 //Check stuff
-draw_text(50,50,room);
+//draw_text(50,50,room);
 </string>
           </argument>
         </arguments>

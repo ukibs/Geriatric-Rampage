@@ -168,11 +168,14 @@ if(interaction_key == true &amp;&amp;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>//Draw the quiet person
+draw_sprite(sprite_index, 1, x, y);
 //To talk
 if(status_acting == true){
     draw_sprite(spr_text_background, 0, room_width/2, room_height);
+    draw_set_halign(fa_left);
     draw_set_colour(c_white);
+    draw_set_font(font_culdesac);
     draw_text(150, 380, string(text[text_counter]));
     //Show the option
     if(show_option == true){

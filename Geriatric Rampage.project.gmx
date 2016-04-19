@@ -120,6 +120,7 @@
       <object>objects\obj_ball</object>
       <object>objects\obj_player_ball</object>
       <object>objects\obj_oponent_ball</object>
+      <object>objects\obj_power_meter_frame</object>
     </objects>
     <objects name="Managers">
       <object>objects\obj_menu_manager</object>

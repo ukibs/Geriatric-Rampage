@@ -110,9 +110,9 @@ if(key_map == true){
             <string>//
 draw_self();
 //Control stuff
-draw_text(10, 10, global.last_place);
-draw_text(10, 20, global.last_xPos);
-draw_text(10, 30, global.last_yPos);
+//draw_text(10, 10, global.last_place);
+//draw_text(10, 20, global.last_xPos);
+//draw_text(10, 30, global.last_yPos);
 </string>
           </argument>
         </arguments>

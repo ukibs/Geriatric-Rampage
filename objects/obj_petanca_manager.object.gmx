@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>//Decide a place for the boliche
 randomize();
-boliche_xPosition = random_range(room_width/2-200, room_width/2+200);
+boliche_xPosition = random_range(room_width/2-150, room_width/2+150);
 boliche_yPosition = random_range(room_height/2-200, room_height/2);
 //Place the boliche
 boliche = instance_create(boliche_xPosition, boliche_yPosition, obj_boliche);
@@ -48,7 +48,8 @@ pointer = instance_create(room_width/2, 450, obj_pointer);
 x = pointer.x;
 y = pointer.y;
 //Put the power meter
-power_meter = instance_create(550, 240, obj_power_meter);
+power_meter_frame = instance_find(obj_power_meter_frame, 0);
+power_meter = instance_create(power_meter_frame.x, power_meter_frame.y, obj_power_meter);
 //Initalize the power of the throw and set a max
 throwing_power = 0;
 max_power = 30;
@@ -199,7 +200,10 @@ else{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//If finished, show the winner
+            <string>//Text parameters
+draw_set_halign(fa_center);
+draw_set_valign(fa_center);
+//If finished, show the winner
 if(checked == true){
     if(winner = 1)
     {
@@ -217,13 +221,15 @@ if(checked == true){
 else{
     if(phase &gt; 2)
     {
-        draw_text(10, room_height/2, "Your turn");
+        draw_text(50, room_height/2-30, "Your");
+        draw_text(50, room_height/2+30, "turn");
         draw_set_font(font_culdesac);
         draw_set_colour(c_white);
     }
     else
     {
-        draw_text(10, room_height/2, "Oponent turn");
+        draw_text(50, room_height/2-30, "Oponent");
+        draw_text(50, room_height/2+30, "turn");
         draw_set_font(font_culdesac);
         draw_set_colour(c_white);
     }
