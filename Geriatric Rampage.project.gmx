@@ -93,6 +93,7 @@
     <object>objects\obj_map_selector</object>
     <object>objects\obj_preload</object>
     <object>objects\obj_hud</object>
+    <object>objects\obj_Bench</object>
     <objects name="Interactors">
       <object>objects\obj_wall</object>
       <object>objects\obj_exit</object>
@@ -136,7 +137,9 @@
       <object>objects\obj_kotb_player</object>
       <object>objects\obj_kotb_slapper</object>
     </objects>
-    <object>objects\obj_Bench</object>
+    <objects name="BocataTime">
+      <object>objects\bocata_manager</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_preload</room>

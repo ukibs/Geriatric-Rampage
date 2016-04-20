@@ -148,7 +148,7 @@ distance_to_player = distance_to_object(player);
             <kind>1</kind>
             <string>//Check if the mate is nearer to the player
 if(other.distance_to_player &lt; distance_to_player){
-    speed = 0;
+    speed *= -1;
 }
 </string>
           </argument>
