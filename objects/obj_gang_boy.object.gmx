@@ -32,8 +32,34 @@ player = instance_find(obj_minigame_player,0);
 /*Status
     0 - Walking to the player
     1 - Flying from the slap
+    2 -
+    3 - Running like a girl
 */
 status = 0;
+life = 100;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>status = 0;
 </string>
           </argument>
         </arguments>
@@ -56,9 +82,31 @@ status = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Go to the player
-direction = point_direction(x,y,player.x, player.y);
-speed = movement_speed;
+            <string>//Check status
+switch(status){
+    //Go to the player
+    case 0:
+        direction = point_direction(x,y,player.x, player.y);
+        speed = movement_speed;
+        break;
+    case 1:
+        speed = movement_speed * 2;
+        break;
+    case 2:
+        break;
+    case 3:
+        direction = point_direction(x,y,player.x, player.y) + 180;
+        speed = movement_speed * 2;
+        break;
+}
+//Check life
+if(life &lt;= 0){
+    status = 3;
+}
+//Check 
+if(status == 3 &amp;&amp; (x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height)){
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

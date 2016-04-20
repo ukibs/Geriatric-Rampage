@@ -31,6 +31,8 @@ player = instance_find(obj_player, 0);
 var guy_to_use;
 //
 not_usable = false;
+//
+slap_damage = 50;
 </string>
           </argument>
         </arguments>
@@ -59,8 +61,37 @@ y = player.y;
 //And his orientation
 direction = player.direction_looking;
 image_angle = direction;
-
-
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_gang_boy">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Get the slap key
+slap_key = keyboard_check_pressed(vk_space);
+//
+if(slap_key == true){
+    other.status = 1;
+    other.direction = direction + 90;
+    other.alarm[0] = 15;
+    other.life -= slap_damage;
+}
 </string>
           </argument>
         </arguments>
