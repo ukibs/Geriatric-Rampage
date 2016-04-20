@@ -28,7 +28,7 @@
             <string>//Variables
 movement_speed = 4;
 //Get the player
-player = instance_find(obj_minigame_player,0);
+player = instance_find(obj_kotb_player,0);
 /*Status
     0 - Walking to the player
     1 - Flying from the slap
@@ -103,9 +103,52 @@ switch(status){
 if(life &lt;= 0){
     status = 3;
 }
-//Check 
+//Check run away 
 if(status == 3 &amp;&amp; (x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height)){
     instance_destroy();
+}
+//Check direction facing
+switch(int64((direction+45)/90)){
+    case 1:
+        sprite_index = spr_generic_man_up;
+        break;
+    case 2:
+        sprite_index = spr_generic_man_Left;
+        break;
+    case 3:
+        sprite_index = spr_generic_man_down;
+        break;
+    default:
+        sprite_index = spr_generic_man_Right;
+        break;
+}
+//Check distance to the player for collission stuff
+distance_to_player = distance_to_object(player);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_gang_boy">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Check if the mate is nearer to the player
+if(other.distance_to_player &lt; distance_to_player){
+    speed = 0;
 }
 </string>
           </argument>

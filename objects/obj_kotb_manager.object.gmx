@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>//Get the player
-player = instance_find(obj_minigame_player, 0);
+player = instance_find(obj_kotb_player, 0);
 finished = false;
 victory = false;
 </string>
@@ -59,7 +59,10 @@ if(instance_number(obj_gang_boy) = 0){
     victory = true;
 }
 //Or when the player si defeated
-
+if(player.life &lt;= 0){
+    finished = true;
+    victory = false;
+}
 //
 if(out_key == 1 &amp;&amp; finished == true){
     room_goto(global.last_place);
@@ -86,23 +89,24 @@ if(out_key == 1 &amp;&amp; finished == true){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Draw the life icon
-draw_sprite(spr_life_icon, 0, 450, 50);
-
-//Text parameters
+            <string>//Text parameters
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
+draw_set_font(font_culdesac);
+//Draw the life icon
+draw_sprite(spr_life_icon, 0, 450, 50);
+draw_text(500, 50, string(player.life));
 //If finished, show the winner
 if(finished == true){
     if(victory == true)
     {
-        draw_text(room_width/2, room_height/2, "¡¡YOU WIN!!");
+        draw_text(300, 240, "¡¡YOU WIN!!");
         draw_set_font(font_sacha);
         draw_set_color(c_blue);
     }
     else
     {
-        draw_text(room_width/2, room_height/2, "¡¡YOU LOSE!!");
+        draw_text(300, 240, "¡¡YOU LOSE!!");
         draw_set_font(font_sacha);
         draw_set_colour(c_red);
     }

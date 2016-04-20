@@ -75,6 +75,7 @@
     <background>background\bck_Grass</background>
     <background>background\bck_Petanca</background>
     <background>background\background5</background>
+    <background>background\bck_park</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -88,7 +89,6 @@
   </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
-    <object>objects\obj_minigame_player</object>
     <object>objects\obj_menu_selector</object>
     <object>objects\obj_map_selector</object>
     <object>objects\obj_preload</object>
@@ -97,7 +97,6 @@
       <object>objects\obj_wall</object>
       <object>objects\obj_exit</object>
       <object>objects\obj_interactor</object>
-      <object>objects\obj_minigame_interactor</object>
     </objects>
     <objects name="Map markers">
       <object>objects\obj_home_marker</object>
@@ -134,6 +133,8 @@
     <objects name="KingOfTheBarrio">
       <object>objects\obj_gang_boy</object>
       <object>objects\obj_kotb_manager</object>
+      <object>objects\obj_kotb_player</object>
+      <object>objects\obj_kotb_slapper</object>
     </objects>
     <object>objects\obj_Bench</object>
   </objects>

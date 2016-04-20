@@ -103,6 +103,9 @@ other.place_to_go = place_to_go;
 draw_self();
 //
 if(show_place = true){
+    draw_set_halign(fa_center);
+    draw_set_colour(c_white);
+    draw_set_font(font_culdesac);
     draw_text(room_width/2, 450, place_name);
 }
 </string>
