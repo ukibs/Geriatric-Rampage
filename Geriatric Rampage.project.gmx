@@ -76,6 +76,7 @@
     <background>background\bck_Petanca</background>
     <background>background\background5</background>
     <background>background\bck_park</background>
+    <background>background\bck_house</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
