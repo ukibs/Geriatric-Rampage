@@ -60,23 +60,26 @@
     </sprites>
     <sprite>sprites\spr_gallata</sprite>
     <sprite>sprites\spr_inventory_window</sprite>
-    <sprites name="Tiles_Room">
-      <sprite>sprites\spr_Pared_Basica</sprite>
-      <sprite>sprites\spr_Pared_Rodapie</sprite>
-    </sprites>
     <sprite>sprites\spr_Bench</sprite>
     <sprite>sprites\spr_life_icon</sprite>
+    <sprite>sprites\spr_life_icon02</sprite>
     <sprite>sprites\spr_money_icon</sprite>
+    <sprite>sprites\spr_baston</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\bck_Sand</background>
-    <background>background\bck_Floor_Wood</background>
     <background>background\bck_Grass</background>
     <background>background\bck_Petanca</background>
     <background>background\background5</background>
     <background>background\bck_park</background>
     <background>background\bck_home</background>
+    <background>background\bck_sideWalk_down</background>
+    <background>background\bck_sideWalk_upCorner</background>
+    <background>background\bck_sideWalk_downCorner</background>
+    <background>background\bck_brickWall</background>
+    <background>background\bck_Road</background>
+    <background>background\bck_roadCurve</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
