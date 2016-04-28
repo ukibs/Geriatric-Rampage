@@ -78,19 +78,25 @@ key_map = keyboard_check_pressed(ord("M"));
 if(status_still == false){
     //Move the player
     h_direction = -key_left + key_right;
-    v_direction = -key_up + key_down;
-    hsp = (-key_left + key_right) * movement_speed;
-    vsp = (-key_up + key_down) * movement_speed;
-    //(To not) Collision control
-    if(!place_free(x + hsp,y)){
-        while(!place_free(x + hsp,y))
-            hsp -= sign(hsp);
-    }
-    if(!place_free(x,y + vsp)){
-        while(!place_free(x,y + vsp))
-            vsp -= sign(vsp);
-    }
-    //Using x,y
+    v_direction = -key_up + key_down;    
+    //hsp = (-key_left + key_right) * movement_speed;
+    //vsp = (-key_up + key_down) * movement_speed;
+    //Acceleration
+    if(abs(hsp) &lt; movement_speed)
+        hsp += h_direction;
+    if(abs(vsp) &lt; movement_speed)
+        vsp += v_direction;
+    //Deceleraction
+    if(h_direction = 0 &amp;&amp; hsp != 0)
+        hsp -= sign(hsp);
+    if(v_direction = 0 &amp;&amp; vsp != 0)
+        vsp -= sign(vsp);
+    //(To not) collide control
+    if(!place_free(x + hsp, y))
+        hsp = 0;
+    if(!place_free(x, y + vsp))
+        vsp = 0;
+    //Usando x,y
     x += hsp;
     y += vsp;
     //Changing sprite

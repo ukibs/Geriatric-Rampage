@@ -109,7 +109,7 @@ if(life &lt;= 0){
           <argument>
             <kind>1</kind>
             <string>//
-if(invincible == false){
+if(invincible == false &amp;&amp; other.status == 0){
     life -= 20;
     invincible = true;
     alarm_set(0, 30);
@@ -136,9 +136,19 @@ if(invincible == false){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Inherit the create event from the parent
-event_inherited();
-//If
+            <string>
+//Or in movement
+//Unless it is invincible
+if(invincible == true &amp;&amp; delta_time % 2 = 0){
+    //
+}
+else{
+    //
+    if(hsp == 0 &amp;&amp; vsp == 0)
+        draw_sprite(sprite_to_use, 2, x, y);
+    else
+        draw_self();
+}
 </string>
           </argument>
         </arguments>
