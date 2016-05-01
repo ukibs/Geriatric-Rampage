@@ -65,6 +65,11 @@
     <sprite>sprites\spr_life_icon02</sprite>
     <sprite>sprites\spr_money_icon</sprite>
     <sprite>sprites\spr_baston</sprite>
+    <sprites name="Pidgeon Hunting">
+      <sprite>sprites\spr_pidgeon</sprite>
+      <sprite>sprites\spr_ball_pidgeon</sprite>
+      <sprite>sprites\spr_pointer_pidgeon</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -115,6 +120,7 @@
       <object>objects\obj_park_old_man</object>
       <object>objects\obj_park_defender</object>
       <object>objects\obj_police_officer</object>
+      <object>objects\obj_park_pidgeon</object>
     </objects>
     <objects name="Petanca">
       <object>objects\obj_petanca_square</object>
@@ -145,6 +151,12 @@
     <objects name="BocataTime">
       <object>objects\bocata_manager</object>
     </objects>
+    <objects name="Pidgeon Hunting">
+      <object>objects\obj_pidgeon</object>
+      <object>objects\obj_MgrPidgeon</object>
+      <object>objects\obj_ball_pidgeon</object>
+      <object>objects\obj_pointer_pidgeon</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_preload</room>
@@ -159,6 +171,7 @@
       <room>rooms\room_petanca</room>
       <room>rooms\room_king_of_the_barrio</room>
       <room>rooms\room_bocata_time</room>
+      <room>rooms\room_pidgeon_hunting</room>
     </rooms>
   </rooms>
   <help>
