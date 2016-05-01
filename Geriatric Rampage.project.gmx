@@ -84,6 +84,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\collision_controller.gml</script>
+    <script>scripts\scr_ball_distance_check.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_cartoon</font>

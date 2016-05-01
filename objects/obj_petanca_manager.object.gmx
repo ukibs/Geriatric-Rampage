@@ -87,17 +87,44 @@ key_space_released = keyboard_check_released(vk_space);
 if(turn &lt; 3){
     switch(phase){
         case 0: //Oponent´s turn
-            boliche_direction = point_direction(pointer.x, pointer.y, boliche.x, boliche.y);
-            if(boliche_direction &gt; pointer.direction+5)
+            //In higher dificulty, if the player have a ball nearer than the oponent´s
+            //he will try to move it out
+            if(turn &gt; 1){
+            script_execute(scr_ball_distance_check);
+            if(global.petanca_dificulty &gt; 2 &amp;&amp;
+                min_player_ball_distance &lt; min_oponent_ball_distance)
+                boliche_direction = point_direction(pointer.x, pointer.y, 
+                    player_ball[player_nearer_ball].x, 
+                    player_ball[player_nearer_ball].y); 
+            else
+                boliche_direction = point_direction(pointer.x, pointer.y, boliche.x, boliche.y);
+            }
+            else
+                boliche_direction = point_direction(pointer.x, pointer.y, boliche.x, boliche.y);
+            //Habrá que revisar si la dificultad sube de 10
+            throw_deviation = random(10 - global.petanca_dificulty);
+            if(boliche_direction &gt; pointer.direction + throw_deviation)
                 pointer.direction += 1;
-            else if(boliche_direction &lt; pointer.direction-5)
+            else if(boliche_direction &lt; pointer.direction - throw_deviation)
                 pointer.direction -= 1;
             else
                 phase ++;
             pointer.image_angle = pointer.direction;
             break;
         case 1: //Charguing the shoot
-            if(throwing_power &lt; distance_to_object(boliche)/15){
+            //Check the necessary force for a perfect shot
+            distance_to_objective = distance_to_object(boliche);
+            necessary_force = 0;
+            distance_done = 0;
+            while(distance_done &lt; distance_to_objective){
+                necessary_force ++;
+                distance_done += necessary_force;
+            }
+            //And adjust it depending the difficulty
+            force_to_apply = 
+                random_range(necessary_force - ((10-global.petanca_dificulty)/2),
+                            necessary_force + ((10-global.petanca_dificulty)/2));
+            if(throwing_power &lt; force_to_apply){
                 throwing_power += 1;
                 power_meter.image_yscale = throwing_power / max_power;
             }
@@ -153,24 +180,15 @@ if(turn &lt; 3){
     }
 }//When finished
 else if(checked == false){
-    min_player_ball_distance = 200;
-    for(i=0; i&lt;array_length_1d(player_ball); i++){
-        x = player_ball[i].x;
-        y = player_ball[i].y;
-        if(distance_to_object(boliche) &lt; min_player_ball_distance)
-            min_player_ball_distance = distance_to_object(boliche);
-    }
-    min_oponent_ball_distance = 200;
-    for(i=0; i&lt;array_length_1d(oponent_ball); i++){
-        x = oponent_ball[i].x;
-        y = oponent_ball[i].y;
-        if(distance_to_object(boliche) &lt; min_oponent_ball_distance)
-            min_oponent_ball_distance = distance_to_object(boliche);
-    }
-    if(min_player_ball_distance &lt; min_oponent_ball_distance)
+    script_execute(scr_ball_distance_check);
+    if(min_player_ball_distance &lt; min_oponent_ball_distance){
         winner = 1;
-    else
+        global.petanca_dificulty ++;
+    }
+    else{
         winner = 2;
+        global.petanca_dificulty --;
+    }
     checked = true;
 }//Then you can exit the game
 else{

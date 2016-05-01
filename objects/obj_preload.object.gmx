@@ -31,6 +31,7 @@ global.reputation = 0;
 global.last_place = room_home;
 global.last_xPos = 300;
 global.last_yPos = 240;
+global.petanca_dificulty = 1;
 //global.returning = false;
 
 //Go to the menu
