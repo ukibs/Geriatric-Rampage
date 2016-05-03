@@ -27,8 +27,17 @@
             <kind>1</kind>
             <string>//Get the player
 player = instance_find(obj_kotb_player, 0);
+//Variables
 finished = false;
 victory = false;
+//Spam the enemies according to the difficulty
+randomize();
+for(i = 0; i &lt; global.kotb_dificulty; i++){
+    spamX = random(room_width);
+    spamY = random(room_height);
+    //distance_to_point(
+    gang_boy = instance_create(spamX, spamY, obj_gang_boy);
+}
 </string>
           </argument>
         </arguments>

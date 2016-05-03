@@ -88,7 +88,7 @@ slap_key = keyboard_check_pressed(vk_space);
 //
 if(slap_key == true){
     other.status = 1;
-    other.direction = direction + 90;
+    other.direction = direction - 90;
     other.alarm[0] = 15;
     other.life -= slap_damage;
 }

@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>//Variables
-movement_speed = 4;
+movement_speed = 2;
 //Get the player
 player = instance_find(obj_kotb_player,0);
 /*Status
@@ -40,6 +40,38 @@ prevStatus = 0;
 life = 100;
 prevX = x;
 prevY = y;
+throwing = false;
+proyectile_speed = 6;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Throw a thing to the player
+stuff = instance_create(x, y, obj_throwing_stuff);
+stuff.direction = direction;
+stuff.speed = proyectile_speed;
+stuff.landing_placeX = player.x;
+stuff.landing_placeY = player.y;
+//Reset the variable
+//throwing = false;
 </string>
           </argument>
         </arguments>
@@ -95,9 +127,16 @@ switch(status){
         break;
     //Get slapped
     case 1:
-        speed = movement_speed * 2;
+        speed = -movement_speed * 4;
         break;
+    //Stop to throw stuff
     case 2:
+        direction = point_direction(x,y,player.x, player.y);
+        if(throwing == false){
+            alarm_set(1, distance_to_object(player) / proyectile_speed);
+            throwing = true;
+        }
+        speed = false;
         break;
     //Run away
     case 3:
@@ -116,18 +155,19 @@ if(status == 3 &amp;&amp; (x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; r
 //Check direction facing
 switch(int64((direction+45)/90)){
     case 1:
-        sprite_index = spr_generic_man_up;
+        sprite_to_use = spr_generic_man_up;
         break;
     case 2:
-        sprite_index = spr_generic_man_Left;
+        sprite_to_use = spr_generic_man_Left;
         break;
     case 3:
-        sprite_index = spr_generic_man_down;
+        sprite_to_use = spr_generic_man_down;
         break;
     default:
-        sprite_index = spr_generic_man_Right;
+        sprite_to_use = spr_generic_man_Right;
         break;
 }
+sprite_index = sprite_to_use;
 //Check distance to the player for collission stuff
 distance_to_player = distance_to_object(player);
 
@@ -135,7 +175,9 @@ distance_to_player = distance_to_object(player);
 //HAbrá que retocarlo
 wall_check = collision_line(x,y,player.x, player.y, obj_wall, false, true);
 if(wall_check != noone &amp;&amp; status == 0)
-    direction += 45;
+    status = 2;
+else if(wall_check == noone &amp;&amp; status == 0)
+    status = prevStatus;
 //Save the actual x and y, and status
 prevX = x;
 prevY = y;
@@ -194,10 +236,38 @@ if(other.distance_to_player &lt; distance_to_player &amp;&amp; status == 0){
           <argument>
             <kind>1</kind>
             <string>//Unstuck from the wall
-if(status != 1){
+//if(status != 1){
     direction = point_direction(x, y, other.x, other.y);
     move_outside_solid(direction, 100);
-}
+//}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Draw the player stationary
+if(speed == 0 || status == 1)
+    draw_sprite(sprite_to_use, 2, x, y);
+//Or in movement
+else
+    draw_self();
 </string>
           </argument>
         </arguments>

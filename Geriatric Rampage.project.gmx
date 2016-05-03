@@ -147,6 +147,7 @@
       <object>objects\obj_kotb_manager</object>
       <object>objects\obj_kotb_player</object>
       <object>objects\obj_kotb_slapper</object>
+      <object>objects\obj_throwing_stuff</object>
     </objects>
     <objects name="BocataTime">
       <object>objects\bocata_manager</object>

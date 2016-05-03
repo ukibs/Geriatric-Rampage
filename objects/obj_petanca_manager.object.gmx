@@ -183,7 +183,9 @@ else if(checked == false){
     script_execute(scr_ball_distance_check);
     if(min_player_ball_distance &lt; min_oponent_ball_distance){
         winner = 1;
-        global.petanca_dificulty ++;
+        //Put a maximun difficulty of 10
+        if(global.petanca_dificulty &lt; 10)
+            global.petanca_dificulty ++;
     }
     else{
         winner = 2;
