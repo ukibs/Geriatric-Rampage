@@ -36,7 +36,6 @@ player = instance_find(obj_kotb_player,0);
     3 - Running like a girl
 */
 status = 0;
-prevStatus = 0;
 life = 100;
 prevX = x;
 prevY = y;
@@ -71,7 +70,7 @@ stuff.speed = proyectile_speed;
 stuff.landing_placeX = player.x;
 stuff.landing_placeY = player.y;
 //Reset the variable
-//throwing = false;
+throwing = false;
 </string>
           </argument>
         </arguments>
@@ -95,7 +94,7 @@ stuff.landing_placeY = player.y;
           <argument>
             <kind>1</kind>
             <string>//Return to the previous status
-status = prevStatus;
+status = 0;
 </string>
           </argument>
         </arguments>
@@ -141,15 +140,11 @@ switch(status){
     //Run away
     case 3:
         direction = point_direction(x,y,player.x, player.y) + 180;
-        speed = movement_speed * 2;
+        speed = movement_speed * 3;
         break;
 }
-//Check life
-if(life &lt;= 0){
-    status = 3;
-}
 //Check run away 
-if(status == 3 &amp;&amp; (x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height)){
+if(/*status == 3 &amp;&amp; */(x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height)){
     instance_destroy();
 }
 //Check direction facing
@@ -176,13 +171,15 @@ distance_to_player = distance_to_object(player);
 wall_check = collision_line(x,y,player.x, player.y, obj_wall, false, true);
 if(wall_check != noone &amp;&amp; status == 0)
     status = 2;
-else if(wall_check == noone &amp;&amp; status == 0)
-    status = prevStatus;
-//Save the actual x and y, and status
+else if(wall_check == noone &amp;&amp; status == 2)
+    status = 0;
+//Save the actual x and y
 prevX = x;
 prevY = y;
-if(prevStatus != 1){
-    prevStatus = status;
+
+//Check life
+if(life &lt;= 0){
+    status = 3;
 }
 </string>
           </argument>
@@ -236,10 +233,10 @@ if(other.distance_to_player &lt; distance_to_player &amp;&amp; status == 0){
           <argument>
             <kind>1</kind>
             <string>//Unstuck from the wall
-//if(status != 1){
+if(status != 3){
     direction = point_direction(x, y, other.x, other.y);
     move_outside_solid(direction, 100);
-//}
+}
 </string>
           </argument>
         </arguments>

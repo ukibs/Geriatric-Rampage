@@ -65,7 +65,7 @@ if(key_pause == true){
 }
 //
 if(key_confirm == true &amp;&amp; status_paused == true)
-    room_goto(global.last_room);
+    room_goto(global.last_place);
 </string>
           </argument>
         </arguments>
