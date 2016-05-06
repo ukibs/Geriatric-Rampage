@@ -121,6 +121,7 @@
       <object>objects\obj_park_defender</object>
       <object>objects\obj_police_officer</object>
       <object>objects\obj_park_pidgeon</object>
+      <object>objects\obj_bocata_claimer</object>
     </objects>
     <objects name="Petanca">
       <object>objects\obj_petanca_square</object>
@@ -151,6 +152,11 @@
     </objects>
     <objects name="BocataTime">
       <object>objects\bocata_manager</object>
+      <object>objects\obj_bocata_player</object>
+      <object>objects\obj_bocata_slapper</object>
+      <object>objects\obj_base_walker</object>
+      <object>objects\obj_mother</object>
+      <object>objects\obj_kid</object>
     </objects>
     <objects name="Pidgeon Hunting">
       <object>objects\obj_pidgeon</object>
