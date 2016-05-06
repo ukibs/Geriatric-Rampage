@@ -34,6 +34,9 @@ alarm_set(0, 1);
     2 - Depends of mother or kid
 */
 status = irandom(2);
+direction_to_move = 0;
+movementX = 0;
+movementY = 0;
 //Change this in each mother/kid
 //Sprites for the character
 sprite_to_useUp     = spr_sexyGirl1_up;
@@ -70,32 +73,10 @@ if(status == 1){
     movementX = 0;
     movementY = 0;
     direction_to_move = irandom(4);
-    switch(direction_to_move){
-        case 0: //Left
-            movementX = -1;
-            sprite_to_use = sprite_to_useLeft;
-            break;
-        case 1: //Right
-            movementX = 1;
-            sprite_to_use = sprite_to_useRight;
-            break;
-        case 2: //Up
-            movementY = -1;
-            sprite_to_use = sprite_to_useUp;
-            break;
-        case 3: //Down
-            movementY = 1;
-            sprite_to_use = sprite_to_useDown;
-            break;
-    }
-    sprite_index = sprite_to_use;
-    //Set speeds
-    hspeed = movementX * movement_speed;
-    vspeed = movementY * movement_speed;
     //And change status
     status = 0;
 }
-else{
+else if(status == 0){
     status = 1;
 }
 //Set a new alarm
@@ -135,6 +116,29 @@ if(x+hspeed &lt; image_xscale/2 || x+hspeed &gt; room_width - image_xscale/2
     hspeed = 0;
     vspeed = 0;
 }
+//Go according direction selected
+switch(direction_to_move){
+    case 0: //Left
+        movementX = -1;
+        sprite_to_use = sprite_to_useLeft;
+        break;
+    case 1: //Right
+        movementX = 1;
+        sprite_to_use = sprite_to_useRight;
+        break;
+    case 2: //Up
+        movementY = -1;
+        sprite_to_use = sprite_to_useUp;
+        break;
+    case 3: //Down
+        movementY = 1;
+        sprite_to_use = sprite_to_useDown;
+        break;
+}
+sprite_index = sprite_to_use;
+//Set speeds
+hspeed = movementX * movement_speed;
+vspeed = movementY * movement_speed;
 </string>
           </argument>
         </arguments>

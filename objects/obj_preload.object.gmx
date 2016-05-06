@@ -33,6 +33,7 @@ global.last_xPos = 300;
 global.last_yPos = 240;
 global.petanca_dificulty = 1;
 global.kotb_dificulty = 5;
+global.bocata_dificulty = 5;
 
 //global.returning = false;
 

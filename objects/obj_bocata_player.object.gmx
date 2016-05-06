@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 //Set a new interactor
-interactor = instance_create(x,y,obj_kotb_slapper);
+interactor = instance_create(x,y,obj_bocata_slapper);
 </string>
           </argument>
         </arguments>
