@@ -62,8 +62,7 @@ sprite_to_use = sprite_to_useDown;
             <string>event_inherited();
 //
 if(status == 2){
-    //For the moment destroy it
-    instance_destroy();
+    
 }
 </string>
           </argument>
@@ -90,7 +89,8 @@ if(status == 2){
             <string>event_inherited();
 //
 if(status == 2){
-
+    //For the moment destroy it
+    instance_destroy();
 }
 </string>
           </argument>

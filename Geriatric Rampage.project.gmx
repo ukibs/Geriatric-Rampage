@@ -70,6 +70,8 @@
       <sprite>sprites\spr_ball_pidgeon</sprite>
       <sprite>sprites\spr_pointer_pidgeon</sprite>
     </sprites>
+    <sprite>sprites\spr_alert</sprite>
+    <sprite>sprites\spr_catch</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>

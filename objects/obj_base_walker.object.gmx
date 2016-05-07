@@ -45,6 +45,11 @@ sprite_to_useLeft   = spr_sexyGirl1_left;
 sprite_to_useRight  = spr_sexyGirl1_right;
 //Set one
 sprite_to_use = sprite_to_useDown;
+//
+if(place_meeting(x,y, obj_wall)){
+    direction = point_direction(x, y, room_width/2, room_height/2);
+    move_outside_solid(direction, 0);
+}
 </string>
           </argument>
         </arguments>
@@ -104,7 +109,8 @@ alarm_set(0, random_range(10, 50));
           <argument>
             <kind>1</kind>
             <string>//Control to not collide, and change direction
-if(place_meeting(x+hspeed, y+vspeed, obj_wall)){
+if(place_meeting(x+hspeed, y+vspeed, obj_wall)
+    || place_meeting(x+hspeed, y+vspeed, obj_bocata_player)){
     alarm_set(0, 1);
     hspeed = 0;
     vspeed = 0;
