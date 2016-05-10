@@ -72,6 +72,9 @@
     </sprites>
     <sprite>sprites\spr_alert</sprite>
     <sprite>sprites\spr_catch</sprite>
+    <sprites name="Plantillas">
+      <sprite>sprites\spr_park_templates</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -166,6 +169,7 @@
       <object>objects\obj_ball_pidgeon</object>
       <object>objects\obj_pointer_pidgeon</object>
     </objects>
+    <object>objects\obj_park_template</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_preload</room>
