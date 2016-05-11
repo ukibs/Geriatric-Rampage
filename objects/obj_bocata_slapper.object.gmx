@@ -115,9 +115,8 @@ if(slap_key == true &amp;&amp; can_slap == true){
     other.alarm[0] = 1;
     can_slap = false;
     alarm_set(0, 10);
-    //Get the nearest mother
-    mother = instance_nearest(x, y, obj_mother);
-    mother.status = 2;
+    //Check if the mothers can see the player
+    obj_mother.check_player = true;    
 }
 </string>
           </argument>
