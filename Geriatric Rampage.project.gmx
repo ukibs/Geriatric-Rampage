@@ -90,6 +90,7 @@
     <background>background\bck_brickWall</background>
     <background>background\bck_Road</background>
     <background>background\bck_roadCurve</background>
+    <background>background\bck_pidgeon</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
