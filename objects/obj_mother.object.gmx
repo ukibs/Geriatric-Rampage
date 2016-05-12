@@ -40,6 +40,7 @@ sprite_to_use = sprite_to_useDown;
 */
 //
 player = instance_find(obj_bocata_player, 0);
+manager = instance_find(bocata_manager, 0);
 check_player = false;
 point_to_checkX1 = 0;
 point_to_checkX2 = 0;
@@ -67,41 +68,18 @@ point_to_checkY2 = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//
+            <string>event_inherited();
+//Check if the player is in view when slap
 if(check_player == true){
-    //Check direction you are looking
-    switch(direction_to_move){
-    case 0: //Left
-        point_to_checkX1 = x - 100;
-        point_to_checkX2 = x - 100;
-        point_to_checkY1 = y - 50;
-        point_to_checkY2 = y + 50;
-        break;
-    case 1: //Right
-        point_to_checkX1 = x + 100;
-        point_to_checkX2 = x + 100;
-        point_to_checkY1 = y - 50;
-        point_to_checkY2 = y + 50;
-        break;
-    case 2: //Up
-        point_to_checkX1 = x - 50;
-        point_to_checkX2 = x + 50;
-        point_to_checkY1 = y - 100;
-        point_to_checkY2 = y - 100;
-        break;
-    case 3: //Down
-        point_to_checkX1 = x - 50;
-        point_to_checkX2 = x + 50;
-        point_to_checkY1 = y + 100;
-        point_to_checkY2 = y + 100;
-        break;
-}
+    var x1 = x + lengthdir_x(300, direction - 45);
+    var y1 = y + lengthdir_y(300, direction - 45);
+    var x2 = x + lengthdir_x(300, direction + 45);
+    var y2 = y + lengthdir_y(300, direction + 45);
     //Make the triangle
     if(point_in_triangle(player.x, player.y, 
-        x, y, 
-        point_to_checkX1, point_to_checkY1, 
-        point_to_checkX2, point_to_checkY2) == true){
-        status = 3;    
+        x, y, x1, y1, x2, y2) == true){
+        status = 3;
+        manager.finished = true;    
     }
     check_player = false;
 }

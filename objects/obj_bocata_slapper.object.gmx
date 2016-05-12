@@ -112,7 +112,7 @@ slap_key = keyboard_check_pressed(vk_space);
 //
 if(slap_key == true &amp;&amp; can_slap == true){
     other.status = 2;
-    other.alarm[0] = 1;
+    //other.alarm[0] = 1;
     can_slap = false;
     alarm_set(0, 10);
     //Check if the mothers can see the player

@@ -114,34 +114,34 @@ alarm_set(0, random_range(10, 50));
             <string>//Control to not collide, and change direction
 if(place_meeting(x+hspeed, y+vspeed, obj_wall)
     || place_meeting(x+hspeed, y+vspeed, obj_bocata_player)){
-    alarm_set(0, 1);
-    hspeed = 0;
-    vspeed = 0;
+    speed_multiplier = 0;
 }
 //Control to not go out of the place
 if(x+hspeed &lt; image_xscale/2 || x+hspeed &gt; room_width - image_xscale/2
     || y+vspeed &lt; image_yscale/2 || y+vspeed &gt; room_height - image_yscale/2){
-    alarm_set(0, 1);
-    hspeed = 0;
-    vspeed = 0;
+    speed_multiplier = 0;
 }
 //Go according direction selected
 switch(direction_to_move){
     case 0: //Left
         movementX = -1;
         sprite_to_use = sprite_to_useLeft;
+        direction = 180;
         break;
     case 1: //Right
         movementX = 1;
         sprite_to_use = sprite_to_useRight;
+        direction = 0;
         break;
     case 2: //Up
         movementY = -1;
         sprite_to_use = sprite_to_useUp;
+        direction = 90;
         break;
     case 3: //Down
         movementY = 1;
         sprite_to_use = sprite_to_useDown;
+        direction = 270;
         break;
 }
 sprite_index = sprite_to_use;
