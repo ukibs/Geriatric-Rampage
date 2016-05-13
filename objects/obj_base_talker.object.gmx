@@ -175,7 +175,10 @@ if(status_acting == true){
     draw_set_halign(fa_left);
     draw_set_colour(c_white);
     draw_set_font(font_culdesac);
-    draw_text(50, 380, string(text[text_counter]));
+    //These instructions for showing who´s speaking
+    //string_char_at(str, index);
+    //string_delete(str, index, count);
+    draw_text(100, 380, string(text[text_counter]));
     //Show the option
     if(show_option == true){
         draw_text(150, 400, "Yes");

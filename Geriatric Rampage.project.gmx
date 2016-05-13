@@ -135,6 +135,7 @@
       <object>objects\obj_police_officer</object>
       <object>objects\obj_park_pidgeon</object>
       <object>objects\obj_bocata_claimer</object>
+      <object>objects\obj_old_bastard</object>
     </objects>
     <objects name="Managers">
       <object>objects\obj_menu_manager</object>

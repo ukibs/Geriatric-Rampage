@@ -34,6 +34,18 @@ instance_deactivate_object(obj_exit);
 
 //Get the player
 player = instance_find(obj_player, 0);
+/*  Stages
+    0 - Knocking the door and chat with the police officer
+    1 - Walking down and raging
+    2 - Raging
+    3 - Knocking down again
+*/
+stage = 0;
+//Raging text
+text_counter = 0;
+text[0] = "Stupid police.";
+text[1] = "Can´t they go to fry asparagus?";
+text_length = array_length_1d(text);
 </string>
           </argument>
         </arguments>
@@ -56,23 +68,58 @@ player = instance_find(obj_player, 0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//
-if(triggered == true &amp;&amp; started == false){
+            <string>//Chat with the police officer
+if(triggered == true &amp;&amp; started == false &amp;&amp; stage == 0){
     police_officer = instance_create(x + 16, y + 16, obj_police_officer);
     police_officer.status_acting = true;
     player.status_still = true;
     started = true;
 }
-//
-if(started == true &amp;&amp; player.status_still = false){
-    instance_activate_object(obj_exit);
+//End the chat
+if(started == true &amp;&amp; player.status_still = false &amp;&amp; stage == 0){
     with(police_officer){
         instance_destroy();
     }
+    stage = 1;
+    status_still = true;
+    player.v_direction = 1;
+    started = false;
+    triggered = false;
+}
+//Move the player down
+if(stage == 1){
+    player.vsp += 2;
+    if(player.y &gt;= 150){
+        player.vsp = 0;
+        stage = 2;
+    }
+}
+//Make him rage
+if(stage == 2 &amp;&amp; keyboard_check_pressed(vk_space)){
+    if(text_counter &lt; text_length-1)
+        text_counter += 1;
+    else{
+        player.status_still = false;
+        stage = 3;
+        //Volvemos a activar los golpes en la puerta
+    }
+}
+//Chat with the old bastard
+if(triggered == true &amp;&amp; started == false &amp;&amp; stage == 4){
+    old_bastard = instance_create(x + 16, y + 16, obj_old_bastard);
+    old_bastard.status_acting = true;
+    player.status_still = true;
+    started = true;
+}
+//End the chat
+if(started == true &amp;&amp; player.status_still = false){
+    //instance_activate_object(obj_exit);
+    with(old_bastard){
+        instance_destroy();
+    }
+    instance_activate_object(obj_exit);
     instance_destroy();
 }
-
-
 </string>
           </argument>
         </arguments>
@@ -96,8 +143,42 @@ if(started == true &amp;&amp; player.status_still = false){
           <argument>
             <kind>1</kind>
             <string>//
-if(keyboard_check_pressed(vk_space))
+if(keyboard_check_pressed(vk_space)){
     triggered = true;
+    //
+    if(stage == 3)
+        stage = 4;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//
+if(stage == 2){
+    draw_sprite(spr_text_background, 0, room_width/2, room_height);
+    draw_set_halign(fa_left);
+    draw_set_colour(c_white);
+    draw_set_font(font_culdesac);
+    draw_text(50, 380, string(text[text_counter]));
+}
 </string>
           </argument>
         </arguments>

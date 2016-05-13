@@ -86,7 +86,7 @@ if(status_still == false){
         hsp += h_direction;
     if(abs(vsp) &lt; movement_speed)
         vsp += v_direction;
-    //Deceleraction
+    //Decceleration
     if(h_direction = 0 &amp;&amp; hsp != 0)
         hsp -= sign(hsp);
     if(v_direction = 0 &amp;&amp; vsp != 0)
@@ -96,7 +96,14 @@ if(status_still == false){
         hsp = 0;
     if(!place_free(x, y + vsp))
         vsp = 0;
-    //Usando x,y
+    //Control to not go out of the room
+    while(x + hsp &lt; sprite_width/2 || x + hsp &gt; room_width - sprite_width/2){
+        hsp -= sign(hsp);
+    }
+    while(y + vsp &lt; sprite_height/2 || y + vsp &gt; room_height - sprite_height/2){
+        vsp -= sign(vsp);
+    }
+    //Using x,y
     x += hsp;
     y += vsp;
     //Changing sprite
