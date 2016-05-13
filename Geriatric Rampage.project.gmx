@@ -54,6 +54,7 @@
       <sprite>sprites\spr_wall</sprite>
       <sprite>sprites\spr_exit</sprite>
       <sprite>sprites\spr_place</sprite>
+      <sprite>sprites\spr_event_trigger</sprite>
     </sprites>
     <sprites name="Petanca">
       <sprite>sprites\spr_petanca_square</sprite>
@@ -135,6 +136,15 @@
       <object>objects\obj_park_pidgeon</object>
       <object>objects\obj_bocata_claimer</object>
     </objects>
+    <objects name="Managers">
+      <object>objects\obj_menu_manager</object>
+      <object>objects\obj_game_manager</object>
+      <object>objects\obj_minigame_manager</object>
+    </objects>
+    <objects name="Tiles_Room">
+      <object>objects\obj_Pared_Basica</object>
+      <object>objects\obj_pared_Rodapie</object>
+    </objects>
     <objects name="Petanca">
       <object>objects\obj_petanca_square</object>
       <object>objects\obj_petanca_manager</object>
@@ -145,15 +155,6 @@
       <object>objects\obj_player_ball</object>
       <object>objects\obj_oponent_ball</object>
       <object>objects\obj_power_meter_frame</object>
-    </objects>
-    <objects name="Managers">
-      <object>objects\obj_menu_manager</object>
-      <object>objects\obj_game_manager</object>
-      <object>objects\obj_minigame_manager</object>
-    </objects>
-    <objects name="Tiles_Room">
-      <object>objects\obj_Pared_Basica</object>
-      <object>objects\obj_pared_Rodapie</object>
     </objects>
     <objects name="KingOfTheBarrio">
       <object>objects\obj_gang_boy</object>
@@ -177,6 +178,9 @@
       <object>objects\obj_pointer_pidgeon</object>
     </objects>
     <object>objects\obj_park_template</object>
+    <objects name="Events">
+      <object>objects\obj_event1</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_preload</room>

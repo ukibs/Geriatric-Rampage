@@ -33,8 +33,8 @@ victory = false;
 //Spam the enemies according to the difficulty
 randomize();
 for(i = 0; i &lt; global.kotb_dificulty; i++){
-    spamX = random(room_width);
-    spamY = random(room_height);
+    spamX = random_range(room_width/2, room_width);
+    spamY = random_range(0, room_height/2);
     //distance_to_point(
     gang_boy = instance_create(spamX, spamY, obj_gang_boy);
 }
@@ -74,6 +74,14 @@ if(player.life &lt;= 0){
 }
 //
 if(out_key == 1 &amp;&amp; finished == true){
+    if(victory == true){
+        global.kotb_dificulty ++;
+        global.reputation ++;
+    }
+    else{
+        global.kotb_dificulty --;
+        global.reputation --;
+    }
     room_goto(global.last_place);
 }
 </string>

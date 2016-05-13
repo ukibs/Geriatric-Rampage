@@ -53,13 +53,19 @@ text_counter = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Draw the map and inventory icons
-draw_sprite(spr_map_icon, 0, 500, 400);
-draw_sprite(spr_inventory_icon, 0, 400, 400);
+            <string>//
+draw_set_halign(fa_left);
+draw_set_colour(c_white);
+draw_set_font(font_culdesac);
+//Draw the map and inventory icons
+draw_sprite(spr_map_icon, 0, 500, 450);
+draw_sprite(spr_inventory_icon, 0, 400, 450);
 //Draw the inventory
 if(player.inventory_open = true){
     draw_sprite(spr_inventory_window, 0, room_width/2, room_height/2);
 }
+//Show the actual reputation
+draw_text(500, 10, "Rep " + string(global.reputation));
 </string>
           </argument>
         </arguments>

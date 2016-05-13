@@ -139,6 +139,8 @@ switch(status){
         break;
     //Run away
     case 3:
+        //Destroy them for now
+        instance_destroy();
         direction = point_direction(x,y,player.x, player.y) + 180;
         speed = movement_speed * 3;
         break;
