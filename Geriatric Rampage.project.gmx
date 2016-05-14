@@ -109,6 +109,7 @@
     <font>fonts\font_demolition</font>
     <font>fonts\font_culdesac</font>
     <font>fonts\font_sacha</font>
+    <font>fonts\font_SpeakAndText</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -156,6 +157,7 @@
       <object>objects\obj_player_ball</object>
       <object>objects\obj_oponent_ball</object>
       <object>objects\obj_power_meter_frame</object>
+      <object>objects\obj_Instructions_petanca</object>
     </objects>
     <objects name="KingOfTheBarrio">
       <object>objects\obj_gang_boy</object>
@@ -163,6 +165,7 @@
       <object>objects\obj_kotb_player</object>
       <object>objects\obj_kotb_slapper</object>
       <object>objects\obj_throwing_stuff</object>
+      <object>objects\obj_instructions_king</object>
     </objects>
     <objects name="BocataTime">
       <object>objects\bocata_manager</object>
@@ -171,12 +174,14 @@
       <object>objects\obj_base_walker</object>
       <object>objects\obj_mother</object>
       <object>objects\obj_kid</object>
+      <object>objects\obj_instructions_Bocata</object>
     </objects>
     <objects name="Pidgeon Hunting">
       <object>objects\obj_pidgeon</object>
       <object>objects\obj_MgrPidgeon</object>
       <object>objects\obj_ball_pidgeon</object>
       <object>objects\obj_pointer_pidgeon</object>
+      <object>objects\obj_instructions_pidgeon</object>
     </objects>
     <object>objects\obj_park_template</object>
     <objects name="Events">

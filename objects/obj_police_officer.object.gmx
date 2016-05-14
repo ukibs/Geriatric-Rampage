@@ -32,11 +32,11 @@ text[0] = "Good morning, Eustaquio.";
 text[1] = "Now what?";
 text[2] = "I´m affraid you've achieved another fine.";
 text[3] = "What?! Another!?";
-text[4] = "You should put less emphasis on breaking the law.";
+text[4] = "You know you shouldn't break the law.";
 text[5] = "I will do what comes out of my balls!";
 text[6] = "Then you'll achieve another fine.";
 text[7] = "Fine by me. I won´t pay it anyway.";
-text[8] = "You'll finish in trouble on this way, Eustaquio";
+text[8] = "You'll finish in trouble on this way";
 text[9] = "Good day.";
 
 text_length = array_length_1d(text);

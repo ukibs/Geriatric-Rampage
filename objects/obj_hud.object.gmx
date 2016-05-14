@@ -64,6 +64,7 @@ draw_sprite(spr_inventory_icon, 0, 400, 450);
 if(player.inventory_open = true){
     draw_sprite(spr_inventory_window, 0, room_width/2, room_height/2);
 }
+draw_set_font(font_SpeakAndText);
 //Show the actual reputation
 draw_text(500, 10, "Rep " + string(global.reputation));
 </string>

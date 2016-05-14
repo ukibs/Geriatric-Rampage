@@ -39,7 +39,7 @@ interactor = instance_find(obj_interactor, 0);
 
 
 //These must be applied on each character
-text[0] = "This is the base tlakable person";
+text[0] = "This is the base talkable person";
 text_length = array_length_1d(text);
 //Only if it activates a minigame (set true)
 minigame_activator = false; 
@@ -174,7 +174,7 @@ if(status_acting == true){
     draw_sprite(spr_text_background, 0, room_width/2, room_height);
     draw_set_halign(fa_left);
     draw_set_colour(c_white);
-    draw_set_font(font_culdesac);
+    draw_set_font(font_SpeakAndText);
     //These instructions for showing who´s speaking
     //string_char_at(str, index);
     //string_delete(str, index, count);
