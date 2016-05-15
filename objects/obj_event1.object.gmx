@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_event_trigger</spriteName>
   <solid>-1</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -39,8 +39,11 @@ player = instance_find(obj_player, 0);
     1 - Walking down and raging
     2 - Raging
     3 - Knocking down again
+    4 - Chat with the old bastard
 */
 stage = 0;
+//Play the knock sound
+sound_play(snd_knock_knock);
 //Raging text
 text_counter = 0;
 text[0] = "Stupid police.";
@@ -81,14 +84,16 @@ if(started == true &amp;&amp; player.status_still = false &amp;&amp; stage == 0)
         instance_destroy();
     }
     stage = 1;
-    status_still = true;
+    player.status_still = true;
     player.v_direction = 1;
+    player.sprite_index = spr_walking_down;
     started = false;
     triggered = false;
 }
 //Move the player down
 if(stage == 1){
     player.vsp += 2;
+    player.y += 2;
     if(player.y &gt;= 150){
         player.vsp = 0;
         stage = 2;
@@ -101,7 +106,8 @@ if(stage == 2 &amp;&amp; keyboard_check_pressed(vk_space)){
     else{
         player.status_still = false;
         stage = 3;
-        //Volvemos a activar los golpes en la puerta
+        //Play the knock sound again
+        sound_play(snd_knock_knock);
     }
 }
 //Chat with the old bastard
@@ -176,9 +182,33 @@ if(stage == 2){
     draw_sprite(spr_text_background, 0, room_width/2, room_height);
     draw_set_halign(fa_left);
     draw_set_colour(c_white);
-    draw_set_font(font_culdesac);
-    draw_text(50, 380, string(text[text_counter]));
+    draw_set_font(font_SpeakAndText);
+    draw_text(100, 380, string(text[text_counter]));
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Put it in blank for no drawing it
+//Uncheking visible will not display the text
 </string>
           </argument>
         </arguments>
