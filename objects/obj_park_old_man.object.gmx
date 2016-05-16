@@ -28,11 +28,12 @@
             <string>//Inherit the create event from the parent
 event_inherited();
 //Apply your own text
-text[0] = "You filthy old man";
-text[1] = "I will dance on your grave";
-text[2] = "A quick match of petanca?";
+text[0] = "1You filthy old man";
+text[1] = "1I will dance on your grave";
+text[2] = "1A quick match of petanca?";
 
 text_length = array_length_1d(text);
+speaker_name = "Petanca master";
 //Personal options
 minigame_activator = true; 
 assigned_room = room_petanca;

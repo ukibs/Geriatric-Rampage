@@ -27,11 +27,12 @@
             <kind>1</kind>
             <string>event_inherited();
 //These must be applied on each character
-text[0] = "Hey, dude";
-text[1] = "These kid´s bocatas look so good";
-text[2] = "Wanna get some of them?";
+text[0] = "1Hey, dude";
+text[1] = "1These kid´s bocatas look so good";
+text[2] = "1Wanna get some of them?";
 
 text_length = array_length_1d(text);
+speaker_name = "Bocata claimer";
 //Only if it activates a minigame (set true)
 minigame_activator = true; 
 assigned_room = room_bocata_time;

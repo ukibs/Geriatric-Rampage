@@ -30,6 +30,11 @@ menu_selector = instance_find(obj_menu_selector, 0);
 initialY = menu_selector.y;
 initialX = menu_selector.x;
 selected_option = 0;
+continue_able = false;
+//Check for saved game
+if(file_exists("Save.sav")){
+    continue_able = true;
+}
 </string>
           </argument>
         </arguments>
@@ -59,7 +64,7 @@ key_enter = keyboard_check_pressed(vk_enter);
 
 //Change the selected option
 selected_option += -key_up + key_down;
-selected_option = abs(selected_option % 2);
+selected_option = abs(selected_option % 3);
 
 //Update the selector's position
 menu_selector.y = initialY + selected_option * 70;
@@ -68,10 +73,19 @@ menu_selector.y = initialY + selected_option * 70;
 if(key_enter){
     switch(selected_option)
     {
+        //Start
         case 0:
             room_goto_next();
             break;
+        //Continue
         case 1:
+            if(continue_able == true){
+                script_execute(scr_load_game);
+                room_goto(global.last_room);
+            }
+            break;
+        //Quit
+        case 2:
             game_end();
             break;
         default:
@@ -105,7 +119,9 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_center);
 draw_set_colour(c_white);
 draw_text(initialX+30, initialY + 0, "START");
-draw_text(initialX+30, initialY + 70, "QUIT");
+if(continue_able == true)
+    draw_text(initialX+30, initialY + 70, "CONTINUE");
+draw_text(initialX+30, initialY + 140, "QUIT");
 </string>
           </argument>
         </arguments>

@@ -1,0 +1,17 @@
+//Check for the file
+if(file_exists("Save.sav")){
+    //Create a new one
+    loadFile = file_text_open_read("Save.sav");
+    //Write the global variables
+    global.currency = file_text_read_real(loadFile);
+    global.reputation = file_text_read_real(loadFile);
+    global.last_place = file_text_read_string(loadFile);
+    global.last_xPos = file_text_read_real(loadFile);
+    global.last_yPos = file_text_read_real(loadFile);
+    global.petanca_dificulty = file_text_read_real(loadFile);
+    global.kotb_dificulty = file_text_read_real(loadFile);
+    global.bocata_dificulty = file_text_read_real(loadFile);
+    global.global_stage = file_text_read_real(loadFile);
+    //And close
+    file_text_close(loadFile);
+}

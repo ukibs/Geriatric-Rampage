@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Variables
+            <string>//Active this if the player starts the game
+if(global.global_stage == 0){
+//Variables
 triggered = false;
 started = false;
 //Deactivate the exit
@@ -49,6 +51,10 @@ text_counter = 0;
 text[0] = "Stupid police.";
 text[1] = "Can´t they go to fry asparagus?";
 text_length = array_length_1d(text);
+}
+else{   //Destroy it if not
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -124,6 +130,8 @@ if(started == true &amp;&amp; player.status_still = false){
         instance_destroy();
     }
     instance_activate_object(obj_exit);
+    //Advance the game
+    global.global_stage = 1;    
     instance_destroy();
 }
 </string>

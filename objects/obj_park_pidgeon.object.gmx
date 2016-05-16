@@ -28,9 +28,10 @@
             <string>event_inherited();
 
 //These must be applied on each character
-text[0] = "Hey, handsome daddy";
-text[1] = "Would you hunt some pidgeons for me?";
+text[0] = "1Hey, handsome daddy";
+text[1] = "1Would you hunt some pidgeons for me?";
 text_length = array_length_1d(text);
+speaker_name = "Pidgeon hunter";
 //Only if it activates a minigame (set true)
 minigame_activator = true; 
 assigned_room = room_pidgeon_hunting;

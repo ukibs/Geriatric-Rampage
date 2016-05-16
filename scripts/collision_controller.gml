@@ -1,4 +1,4 @@
-//Relocate the player
+/*//Relocate the player
 //Vertical
 while(!place_free(x, y + sign(vsp))){
     vsp -= sign(vsp);

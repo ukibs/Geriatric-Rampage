@@ -70,8 +70,10 @@ if(key_pause == true){
     }
 }
 //
-if(key_confirm == true &amp;&amp; status_paused == true)
+if(key_confirm == true &amp;&amp; status_paused == true){
+    script_execute(scr_save_game());
     room_goto(room_menu);
+}
 </string>
           </argument>
         </arguments>

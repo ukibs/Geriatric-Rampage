@@ -105,6 +105,8 @@
   <scripts name="scripts">
     <script>scripts\collision_controller.gml</script>
     <script>scripts\scr_ball_distance_check.gml</script>
+    <script>scripts\scr_save_game.gml</script>
+    <script>scripts\scr_load_game.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_cartoon</font>

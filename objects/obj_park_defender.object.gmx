@@ -28,11 +28,12 @@
             <string>//Inherit the create event from the parent
 event_inherited();
 //Apply your own text
-text[0] = "¡¡¡Eustaquioooo!!!";
-text[1] = "Those god damm brats!";
-text[2] = "Teach them a lesson!";
+text[0] = "1¡¡¡Eustaquioooo!!!";
+text[1] = "1Those god damm brats!";
+text[2] = "1Teach them a lesson!";
 
 text_length = array_length_1d(text);
+speaker_name = "Park defender";
 //Personal options
 minigame_activator = true; 
 assigned_room = room_king_of_the_barrio;
