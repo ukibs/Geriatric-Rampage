@@ -136,12 +136,16 @@
     </objects>
     <objects name="People">
       <object>objects\obj_base_talker</object>
-      <object>objects\obj_park_old_man</object>
-      <object>objects\obj_park_defender</object>
-      <object>objects\obj_police_officer</object>
-      <object>objects\obj_park_pidgeon</object>
-      <object>objects\obj_bocata_claimer</object>
-      <object>objects\obj_old_bastard</object>
+      <objects name="Event1">
+        <object>objects\obj_police_officer</object>
+        <object>objects\obj_old_bastard</object>
+      </objects>
+      <objects name="Park">
+        <object>objects\obj_bocata_claimer</object>
+        <object>objects\obj_park_pidgeon</object>
+        <object>objects\obj_park_defender</object>
+        <object>objects\obj_park_old_man</object>
+      </objects>
     </objects>
     <objects name="Managers">
       <object>objects\obj_menu_manager</object>

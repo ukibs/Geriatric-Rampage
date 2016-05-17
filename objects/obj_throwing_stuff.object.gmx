@@ -30,6 +30,7 @@ landing_placeX = 0;
 landing_placeY = 0;
 distance_to_landing_place = distance_to_point(landing_placeX,
                                                 landing_placeY);
+distance_done = 0;                                               
 </string>
           </argument>
         </arguments>
@@ -52,11 +53,19 @@ distance_to_landing_place = distance_to_point(landing_placeX,
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//
-if(distance_to_point(landing_placeX, landing_placeY) &lt; 5){
-    speed = 0;
-    
+            <string>//Make an ascendent and descendent arc
+if(speed &gt; 0){
+if(distance_done &lt; distance_to_landing_place/2)
+    y -= 2;
+else
+    y += 2;
 }
+//Stop it when "falling" in the objective place
+if(distance_done &gt;= distance_to_landing_place){
+    speed = 0;
+}
+//Update de distance done
+distance_done += speed;
 </string>
           </argument>
         </arguments>
