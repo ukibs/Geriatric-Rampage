@@ -71,7 +71,13 @@ if(key_pause == true){
 }
 //
 if(key_confirm == true &amp;&amp; status_paused == true){
+    //Save the last place
+    global.last_place = room;
+    global.last_xPos = player.x;
+    global.last_yPos = player.y;
+    //Save all the data
     script_execute(scr_save_game());
+    //And go out
     room_goto(room_menu);
 }
 </string>

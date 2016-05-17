@@ -64,7 +64,8 @@ key_enter = keyboard_check_pressed(vk_enter);
 
 //Change the selected option
 selected_option += -key_up + key_down;
-selected_option = abs(selected_option % 3);
+if(selected_option &lt; 0) //To go down from the top option
+    selected_option += 3;
 
 //Update the selector's position
 menu_selector.y = initialY + selected_option * 70;
@@ -75,13 +76,14 @@ if(key_enter){
     {
         //Start
         case 0:
-            room_goto_next();
+            script_execute(scr_reset_data);
+            room_goto(room_home);            
             break;
         //Continue
         case 1:
             if(continue_able == true){
                 script_execute(scr_load_game);
-                room_goto(global.last_room);
+                room_goto(global.last_place);
             }
             break;
         //Quit

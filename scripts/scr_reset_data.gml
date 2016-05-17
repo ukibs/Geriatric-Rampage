@@ -1,0 +1,10 @@
+//Initialize global variables
+global.currency = 0;
+global.reputation = 0;
+global.last_place = room_home;
+global.last_xPos = 300;
+global.last_yPos = 340;
+global.petanca_dificulty = 1;
+global.kotb_dificulty = 3;
+global.bocata_dificulty = 3;
+global.global_stage = 0;
