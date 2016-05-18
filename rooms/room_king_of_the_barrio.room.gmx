@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_kotb_manager" x="32" y="32" name="inst_365A1EE0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kotb_player" x="864" y="224" name="inst_B6EA9F68" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kotb_player" x="992" y="192" name="inst_B6EA9F68" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_minigame_manager" x="64" y="32" name="inst_42F58702" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1120" y="32" name="inst_C4C6CCAA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1152" y="32" name="inst_6DA016E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

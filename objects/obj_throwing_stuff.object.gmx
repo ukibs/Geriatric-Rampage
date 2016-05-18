@@ -25,12 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Variables
-landing_placeX = 0;
-landing_placeY = 0;
+            <string>//get the player
+player = instance_find(obj_player, 0);
+direction = point_direction(x, y, player.x, player.y);
+//Variables
+speed = 6;
+landing_placeX = player.x;
+landing_placeY = player.y;
 distance_to_landing_place = distance_to_point(landing_placeX,
                                                 landing_placeY);
-distance_done = 0;                                               
+distance_done = 0;
+steps_to_do = distance_to_landing_place / speed;         
+steps_done = 0;                                    
 </string>
           </argument>
         </arguments>
@@ -55,17 +61,15 @@ distance_done = 0;
             <kind>1</kind>
             <string>//Make an ascendent and descendent arc
 if(speed &gt; 0){
-if(distance_done &lt; distance_to_landing_place/2)
-    y -= 2;
-else
-    y += 2;
+    y += (steps_done - steps_to_do/2)/2;
 }
 //Stop it when "falling" in the objective place
-if(distance_done &gt;= distance_to_landing_place){
+if(steps_done &gt;= steps_to_do){
     speed = 0;
 }
 //Update de distance done
 distance_done += speed;
+steps_done ++;
 </string>
           </argument>
         </arguments>

@@ -41,6 +41,16 @@ prevX = x;
 prevY = y;
 throwing = false;
 proyectile_speed = 6;
+direction = point_direction(x, y, player.x, player.y);
+//Relocate it if too near to the player
+while(distance_to_object(player) &lt; 50){
+    x = random_range(room_width/2, room_width);
+    y = random_range(0, room_height/2);
+}
+//Unstuck them if created inside a wall
+if(place_meeting(x, y, obj_wall)){
+    move_outside_solid(direction, 0);
+}
 </string>
           </argument>
         </arguments>
@@ -65,10 +75,7 @@ proyectile_speed = 6;
             <kind>1</kind>
             <string>//Throw a thing to the player
 stuff = instance_create(x, y, obj_throwing_stuff);
-stuff.direction = direction;
-stuff.speed = proyectile_speed;
-stuff.landing_placeX = player.x;
-stuff.landing_placeY = player.y;
+//stuff.speed = proyectile_speed;
 //Reset the variable
 throwing = false;
 </string>
@@ -132,7 +139,7 @@ switch(status){
     case 2:
         direction = point_direction(x,y,player.x, player.y);
         if(throwing == false){
-            alarm_set(1, distance_to_object(player) / proyectile_speed);
+            alarm_set(1, distance_to_object(player) / proyectile_speed * 2);
             throwing = true;
         }
         speed = false;

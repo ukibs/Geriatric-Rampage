@@ -66,6 +66,7 @@ key_enter = keyboard_check_pressed(vk_enter);
 selected_option += -key_up + key_down;
 if(selected_option &lt; 0) //To go down from the top option
     selected_option += 3;
+selected_option = selected_option % 3;
 
 //Update the selector's position
 menu_selector.y = initialY + selected_option * 70;
