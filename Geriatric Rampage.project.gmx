@@ -141,10 +141,13 @@
         <object>objects\obj_old_bastard</object>
       </objects>
       <objects name="Park">
-        <object>objects\obj_bocata_claimer</object>
-        <object>objects\obj_park_pidgeon</object>
-        <object>objects\obj_park_defender</object>
-        <object>objects\obj_park_old_man</object>
+        <objects name="MissionOnes">
+          <object>objects\obj_bocata_claimer</object>
+          <object>objects\obj_park_pidgeon</object>
+          <object>objects\obj_park_defender</object>
+          <object>objects\obj_park_old_man</object>
+        </objects>
+        <object>objects\obj_kid1</object>
       </objects>
     </objects>
     <objects name="Managers">

@@ -33,10 +33,10 @@ victory = false;
 //Spam the enemies according to the difficulty
 randomize();
 for(i = 0; i &lt; global.bocata_dificulty; i++){
-    spamX = random_range(50, room_width-50);
-    spamY = random_range(50, room_height-50);
+    spamX = random_range(150, room_width-150);
+    spamY = random_range(150, room_height-150);
     kid = instance_create(spamX, spamY, obj_kid);
-    mom = instance_create(spamX, spamY, obj_mother);
+    mom = instance_create(spamX+32, spamY, obj_mother);
 }
 //Set the time you have until fail
 alarm_set(0, room_speed * 60);
@@ -135,7 +135,9 @@ draw_set_valign(fa_center);
 draw_set_font(font_culdesac);
 
 //Show the timer
-draw_text(500, 20, string(int64(alarm[0]/60)));
+if(finished == false){
+    draw_text(500, 20, string(int64(alarm[0]/60)));
+}
 
 //If finished, show the winner
 if(finished == true){

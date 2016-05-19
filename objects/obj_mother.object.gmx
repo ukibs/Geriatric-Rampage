@@ -27,10 +27,21 @@
             <kind>1</kind>
             <string>event_inherited();
 //Sprites for the character
-sprite_to_useUp     = spr_sexyGirl1_up;
-sprite_to_useDown   = spr_sexyGirl1_down;
-sprite_to_useLeft   = spr_sexyGirl1_left;
-sprite_to_useRight  = spr_sexyGirl1_right;
+skin = irandom(2);
+switch(skin){
+    case 0:
+        sprite_to_useUp     = spr_sexyGirl1_up;
+        sprite_to_useDown   = spr_sexyGirl1_down;
+        sprite_to_useLeft   = spr_sexyGirl1_left;
+        sprite_to_useRight  = spr_sexyGirl1_right;
+    break;
+    case 1:
+        sprite_to_useUp     = spr_sexyGirl2_up;
+        sprite_to_useDown   = spr_sexyGirl2_down;
+        sprite_to_useLeft   = spr_sexyGirl2_left;
+        sprite_to_useRight  = spr_sexyGirl2_right;
+    break;
+}
 //Set one
 sprite_to_use = sprite_to_useDown;
 /*
@@ -78,10 +89,13 @@ if(check_player == true){
     //Make the triangle
     if(point_in_triangle(player.x, player.y, 
         x, y, x1, y1, x2, y2) == true){
-        status = 3;
-        manager.finished = true;    
+        status = 3;   
     }
     check_player = false;
+}
+//
+if(status == 3){
+    manager.finished = true; 
 }
 </string>
           </argument>
@@ -108,7 +122,7 @@ if(check_player == true){
             <string>event_inherited();
 //
 if(status == 2){
-    draw_sprite(spr_alert, 0, x, y-30);
+    //draw_sprite(spr_alert, 0, x, y-30);
 }
 //
 if(status == 3){

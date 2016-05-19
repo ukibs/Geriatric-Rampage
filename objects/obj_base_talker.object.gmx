@@ -42,9 +42,17 @@ interactor = instance_find(obj_interactor, 0);
 text[0] = "1This is the base talkable person";
 text_length = array_length_1d(text);
 speaker_name = "Base talker";
+
 //Only if it activates a minigame (set true)
 minigame_activator = false; 
 assigned_room = "None";
+
+//Only if it walks
+walk = false;
+sprite_to_useDown   = sprite_index;
+sprite_to_useUp     = spr_sexyGirl1_up;
+sprite_to_useLeft   = spr_sexyGirl1_left;
+sprite_to_useRight  = spr_sexyGirl1_right;
 </string>
           </argument>
         </arguments>
@@ -119,6 +127,10 @@ if(text_counter == text_length-1 &amp;&amp; minigame_activator == true){
     selected_option += -key_left + key_right;
     selected_option = abs(selected_option%2);
 }
+//If it walks
+if(walk == true){
+
+}
 </string>
           </argument>
         </arguments>
@@ -172,7 +184,8 @@ if(interaction_key == true &amp;&amp;
             <kind>1</kind>
             <string>//To talk
 if(status_acting == true){
-    draw_sprite(spr_text_background, 0, view_xview[0]+300, view_yview[0]+480);
+    //draw_sprite(spr_text_background, 0, view_xview[0]+300, view_yview[0]+480);
+    draw_sprite(spr_text_background, 0, room_width/2, room_height);
     draw_set_halign(fa_left);
     draw_set_colour(c_white);
     draw_set_font(font_SpeakAndText);

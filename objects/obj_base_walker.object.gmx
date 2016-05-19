@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_wall</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -33,7 +33,7 @@ alarm_set(0, 1);
     1 - Moving
     2 - Depends of mother or kid
 */
-status = irandom(2);
+status = 0; //irandom(2);
 direction_to_move = 0;
 movementX = 0;
 movementY = 0;
@@ -46,7 +46,7 @@ sprite_to_useLeft   = spr_sexyGirl1_left;
 sprite_to_useRight  = spr_sexyGirl1_right;
 //Set one
 sprite_to_use = sprite_to_useDown;
-//
+//Unstuck if created isnide a wall
 if(place_meeting(x,y, obj_wall)){
     direction = point_direction(x, y, room_width/2, room_height/2);
     move_outside_solid(direction, 0);
@@ -73,7 +73,7 @@ if(place_meeting(x,y, obj_wall)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//
+            <string>//Choose an direction and move
 if(status == 1){
     //Decide a direction and move
     movementX = 0;
@@ -82,7 +82,7 @@ if(status == 1){
     //And change status
     status = 0;
     speed_multiplier = 1;
-}
+}// Stay static
 else if(status == 0){
     status = 1;
     speed_multiplier = 0;
@@ -113,13 +113,15 @@ alarm_set(0, random_range(10, 50));
             <kind>1</kind>
             <string>//Control to not collide, and change direction
 if(place_meeting(x+hspeed, y+vspeed, obj_wall)
-    || place_meeting(x+hspeed, y+vspeed, obj_bocata_player)){
+    /*|| place_meeting(x+hspeed, y+vspeed, obj_bocata_player)*/){
     speed_multiplier = 0;
+    alarm_set(0, 1);
 }
 //Control to not go out of the place
-if(x+hspeed &lt; image_xscale/2 || x+hspeed &gt; room_width - image_xscale/2
-    || y+vspeed &lt; image_yscale/2 || y+vspeed &gt; room_height - image_yscale/2){
+if(x+hspeed &lt; image_xscale || x+hspeed &gt; room_width - image_xscale
+    || y+vspeed &lt; image_yscale || y+vspeed &gt; room_height - image_yscale){
     speed_multiplier = 0;
+    alarm_set(0, 1);
 }
 //Go according direction selected
 switch(direction_to_move){
@@ -153,6 +155,30 @@ vspeed = movementY * movement_speed * speed_multiplier;
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_wall">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//
+//move_outside_solid(direction+180, 0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -176,6 +202,9 @@ if(hspeed == 0 &amp;&amp; vspeed == 0)
 //Or in movement
 else
     draw_self();
+    
+//Check their status
+draw_text(x, y+30, status);
 </string>
           </argument>
         </arguments>

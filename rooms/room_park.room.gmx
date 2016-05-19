@@ -211,7 +211,8 @@
     <instance objName="obj_wall" x="79" y="419" name="inst_0215A750" locked="0" code="" scaleX="3.13000011444092" scaleY="0.90625" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="589" y="640" name="inst_8E7BCD20" locked="0" code="" scaleX="3" scaleY="0.875" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="776" y="641" name="inst_4456649B" locked="0" code="" scaleX="2.96875" scaleY="0.810000002384186" colour="4294967295" rotation="0"/>
-    <instance objName="obj_park_template" x="0" y="0" name="inst_9E5F1FB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kid1" x="288" y="640" name="inst_B9A910F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_park_template" x="0" y="0" name="inst_BBCEF4DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
