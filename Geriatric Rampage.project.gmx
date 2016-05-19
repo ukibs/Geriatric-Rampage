@@ -6,6 +6,7 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\snd_knock_knock</sound>
+    <sound>sound\snd_door</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Secondary Characters ">

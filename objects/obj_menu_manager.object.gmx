@@ -58,9 +58,9 @@ if(file_exists("Save.sav")){
           <argument>
             <kind>1</kind>
             <string>//Get the keys
-key_up = keyboard_check_pressed(vk_up);
-key_down = keyboard_check_pressed(vk_down);
-key_enter = keyboard_check_pressed(vk_enter);
+key_up = keyboard_check_pressed(vk_up) || gamepad_button_check(0,gp_padu);
+key_down = keyboard_check_pressed(vk_down) || gamepad_button_check(0,gp_padd);
+key_enter = keyboard_check_pressed(vk_space) || gamepad_button_check(0,gp_face1);
 
 //Change the selected option
 selected_option += -key_up + key_down;

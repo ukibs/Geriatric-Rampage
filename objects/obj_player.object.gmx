@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_wall</parentName>
+  <parentName>self</parentName>
   <maskName>spr_walking_down</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -68,10 +68,10 @@ interactor = instance_create(x,y,obj_interactor);
           <argument>
             <kind>1</kind>
             <string>//Get the keys
-key_left = keyboard_check(vk_left);
-key_right = keyboard_check(vk_right);
-key_up = keyboard_check(vk_up);
-key_down = keyboard_check(vk_down);
+key_left = keyboard_check(vk_left) || gamepad_button_check(0,gp_padl);
+key_right = keyboard_check(vk_right) || gamepad_button_check(0,gp_padr);
+key_up = keyboard_check(vk_up) || gamepad_button_check(0,gp_padu);
+key_down = keyboard_check(vk_down) || gamepad_button_check(0,gp_padd);
 key_inventory = keyboard_check_pressed(ord("I"));
 key_map = keyboard_check_pressed(ord("M"));
 //If we aren´t still by the pause or conversation

@@ -45,7 +45,7 @@ player = instance_find(obj_player, 0);
 */
 stage = 0;
 //Play the knock sound
-sound_play(snd_knock_knock);
+audio_play_sound(snd_knock_knock, 1, false);
 //Raging text
 text_counter = 0;
 text[0] = "Stupid police.";
@@ -79,6 +79,7 @@ else{   //Destroy it if not
             <kind>1</kind>
             <string>//Chat with the police officer
 if(triggered == true &amp;&amp; started == false &amp;&amp; stage == 0){
+    audio_play_sound(snd_door, 1, false);
     police_officer = instance_create(x + 16, y + 16, obj_police_officer);
     police_officer.status_acting = true;
     player.status_still = true;
@@ -113,11 +114,12 @@ if(stage == 2 &amp;&amp; keyboard_check_pressed(vk_space)){
         player.status_still = false;
         stage = 3;
         //Play the knock sound again
-        sound_play(snd_knock_knock);
+        audio_play_sound(snd_knock_knock, 1, false);
     }
 }
 //Chat with the old bastard
 if(triggered == true &amp;&amp; started == false &amp;&amp; stage == 4){
+    audio_play_sound(snd_door, 1, false);
     old_bastard = instance_create(x + 16, y + 16, obj_old_bastard);
     old_bastard.status_acting = true;
     player.status_still = true;
