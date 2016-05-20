@@ -51,7 +51,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_player" x="256" y="64" name="inst_C16C4645" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="1088" y="416" name="inst_C16C4645" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud" x="32" y="32" name="inst_48DDDAA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_game_manager" x="64" y="32" name="inst_33012A04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_park_defender" x="864" y="160" name="inst_2F386273" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -181,7 +181,6 @@
     <instance objName="obj_wall" x="506" y="292" name="inst_321D974A" locked="0" code="" scaleX="9.9375" scaleY="0.6875" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="561" y="296" name="inst_FA5DF1C6" locked="0" code="" scaleX="3.09375" scaleY="1.34375" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="939" y="7" name="inst_F26C8693" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="1152" y="333" name="inst_82BDC2C1" locked="0" code="" scaleX="1.46875" scaleY="1.48000001907349" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="23" y="415" name="inst_0B4098C6" locked="0" code="" scaleX="0.409999996423721" scaleY="0.6875" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="227" y="409" name="inst_0691261B" locked="0" code="" scaleX="0.580645143985748" scaleY="0.806451618671417" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="14" y="228" name="inst_E9F7D65C" locked="0" code="" scaleX="0.52999997138977" scaleY="0.78125" colour="4294967295" rotation="0"/>
@@ -212,7 +211,7 @@
     <instance objName="obj_wall" x="589" y="640" name="inst_8E7BCD20" locked="0" code="" scaleX="3" scaleY="0.875" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="776" y="641" name="inst_4456649B" locked="0" code="" scaleX="2.96875" scaleY="0.810000002384186" colour="4294967295" rotation="0"/>
     <instance objName="obj_kid1" x="288" y="640" name="inst_B9A910F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_park_template" x="0" y="0" name="inst_BBCEF4DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_event2" x="1120" y="416" name="inst_89BD013C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

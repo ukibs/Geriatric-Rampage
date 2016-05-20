@@ -137,9 +137,10 @@
     </objects>
     <objects name="People">
       <object>objects\obj_base_talker</object>
-      <objects name="Event1">
+      <objects name="Events">
         <object>objects\obj_police_officer</object>
-        <object>objects\obj_old_bastard</object>
+        <object>objects\obj_old_bastard1</object>
+        <object>objects\obj_old_bastard2</object>
       </objects>
       <objects name="Park">
         <objects name="MissionOnes">
@@ -199,6 +200,7 @@
     <object>objects\obj_park_template</object>
     <objects name="Events">
       <object>objects\obj_event1</object>
+      <object>objects\obj_event2</object>
     </objects>
   </objects>
   <rooms name="rooms">

@@ -120,7 +120,7 @@ if(stage == 2 &amp;&amp; keyboard_check_pressed(vk_space)){
 //Chat with the old bastard
 if(triggered == true &amp;&amp; started == false &amp;&amp; stage == 4){
     audio_play_sound(snd_door, 1, false);
-    old_bastard = instance_create(x + 16, y + 16, obj_old_bastard);
+    old_bastard = instance_create(x + 16, y + 16, obj_old_bastard1);
     old_bastard.status_acting = true;
     player.status_still = true;
     started = true;
