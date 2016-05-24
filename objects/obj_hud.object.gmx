@@ -58,8 +58,9 @@ draw_set_halign(fa_left);
 draw_set_colour(c_white);
 draw_set_font(font_culdesac);
 //Draw the map and inventory icons
-draw_sprite(spr_map_icon, 0, 500, 450);
-draw_sprite(spr_inventory_icon, 0, 400, 450);
+draw_sprite(spr_window_hud, 0, 0, 0);
+draw_sprite(spr_map_icon, 0, 88, 38);
+draw_sprite(spr_inventory_icon, 0, 38, 38);
 //Draw the inventory
 if(player.inventory_open = true){
     draw_sprite(spr_inventory_window, 0, room_width/2, room_height/2);
@@ -67,6 +68,7 @@ if(player.inventory_open = true){
 draw_set_font(font_SpeakAndText);
 //Show the actual reputation
 draw_text(500, 10, "Rep " + string(global.reputation));
+draw_sprite(spr_respect_hud, 0, 468, 0);
 </string>
           </argument>
         </arguments>

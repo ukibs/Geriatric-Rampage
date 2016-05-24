@@ -46,6 +46,8 @@
     <sprite>sprites\spr_text_background</sprite>
     <sprite>sprites\spr_interacter</sprite>
     <sprite>sprites\spr_map_icon</sprite>
+    <sprite>sprites\spr_respect_hud</sprite>
+    <sprite>sprites\spr_window_hud</sprite>
     <sprite>sprites\spr_inventory_icon</sprite>
     <sprites name="Player">
       <sprite>sprites\spr_walking_left</sprite>
@@ -79,6 +81,7 @@
       <sprite>sprites\spr_pidgeon</sprite>
       <sprite>sprites\spr_ball_pidgeon</sprite>
       <sprite>sprites\spr_pointer_pidgeon</sprite>
+      <sprite>sprites\spr_hand_animation</sprite>
     </sprites>
     <sprite>sprites\spr_alert</sprite>
     <sprite>sprites\spr_catch</sprite>
