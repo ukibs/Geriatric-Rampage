@@ -105,7 +105,10 @@
     <background>background\bck_roadCurve</background>
     <background>background\bck_pidgeon</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\path0</path>
+    <path>paths\path1</path>
+  </paths>
   <scripts name="scripts">
     <script>scripts\collision_controller.gml</script>
     <script>scripts\scr_ball_distance_check.gml</script>
@@ -126,6 +129,7 @@
     <object>objects\obj_map_selector</object>
     <object>objects\obj_preload</object>
     <object>objects\obj_hud</object>
+    <object>objects\obj_save_cleaner</object>
     <object>objects\obj_Bench</object>
     <objects name="Interactors">
       <object>objects\obj_wall</object>
@@ -144,6 +148,7 @@
         <object>objects\obj_police_officer</object>
         <object>objects\obj_old_bastard1</object>
         <object>objects\obj_old_bastard2</object>
+        <object>objects\obj_old_bastard_22</object>
         <object>objects\obj_old_bastard3</object>
       </objects>
       <objects name="Park">

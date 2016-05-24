@@ -32,11 +32,8 @@ usable = true;
 show_option = false;
 selected_option = 0;
 //Get the player
-player = instance_find(obj_player,0);
+player = instance_find(obj_player, 0);
 interactor = instance_find(obj_interactor, 0);
-//Instance a collider
-//collider = instance_create(x,y,obj_character_collider);
-
 
 //These must be applied on each character
 text[0] = "1This is the base talkable person";
@@ -53,6 +50,32 @@ sprite_to_useDown   = sprite_index;
 sprite_to_useUp     = spr_sexyGirl1_up;
 sprite_to_useLeft   = spr_sexyGirl1_left;
 sprite_to_useRight  = spr_sexyGirl1_right;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//If it walks
+if(walk == true &amp;&amp; status_acting == false){
+
+}
 </string>
           </argument>
         </arguments>
@@ -126,10 +149,6 @@ if(text_counter == text_length-1 &amp;&amp; minigame_activator == true){
     show_option = true;
     selected_option += -key_left + key_right;
     selected_option = abs(selected_option%2);
-}
-//If it walks
-if(walk == true){
-
 }
 </string>
           </argument>
@@ -227,10 +246,11 @@ if(status_acting == true){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Draw the quiet person
-draw_sprite(sprite_index, 1, x, y);
-
-
+            <string>//Draw the quiet person if not walking
+if(hspeed == 0 &amp;&amp; vspeed == 0)
+    draw_sprite(sprite_index, 1, x, y);
+else
+    draw_self();
 </string>
           </argument>
         </arguments>
