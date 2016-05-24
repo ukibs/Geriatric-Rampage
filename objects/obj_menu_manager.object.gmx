@@ -92,7 +92,7 @@ if(key_enter){
             game_end();
             break;
         default:
-            show_debug_message("Error, algo has roto");
+            show_debug_message("Error, you´ve broken something");
     }
 }
 </string>

@@ -27,12 +27,19 @@
             <kind>1</kind>
             <string>event_inherited();
 //These must be applied on each character
-text[0] = "1Here we are";
-text[1] = "0For what?";
-text[2] = "1Luego pongo más, que me da pereza";
+text[0] = "1Congratulations, Eustaquio";
+text[1] = "0What kind of circus is this?";
+text[2] = "1Don´t you like it?";
+text[3] = "0...";
+text[4] = "0It was stupid.";
+text[5] = "0And fun.";
+text[6] = "1I´m glad to hear that.";
+text[7] = "0And now... what.";
+text[8] = "1That was only the begining, Eustaquio.";
+text[9] = "1Your journey hasn´t done more than start";
 
 text_length = array_length_1d(text);
-speaker_name = "???";
+speaker_name = "Old Bastard";
 </string>
           </argument>
         </arguments>

@@ -141,6 +141,7 @@
         <object>objects\obj_police_officer</object>
         <object>objects\obj_old_bastard1</object>
         <object>objects\obj_old_bastard2</object>
+        <object>objects\obj_old_bastard3</object>
       </objects>
       <objects name="Park">
         <objects name="MissionOnes">
@@ -156,6 +157,7 @@
       <object>objects\obj_menu_manager</object>
       <object>objects\obj_game_manager</object>
       <object>objects\obj_minigame_manager</object>
+      <object>objects\obj_toBeContinued_manager</object>
     </objects>
     <objects name="Tiles_Room">
       <object>objects\obj_Pared_Basica</object>
@@ -201,12 +203,14 @@
     <objects name="Events">
       <object>objects\obj_event1</object>
       <object>objects\obj_event2</object>
+      <object>objects\obj_event3</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_preload</room>
     <room>rooms\room_menu</room>
     <room>rooms\room_map</room>
+    <room>rooms\room_toBeContinued</room>
     <rooms name="Places">
       <room>rooms\room_home</room>
       <room>rooms\room_park</room>

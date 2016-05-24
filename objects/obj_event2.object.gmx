@@ -33,6 +33,8 @@ if(global.global_stage == 1){
     /*  Stages
         0 - The old man appears at your side and speaks with you
         1 - And then goes out
+        2 - But Eustaquio stops him to ask
+        3 - And then he goes out
     */
     stage = 0;
     //Instance the old bastard
@@ -81,16 +83,19 @@ if(stage == 1){
 }
 //The player stops him and have another chat
 //De momento hacemos cosa provisional
-if(stage == 2 &amp;&amp; old_bastard.hspeed == 0){
-    old_bastard.active = true;
+if(stage == 2 &amp;&amp; old_bastard.status_acting == false){
     old_bastard.current_text = 0;
+    old_bastard.status_acting = true;
+    stage = 3;
 }
 //And then he go out
-if(stage == 2 &amp;&amp; old_bastard.active == false){
+if(stage == 3 &amp;&amp; old_bastard.status_acting == false){
     player.status_still = true;
     old_bastard.hspeed = 1;
     if(old_bastard.x &gt; room_width + 30){
         with(old_bastard) instance_destroy();
+        player.status_still = false;
+        global.global_stage = 2;  
         instance_destroy();
     }
 }
