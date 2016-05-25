@@ -221,7 +221,7 @@ if(status_acting == true){
     if(show_option == true){
         draw_text(150, 400, "Yes");
         draw_text(250, 400, "No");
-        draw_sprite(spr_gallata, 0, 120 + selected_option * 100, 400);
+        draw_sprite(spr_baston_pq, 0, 120 + selected_option * 100, 400);
     }
 }
 </string>
