@@ -44,12 +44,29 @@ speaker_name = "Base talker";
 minigame_activator = false; 
 assigned_room = "None";
 
-//Only if it walks
+//Only if it walks (set true)
 walk = false;
 sprite_to_useDown   = sprite_index;
 sprite_to_useUp     = spr_sexyGirl1_up;
 sprite_to_useLeft   = spr_sexyGirl1_left;
 sprite_to_useRight  = spr_sexyGirl1_right;
+
+//Movement stuff (if true)
+/* Walking status 
+    0 - Stopped
+    1 - Walking
+*/
+status = 0;
+if(walk == true){
+    randomize();
+    //alarm_set(1, random_range(10, 30));
+    alarm_set(1, 1);
+}
+movementX = 0;
+movementY = 0;
+direction_to_move = 0;
+speed_multiplier = 1;
+movement_speed = 2;
 </string>
           </argument>
         </arguments>
@@ -73,9 +90,22 @@ sprite_to_useRight  = spr_sexyGirl1_right;
           <argument>
             <kind>1</kind>
             <string>//If it walks
-if(walk == true &amp;&amp; status_acting == false){
-
+//Choose an direction and move
+if(status == 1){
+    //Decide a direction and move
+    movementX = 0;
+    movementY = 0;
+    direction_to_move = irandom(4);
+    //And change status
+    status = 0;
+    speed_multiplier = 1;
+}// Stay static
+else if(status == 0){
+    status = 1;
+    speed_multiplier = 0;
 }
+//Set a new alarm
+alarm_set(1, random_range(10, 50));
 </string>
           </argument>
         </arguments>
@@ -139,16 +169,67 @@ if(interaction_key == true &amp;&amp; status_acting = true){
         show_option = false;
         text_counter = 0;
         status_acting = false;
+        if(walk == true) alarm_set(1, random_range(10, 30));
         player.status_still = false;
         //Alarm to not overlap conversations
         usable = false;
         alarm[0] = 10;
     }
 }
+//
 if(text_counter == text_length-1 &amp;&amp; minigame_activator == true){
     show_option = true;
     selected_option += -key_left + key_right;
     selected_option = abs(selected_option%2);
+}
+//To walk
+if(walk == true){
+    //Control to not collide, and change direction
+    if(place_meeting(x+hspeed, y+vspeed, obj_wall)
+        /*|| place_meeting(x+hspeed, y+vspeed, obj_bocata_player)*/){
+        speed_multiplier = 0;
+        alarm_set(1, 1);
+    }
+    //Control to not go out of the place
+    if(x+hspeed &lt; image_xscale || x+hspeed &gt; room_width - image_xscale
+        || y+vspeed &lt; image_yscale || y+vspeed &gt; room_height - image_yscale){
+        speed_multiplier = 0;
+        alarm_set(1, 1);
+    }
+    //Go according direction selected
+    switch(direction_to_move){
+        case 0: //Left
+            movementX = -1;
+            sprite_to_use = sprite_to_useLeft;
+            direction = 180;
+            break;
+        case 1: //Right
+            movementX = 1;
+            sprite_to_use = sprite_to_useRight;
+            direction = 0;
+            break;
+        case 2: //Up
+            movementY = -1;
+            sprite_to_use = sprite_to_useUp;
+            direction = 90;
+            break;
+        case 3: //Down
+            movementY = 1;
+            sprite_to_use = sprite_to_useDown;
+            direction = 270;
+            break;
+    }
+    sprite_index = sprite_to_use;
+    //Set speeds
+    hspeed = movementX * movement_speed * speed_multiplier;
+    vspeed = movementY * movement_speed * speed_multiplier;
+}
+
+//Stop the walker for talk
+if(walk == true &amp;&amp; status_acting == true){
+    alarm_set(1, 0);
+    hspeed = 0;
+    vspeed = 0;
 }
 </string>
           </argument>
@@ -216,7 +297,12 @@ if(status_acting == true){
         draw_text(300, 360, speaker_name);
     //Show the text
     string_to_show = string_delete(text[text_counter], 1, 1);
-    draw_text(100, 380, string(string_to_show));
+    string_to_show1 = string_copy(string_to_show, 1, 40);
+    draw_text(100, 380, string(string_to_show1));
+    if(string_length(string_to_show) &gt; 40){
+        string_to_show2 = string_copy(string_to_show, 41, 40);
+        draw_text(100, 420, string(string_to_show2));
+    }
     //Show the option
     if(show_option == true){
         draw_text(150, 400, "Yes");

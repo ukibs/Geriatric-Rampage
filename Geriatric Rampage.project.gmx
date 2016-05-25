@@ -157,7 +157,7 @@
         <object>objects\obj_police_officer</object>
         <object>objects\obj_old_bastard1</object>
         <object>objects\obj_old_bastard2</object>
-        <object>objects\obj_old_bastard_22</object>
+        <object>objects\obj_old_bastard2_2</object>
         <object>objects\obj_old_bastard3</object>
       </objects>
       <objects name="Park">
@@ -168,6 +168,7 @@
           <object>objects\obj_park_old_man</object>
         </objects>
         <object>objects\obj_kid1</object>
+        <object>objects\obj_girl1</object>
       </objects>
     </objects>
     <objects name="Managers">

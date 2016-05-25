@@ -82,7 +82,7 @@ if(stage == 1){
         oldX = old_bastard.x;
         oldY = old_bastard.y;
         with(old_bastard)   instance_destroy();
-        old_bastard = instance_create(oldX, oldY, obj_old_bastard_22);
+        old_bastard = instance_create(oldX, oldY, obj_old_bastard2_2);
         old_bastard.sprite_index = spr_generic_man_Right;
     }
 }
