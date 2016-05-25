@@ -46,6 +46,10 @@ assigned_room = "None";
 
 //Only if it walks (set true)
 walk = false;
+if(walk == true){
+    randomize();
+    alarm_set(1, random_range(10, 30));
+}
 sprite_to_useDown   = sprite_index;
 sprite_to_useUp     = spr_sexyGirl1_up;
 sprite_to_useLeft   = spr_sexyGirl1_left;
@@ -57,15 +61,10 @@ sprite_to_useRight  = spr_sexyGirl1_right;
     1 - Walking
 */
 status = 0;
-if(walk == true){
-    randomize();
-    //alarm_set(1, random_range(10, 30));
-    alarm_set(1, 1);
-}
 movementX = 0;
 movementY = 0;
 direction_to_move = 0;
-speed_multiplier = 1;
+speed_multiplier = 0;
 movement_speed = 2;
 </string>
           </argument>
@@ -185,16 +184,15 @@ if(text_counter == text_length-1 &amp;&amp; minigame_activator == true){
 //To walk
 if(walk == true){
     //Control to not collide, and change direction
-    if(place_meeting(x+hspeed, y+vspeed, obj_wall)
-        /*|| place_meeting(x+hspeed, y+vspeed, obj_bocata_player)*/){
+    if(place_meeting(x+hspeed, y+vspeed, obj_wall)){
         speed_multiplier = 0;
-        alarm_set(1, 1);
+        //alarm_set(1, 1);
     }
     //Control to not go out of the place
     if(x+hspeed &lt; image_xscale || x+hspeed &gt; room_width - image_xscale
         || y+vspeed &lt; image_yscale || y+vspeed &gt; room_height - image_yscale){
         speed_multiplier = 0;
-        alarm_set(1, 1);
+        //alarm_set(1, 1);
     }
     //Go according direction selected
     switch(direction_to_move){

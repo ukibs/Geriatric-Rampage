@@ -34,6 +34,10 @@ speaker_name = "Weird Kid";
 
 //Only if it walks (set true)
 walk = true;
+if(walk == true){
+    randomize();
+    alarm_set(1, random_range(10, 30));
+}
 sprite_to_useDown   = sprite_index;
 sprite_to_useUp     = spr_kid1_up;
 sprite_to_useLeft   = spr_kid1_left;

@@ -35,6 +35,10 @@ speaker_name = "Worried woman";
 
 //Only if it walks (set true)
 walk = true;
+if(walk == true){
+    randomize();
+    alarm_set(1, random_range(10, 30));
+}
 sprite_to_useDown   = sprite_index;
 sprite_to_useUp     = spr_sexyGirl2_up;
 sprite_to_useLeft   = spr_sexyGirl2_left;
