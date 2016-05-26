@@ -93,7 +93,7 @@ if(started == true &amp;&amp; player.status_still = false &amp;&amp; stage == 0)
     stage = 1;
     player.status_still = true;
     player.v_direction = 1;
-    player.sprite_index = spr_walking_down;
+    player.sprite_to_use = spr_walking_down;
     started = false;
     triggered = false;
 }

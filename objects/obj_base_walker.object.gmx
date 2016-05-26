@@ -173,7 +173,8 @@ vspeed = movementY * movement_speed * speed_multiplier;
           <argument>
             <kind>1</kind>
             <string>//
-//move_outside_solid(direction+180, 0);
+x -= hspeed;
+y -= vspeed;
 </string>
           </argument>
         </arguments>
