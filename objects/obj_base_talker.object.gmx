@@ -151,9 +151,9 @@ alarm_set(1, random_range(10, 50));
           <argument>
             <kind>1</kind>
             <string>//Get the interaction key
-interaction_key = keyboard_check_pressed(vk_space);
-key_left = keyboard_check_pressed(vk_left);
-key_right = keyboard_check_pressed(vk_right);
+interaction_key = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0,gp_face1);
+key_left = keyboard_check_pressed(vk_left) || gamepad_button_check_pressed(0,gp_padl);
+key_right = keyboard_check_pressed(vk_right) || gamepad_button_check_pressed(0,gp_padr);
 //Advance the text (or close)
 if(interaction_key == true &amp;&amp; status_acting = true){
     if(text_counter &lt; text_length-1)
@@ -189,8 +189,8 @@ if(walk == true){
         //alarm_set(1, 1);
     }
     //Control to not go out of the place
-    if(x+hspeed &lt; image_xscale || x+hspeed &gt; room_width - image_xscale
-        || y+vspeed &lt; image_yscale || y+vspeed &gt; room_height - image_yscale){
+    if(x+hspeed &lt; 50 || x+hspeed &gt; room_width - 50
+        || y+vspeed &lt; 50 || y+vspeed &gt; room_height - 50){
         speed_multiplier = 0;
         //alarm_set(1, 1);
     }
@@ -252,7 +252,7 @@ if(walk == true &amp;&amp; status_acting == true){
           <argument>
             <kind>1</kind>
             <string>//Interaction
-interaction_key = keyboard_check_pressed(vk_space);
+interaction_key = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0,gp_face1);
 if(interaction_key == true &amp;&amp; 
     usable == true){
     player.status_still = true;

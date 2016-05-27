@@ -29,7 +29,9 @@
 //These must be applied on each character
 text[0] = "1Here we are";
 text[1] = "0For what?";
-text[2] = "1Luego pongo más, que me da pereza";
+text[2] = "1For testing your... spirit";
+text[3] = "0Go to the point";
+
 
 text_length = array_length_1d(text);
 speaker_name = "???";

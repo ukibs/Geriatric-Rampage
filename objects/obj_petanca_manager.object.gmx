@@ -79,10 +79,10 @@ checked = false;
           <argument>
             <kind>1</kind>
             <string>//Get the keys
-key_left = keyboard_check(vk_left);
-key_right = keyboard_check(vk_right);
-key_space_pressed = keyboard_check_pressed(vk_space);
-key_space_released = keyboard_check_released(vk_space);
+key_left = keyboard_check(vk_left) || gamepad_button_check(0,gp_padl);
+key_right = keyboard_check(vk_right) || gamepad_button_check(0,gp_padr);
+key_space_pressed = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0,gp_face1);
+key_space_released = keyboard_check_released(vk_space) || gamepad_button_check_released(0,gp_face1);
 //Check turns played
 if(turn &lt; 3){
     switch(phase){

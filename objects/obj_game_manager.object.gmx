@@ -56,8 +56,8 @@ if(global.last_place == room){
           <argument>
             <kind>1</kind>
             <string>//Get the keys
-key_pause = keyboard_check_pressed(vk_escape);
-key_confirm = keyboard_check_pressed(vk_enter);
+key_pause = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0,gp_start);
+key_confirm = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0,gp_face1);
 //(Un)Pause the game
 if(key_pause == true){
     if(status_paused == false){

@@ -73,7 +73,7 @@ key_right = keyboard_check(vk_right) || gamepad_button_check(0,gp_padr);
 key_up = keyboard_check(vk_up) || gamepad_button_check(0,gp_padu);
 key_down = keyboard_check(vk_down) || gamepad_button_check(0,gp_padd);
 key_inventory = keyboard_check_pressed(ord("I"));
-key_map = keyboard_check_pressed(ord("M"));
+key_map = keyboard_check_pressed(ord("M")) || gamepad_button_check(0,gp_face3);
 //If we aren´t still by the pause or conversation
 if(status_still == false){
     //Move the player

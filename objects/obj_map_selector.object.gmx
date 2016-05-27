@@ -55,12 +55,12 @@ place_to_go = "None";
           <argument>
             <kind>1</kind>
             <string>//Atrapamos las teclas
-key_left = keyboard_check(vk_left);
-key_right = keyboard_check(vk_right);
-key_up = keyboard_check(vk_up);
-key_down = keyboard_check(vk_down);
-key_space = keyboard_check_pressed(vk_space);
-key_map = keyboard_check_pressed(ord("M"));
+key_left = keyboard_check(vk_left) || gamepad_button_check(0,gp_padl);
+key_right = keyboard_check(vk_right) || gamepad_button_check(0,gp_padr);
+key_up = keyboard_check(vk_up) || gamepad_button_check(0,gp_padu);
+key_down = keyboard_check(vk_down) || gamepad_button_check(0,gp_padd);
+key_space = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0,gp_face1);
+key_map = keyboard_check_pressed(ord("M")) || gamepad_button_check_pressed(0,gp_face3);
 //Para desplazar al personaje
 h_direction = -key_left + key_right;
 v_direction = -key_up + key_down;

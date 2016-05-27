@@ -118,8 +118,8 @@ if(place_meeting(x+hspeed, y+vspeed, obj_wall)
     alarm_set(0, 1);
 }
 //Control to not go out of the place
-if(x+hspeed &lt; image_xscale || x+hspeed &gt; room_width - image_xscale
-    || y+vspeed &lt; image_yscale || y+vspeed &gt; room_height - image_yscale){
+if(x+hspeed &lt; 50 || x+hspeed &gt; room_width - 50
+        || y+vspeed &lt; 50 || y+vspeed &gt; room_height - 50){
     speed_multiplier = 0;
     alarm_set(0, 1);
 }

@@ -108,7 +108,7 @@ image_angle = direction;
           <argument>
             <kind>1</kind>
             <string>//Get the slap key
-slap_key = keyboard_check_pressed(vk_space);
+slap_key = keyboard_check_pressed(vk_space) || gamepad_button_check(0,gp_face1);
 //
 if(slap_key == true &amp;&amp; can_slap == true){
     other.status = 2;
@@ -142,7 +142,7 @@ if(slap_key == true &amp;&amp; can_slap == true){
             <kind>1</kind>
             <string>//Not a good idea
 //Get the slap key
-slap_key = keyboard_check_pressed(vk_space);
+slap_key = keyboard_check_pressed(vk_space) || gamepad_button_check(0,gp_face1);
 //
 if(slap_key == true &amp;&amp; can_slap == true){
     other.status = 3;

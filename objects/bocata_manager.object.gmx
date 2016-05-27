@@ -87,7 +87,7 @@ finished = true;
           <argument>
             <kind>1</kind>
             <string>//
-out_key = keyboard_check_pressed(vk_space);
+out_key = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0,gp_face1);
 //Count the amount of kids for slap
 kids_for_slap = instance_number(obj_kid);
 if(kids_for_slap == 0){

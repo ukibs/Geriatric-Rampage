@@ -112,7 +112,9 @@
     <background>background\bck_roadCurve</background>
     <background>background\bck_pidgeon</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\path0</path>
+  </paths>
   <scripts name="scripts">
     <script>scripts\collision_controller.gml</script>
     <script>scripts\scr_ball_distance_check.gml</script>
