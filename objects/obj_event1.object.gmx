@@ -107,7 +107,7 @@ if(stage == 1){
     }
 }
 //Make him rage
-if(stage == 2 &amp;&amp; keyboard_check_pressed(vk_space)){
+if(stage == 2 &amp;&amp; (keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0,gp_face1))){
     if(text_counter &lt; text_length-1)
         text_counter += 1;
     else{

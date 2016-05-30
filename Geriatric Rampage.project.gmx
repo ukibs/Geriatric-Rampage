@@ -85,6 +85,7 @@
     </sprites>
     <sprite>sprites\spr_alert</sprite>
     <sprite>sprites\spr_catch</sprite>
+    <sprite>sprites\spr_stuff_shadow</sprite>
     <sprites name="Plantillas">
       <sprite>sprites\spr_park_templates</sprite>
     </sprites>

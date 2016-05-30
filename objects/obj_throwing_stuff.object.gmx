@@ -32,6 +32,7 @@ direction = point_direction(x, y, player.x, player.y);
 speed = 6;
 landing_placeX = player.x;
 landing_placeY = player.y;
+shadow_yPos = 10;
 distance_to_landing_place = distance_to_point(landing_placeX,
                                                 landing_placeY);
 distance_done = 0;
@@ -62,6 +63,7 @@ steps_done = 0;
             <string>//Make an ascendent and descendent arc
 if(speed &gt; 0){
     y += (steps_done - steps_to_do/2)/2;
+    shadow_yPos -= (steps_done - steps_to_do/2)/2;
 }
 //Stop it when "falling" in the objective place
 if(steps_done &gt;= steps_to_do){
@@ -70,6 +72,33 @@ if(steps_done &gt;= steps_to_do){
 //Update de distance done
 distance_done += speed;
 steps_done ++;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+//Draw the shadow while the stuff flies
+if(speed &gt; 0){
+    draw_sprite(spr_stuff_shadow, 0, x, y + shadow_yPos);
+}
 </string>
           </argument>
         </arguments>

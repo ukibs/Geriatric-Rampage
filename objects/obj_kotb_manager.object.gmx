@@ -61,7 +61,7 @@ for(i = 0; i &lt; global.kotb_dificulty; i++){
           <argument>
             <kind>1</kind>
             <string>//
-out_key = keyboard_check_pressed(vk_space);
+out_key = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0,gp_face1);
 //The scenario ends when all the gang boys are defeated
 if(instance_number(obj_gang_boy2) = 0){
     finished = true;

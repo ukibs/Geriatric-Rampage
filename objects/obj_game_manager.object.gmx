@@ -83,7 +83,7 @@ if(key_confirm == true &amp;&amp; status_paused == true){
 }
 //To go to the map
 //Hay que revisarlo
-if(key_map == true &amp;&amp; status_paused == false &amp;&amp; player.status_still == false){
+if(key_map == true &amp;&amp; status_paused == false &amp;&amp; player.status_still == false &amp;&amp; global.global_stage &gt; 0){
     room_goto(room_map);
     //global.last_place = room_get_name(room);
 }
