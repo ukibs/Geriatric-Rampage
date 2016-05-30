@@ -197,6 +197,7 @@
     </objects>
     <objects name="KingOfTheBarrio">
       <object>objects\obj_gang_boy</object>
+      <object>objects\obj_gang_boy2</object>
       <object>objects\obj_kotb_manager</object>
       <object>objects\obj_kotb_player</object>
       <object>objects\obj_kotb_slapper</object>

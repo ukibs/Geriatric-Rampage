@@ -58,6 +58,7 @@ if(global.last_place == room){
             <string>//Get the keys
 key_pause = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0,gp_start);
 key_confirm = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0,gp_face1);
+key_map = keyboard_check_pressed(ord("M")) || gamepad_button_check(0,gp_face3);
 //(Un)Pause the game
 if(key_pause == true){
     if(status_paused == false){
@@ -79,6 +80,12 @@ if(key_confirm == true &amp;&amp; status_paused == true){
     script_execute(scr_save_game());
     //And go out
     room_goto(room_menu);
+}
+//To go to the map
+//Hay que revisarlo
+if(key_map == true &amp;&amp; status_paused == false &amp;&amp; player.status_still == false){
+    room_goto(room_map);
+    //global.last_place = room_get_name(room);
 }
 </string>
           </argument>

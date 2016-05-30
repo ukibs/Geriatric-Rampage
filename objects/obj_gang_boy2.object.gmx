@@ -25,22 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Variables
+            <string>//Get the player
+player = instance_find(obj_kotb_player, 0);
+//Variables
 movement_speed = 2;
-//Get the player
-player = instance_find(obj_kotb_player,0);
-/*Status
-    0 - Walking to the player
-    1 - Flying from the slap
-    2 -
-    3 - Running like a girl
-*/
-status = 0;
-life = 100;
-prevX = x;
-prevY = y;
-throwing = false;
 proyectile_speed = 6;
+life = 100;
+distance_to_player = 0;
+first_check = false;
+
+/* Status (and speed multiplier)
+    0 - Stopping for throwing stones
+    1 - Moving towards the player
+    2 - Running out of the park
+    3 - Being slapped
+*/
+status = 1;
+
+//Skins
+sprite_to_use_up = spr_generic_man_up;
+sprite_to_use_left = spr_generic_man_Left;
+sprite_to_use_down = spr_generic_man_down;
+sprite_to_use_rigth = spr_generic_man_Right;
+//
+sprite_to_use = sprite_to_use_down;
 //For positioning
 direction = point_direction(x, y, player.x, player.y);
 //Relocate it if too near to the player
@@ -74,11 +82,12 @@ if(place_meeting(x, y, obj_wall)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Throw a thing to the player
-stuff = instance_create(x, y, obj_throwing_stuff);
-//stuff.speed = proyectile_speed;
-//Reset the variable
-throwing = false;
+            <string>//Return to the normal status
+status = 1;
+//Death control
+if(life &lt;= 0){
+    status = 2;
+}
 </string>
           </argument>
         </arguments>
@@ -101,8 +110,9 @@ throwing = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Return to the previous status
-status = 0;
+            <string>//Trow the stuff and start to walk again
+instance_create(x, y, obj_throwing_stuff);
+status = 1;
 </string>
           </argument>
         </arguments>
@@ -125,78 +135,65 @@ status = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Check status
-switch(status){
-    //Go to the player
-    case 0:
-        direction = point_direction(x,y,player.x, player.y);
-        speed = movement_speed;
-        break;
-    //Get slapped
-    case 1:
-        speed = -movement_speed * 4;
-        break;
-    //Stop to throw stuff
-    case 2:
-        direction = point_direction(x,y,player.x, player.y);
-        if(throwing == false){
-            alarm_set(1, distance_to_object(player) / proyectile_speed * 2);
-            throwing = true;
-        }
-        speed = false;
-        break;
-    //Run away
-    case 3:
-        //Destroy them for now
-        instance_destroy();
-        direction = point_direction(x,y,player.x, player.y) + 180;
-        speed = movement_speed * 3;
-        break;
-}
-//Check run away 
-if(/*status == 3 &amp;&amp; */(x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height)){
-    instance_destroy();
-}
-//Check direction facing
-switch(int64((direction+45)/90)){
-    case 1:
-        sprite_to_use = spr_generic_man_up;
-        break;
-    case 2:
-        sprite_to_use = spr_generic_man_Left;
-        break;
-    case 3:
-        sprite_to_use = spr_generic_man_down;
-        break;
-    default:
-        sprite_to_use = spr_generic_man_Right;
-        break;
-}
-sprite_index = sprite_to_use;
-//Check distance to the player for collission stuff
+            <string>//Get the player's position
+playerX = player.x;
+playerY = player.y;
+//Get the distance
+distanceX = playerX - x;
+distanceY = playerY - y;
 distance_to_player = distance_to_object(player);
-
-//Check if there are walls on the path and move around
-//HAbrá que retocarlo
-wall_check = collision_line(x,y,player.x, player.y, obj_wall, false, true);
-if(wall_check != noone &amp;&amp; status == 0)
-    status = 2;
-else if(wall_check == noone &amp;&amp; status == 2)
-    status = 0;
-//Save the actual x and y
-prevX = x;
-prevY = y;
-
-//Check life
-if(life &lt;= 0){
-    status = 3;
+//Check the direction you want it to go
+//If seeking the player
+if(status &lt;= 1){    
+    if(abs(distanceX) &gt; abs(distanceY)){
+        direction = 90 * -sign(distanceX) + 90;
+    }
+    else{
+        direction = 90 * sign(distanceY) + 180;
+    }
 }
+//If going out
+if(status == 2){
+    //Destroy it if quits the room
+    if(x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height){
+        instance_destroy();
+    }
+    //
+    if(first_check == false){
+        if(abs(distanceX) &gt; abs(distanceY)){
+            direction = 90 * sign(distanceX) + 90;
+        }
+        else{
+            direction = 90 * -sign(distanceY) + 180;
+        }
+    }
+    else{
+    
+    }
+}
+//Check direction for the sprite
+switch(direction){
+    case 0:
+        sprite_to_use = sprite_to_use_rigth;
+        break;
+    case 90:
+        sprite_to_use = sprite_to_use_up;
+        break;
+    case 180:
+        sprite_to_use = sprite_to_use_left;
+        break;
+    case 270:
+        sprite_to_use = sprite_to_use_down;
+        break;
+}
+//Apply speed
+speed = movement_speed * status;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_gang_boy">
+    <event eventtype="4" ename="obj_gang_boy2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -214,12 +211,12 @@ if(life &lt;= 0){
           <argument>
             <kind>1</kind>
             <string>//Check if the mate is nearer to the player
-if(other.distance_to_player &lt; distance_to_player &amp;&amp; status == 0){
-    //direction = point_direction(x, y, other.x, other.y);
-    //move_outside_all(direction, 100);
-    x = prevX;
-    y = prevY;
+if(other.distance_to_player &lt; distance_to_player &amp;&amp; status != 2){
+    //Stop for throwing the stone
+    status = 0;
+    alarm_set(0, distance_to_object(player) / proyectile_speed * 2);
 }
+
 </string>
           </argument>
         </arguments>
@@ -242,11 +239,33 @@ if(other.distance_to_player &lt; distance_to_player &amp;&amp; status == 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Unstuck from the wall
-if(status != 3){
-    direction = point_direction(x, y, other.x, other.y);
-    move_outside_solid(direction, 100);
+            <string>//Unblock it
+switch(direction){
+    case 0:
+        x -= movement_speed * status;
+        break;
+    case 90:
+        y -= movement_speed * status;
+        break;
+    case 180:
+        x += movement_speed * status;
+        break;
+    case 270:
+        y += movement_speed * status;
+        break;
 }
+//Stop for throwing the stone
+if(status == 1){
+    status = 0;
+    //alarm_set(0, distance_to_object(player) / proyectile_speed * 2);
+    alarm_set(0, 45);
+}
+//
+if(status == 2){
+    first_check = true;
+    direction += 90;
+}
+
 </string>
           </argument>
         </arguments>
@@ -270,7 +289,7 @@ if(status != 3){
           <argument>
             <kind>1</kind>
             <string>//Draw the player stationary
-if(speed == 0 || status == 1)
+if(speed == 0/* || status == 1*/)
     draw_sprite(sprite_to_use, 2, x, y);
 //Or in movement
 else

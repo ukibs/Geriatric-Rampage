@@ -30,7 +30,7 @@ hsp = 0;
 vsp = 0;
 h_direction = 0;
 v_direction = 0;
-movement_speed = 8;
+movement_speed = 4;
 //Status variables
 status_still = false;
 inventory_open = false;
@@ -73,7 +73,6 @@ key_right = keyboard_check(vk_right) || gamepad_button_check(0,gp_padr);
 key_up = keyboard_check(vk_up) || gamepad_button_check(0,gp_padu);
 key_down = keyboard_check(vk_down) || gamepad_button_check(0,gp_padd);
 key_inventory = keyboard_check_pressed(ord("I"));
-key_map = keyboard_check_pressed(ord("M")) || gamepad_button_check(0,gp_face3);
 //If we aren´t still by the pause or conversation
 if(status_still == false){
     //Move the player
@@ -141,10 +140,6 @@ if(status_still == false){
             break;
     }
     direction_looking = direction;
-    if(key_map == true){
-        room_goto(room_map);
-        //global.last_place = room_get_name(room);
-    }
     if(key_inventory == true){
         status_still = true;
         inventory_open = true;

@@ -36,7 +36,7 @@ for(i = 0; i &lt; global.kotb_dificulty; i++){
     spamX = random_range(room_width/2, room_width);
     spamY = random_range(0, room_height/2);
     //distance_to_point(
-    gang_boy = instance_create(spamX, spamY, obj_gang_boy);
+    gang_boy = instance_create(spamX, spamY, obj_gang_boy2);
 }
 </string>
           </argument>
@@ -63,7 +63,7 @@ for(i = 0; i &lt; global.kotb_dificulty; i++){
             <string>//
 out_key = keyboard_check_pressed(vk_space);
 //The scenario ends when all the gang boys are defeated
-if(instance_number(obj_gang_boy) = 0){
+if(instance_number(obj_gang_boy2) = 0){
     finished = true;
     victory = true;
 }
