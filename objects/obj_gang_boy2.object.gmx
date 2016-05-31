@@ -65,6 +65,41 @@ if(place_meeting(x, y, obj_wall)){
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Point to the nearest exit
+centralX = room_width/2;
+centralY = room_height/2;
+distanceX = centralX - x;
+distanceY = centralY - y;
+if(abs(distanceX) &gt; abs(distanceY)){
+    direction = 90 * sign(distanceX) + 90;
+}
+else{
+    direction = 90 * -sign(distanceY) + 180;
+}
+//Reset the alarm
+alarm_set(2, 15);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -83,9 +118,10 @@ if(place_meeting(x, y, obj_wall)){
           <argument>
             <kind>1</kind>
             <string>//Return to the normal status
-status = 1;
-//Death control
-if(life &lt;= 0){
+if(life &gt; 0){
+    status = 1;
+}
+else{
     status = 2;
 }
 </string>
@@ -111,8 +147,10 @@ if(life &lt;= 0){
           <argument>
             <kind>1</kind>
             <string>//Trow the stuff and start to walk again
-instance_create(x, y, obj_throwing_stuff);
-status = 1;
+if(life &gt; 0){ //Control it is still not crying
+    instance_create(x, y, obj_throwing_stuff);
+    status = 1;
+}
 </string>
           </argument>
         </arguments>
@@ -135,7 +173,11 @@ status = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Get the player's position
+            <string>//
+if(life &lt;= 0){
+    //status = 2;
+}
+//Get the player's position
 playerX = player.x;
 playerY = player.y;
 //Get the distance
@@ -158,7 +200,7 @@ if(status == 2){
     if(x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height){
         instance_destroy();
     }
-    //
+    //Firstly run away from the player
     if(first_check == false){
         if(abs(distanceX) &gt; abs(distanceY)){
             direction = 90 * sign(distanceX) + 90;
@@ -167,9 +209,7 @@ if(status == 2){
             direction = 90 * -sign(distanceY) + 180;
         }
     }
-    else{
-    
-    }
+    //Before that check it in alarm 2 and collisions
 }
 //Check direction for the sprite
 switch(direction){
@@ -211,7 +251,7 @@ speed = movement_speed * status;
           <argument>
             <kind>1</kind>
             <string>//Check if the mate is nearer to the player
-if(other.distance_to_player &lt; distance_to_player &amp;&amp; status != 2){
+if(other.distance_to_player &lt; distance_to_player &amp;&amp; status == 1){
     //Stop for throwing the stone
     status = 0;
     alarm_set(0, distance_to_object(player) / proyectile_speed * 2);
@@ -260,10 +300,11 @@ if(status == 1){
     //alarm_set(0, distance_to_object(player) / proyectile_speed * 2);
     alarm_set(0, 45);
 }
-//
+//If running away, change the direction
 if(status == 2){
     first_check = true;
-    direction += 90;
+    direction += sign(random_range(-10, 10)) * 90;
+    alarm_set(0, 15);
 }
 
 </string>
@@ -289,7 +330,7 @@ if(status == 2){
           <argument>
             <kind>1</kind>
             <string>//Draw the player stationary
-if(speed == 0/* || status == 1*/)
+if(speed == 0 || status == 3)
     draw_sprite(sprite_to_use, 2, x, y);
 //Or in movement
 else

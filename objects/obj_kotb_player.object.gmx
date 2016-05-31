@@ -140,8 +140,8 @@ if(invincible == false &amp;&amp; other.speed &gt; 0 &amp;&amp; other.shadow_yPo
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//
-if(invincible == false &amp;&amp; other.status == 0){
+            <string>//Get damaged if the  gnag boy goes for you
+if(invincible == false &amp;&amp; other.status == 1){
     life -= 20;
     invincible = true;
     alarm_set(0, 30);
