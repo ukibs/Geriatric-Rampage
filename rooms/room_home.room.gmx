@@ -123,7 +123,6 @@
     <instance objName="obj_wall" x="361" y="182" name="inst_26A5C557" locked="0" code="" scaleX="0.290322571992874" scaleY="2.78125" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="269" y="39" name="inst_43EC8576" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="560" y="60" name="inst_0930D76E" locked="0" code="" scaleX="1.38709676265717" scaleY="0.560000002384186" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="506" y="63" name="inst_85457240" locked="0" code="" scaleX="1.71875" scaleY="2.5806450843811" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="581" y="268" name="inst_62777526" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="476" y="439" name="inst_219D8C6C" locked="0" code="" scaleX="4.125" scaleY="1.45161294937134" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="256" name="inst_FB0FDD67" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -135,9 +134,9 @@
     <instance objName="obj_wall" x="63" y="228" name="inst_49E06B3E" locked="0" code="" scaleX="1.1599999666214" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="153" y="33" name="inst_EBF8CEDA" locked="0" code="" scaleX="3" scaleY="1.03125" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="363" y="62" name="inst_3BA510F9" locked="0" code="" scaleX="0.25806450843811" scaleY="0.560000002384186" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="513" y="145" name="inst_A6C5684A" locked="0" code="" scaleX="1.34375" scaleY="0.310000002384186" colour="4294967295" rotation="0"/>
     <instance objName="obj_event1" x="304" y="37" name="inst_5B8922C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="315" y="211" name="inst_61467984" locked="0" code="" scaleX="1.0625" scaleY="0.649999976158142" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bed" x="508" y="64" name="inst_A3971A4B" locked="0" code="" scaleX="1.60000002384186" scaleY="3" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

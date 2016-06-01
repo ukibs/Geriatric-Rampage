@@ -60,6 +60,7 @@
       <sprite>sprites\spr_exit</sprite>
       <sprite>sprites\spr_place</sprite>
       <sprite>sprites\spr_event_trigger</sprite>
+      <sprite>sprites\spr_examinable_object</sprite>
     </sprites>
     <sprites name="Petanca">
       <sprite>sprites\spr_petanca_square</sprite>
@@ -173,6 +174,10 @@
         <object>objects\obj_kid1</object>
         <object>objects\obj_girl1</object>
       </objects>
+    </objects>
+    <objects name="Examinable Stuff">
+      <object>objects\obj_examinable_object</object>
+      <object>objects\obj_bed</object>
     </objects>
     <objects name="Managers">
       <object>objects\obj_menu_manager</object>
