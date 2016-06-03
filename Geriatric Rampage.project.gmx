@@ -48,6 +48,7 @@
     <sprite>sprites\spr_map_icon</sprite>
     <sprite>sprites\spr_respect_hud</sprite>
     <sprite>sprites\spr_window_hud</sprite>
+    <sprite>sprites\spr_Window_hud_reputation</sprite>
     <sprite>sprites\spr_inventory_icon</sprite>
     <sprites name="Player">
       <sprite>sprites\spr_walking_left</sprite>

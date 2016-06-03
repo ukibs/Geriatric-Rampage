@@ -57,10 +57,10 @@ if(key_pause == true){
     if(status_paused == false){
         status_paused = true;
         instance_deactivate_all(true);
-        instance_activate_object(obj_Instructions_petanca);
+        /*instance_activate_object(obj_Instructions_petanca);
         instance_activate_object(obj_instructions_king);
         instance_activate_object(obj_instructions_Bocata);
-        instance_activate_object(obj_instructions_pidgeon);
+        instance_activate_object(obj_instructions_pidgeon);*/
     }
     else{
         status_paused = false;

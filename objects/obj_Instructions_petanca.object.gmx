@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>//Create the variable
-key_pause = keyboard_check_pressed(vk_escape);
+key_pause = keyboard_check_pressed(vk_escape)||gamepad_button_check_pressed(0,gp_start);;
 instructions_draw = false;
 
 //If you press Escape, instructions_draw is true
@@ -38,7 +38,7 @@ if (key_pause == true){
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -55,7 +55,8 @@ if (key_pause == true){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instructions_draw == true){
+            <string>//Draw Instructions
+if (instructions_draw == true){
     draw_set_halign(fa_center);
     draw_set_valign(fa_center);
     draw_set_colour(c_white);

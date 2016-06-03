@@ -30,7 +30,7 @@ event_inherited();
 //Apply your own text
 text[0] = "1Good morning, Eustaquio.";
 text[1] = "0Now what?";
-text[2] = "1I´m affraid you've achieved another fine.";
+text[2] = "1I´m affraid you've achieved another fine";
 text[3] = "0What?! Another!?";
 text[4] = "1You know you shouldn't break the law.";
 text[5] = "0I will do what comes out of my balls!";

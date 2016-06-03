@@ -28,7 +28,7 @@
             <string>event_inherited();
 //These must be applied on each character
 text[0] = "1Sir, what is an transvestite?";
-text[1] = "1My mother says my father is a transvestite";
+text[1] = "1My mother says my father is a           transvestite";
 text_length = array_length_1d(text);
 speaker_name = "Weird Kid";
 
