@@ -138,7 +138,6 @@
     <object>objects\obj_preload</object>
     <object>objects\obj_hud</object>
     <object>objects\obj_save_cleaner</object>
-    <object>objects\obj_Bench</object>
     <objects name="Interactors">
       <object>objects\obj_wall</object>
       <object>objects\obj_exit</object>
@@ -225,6 +224,7 @@
       <object>objects\obj_ball_pidgeon</object>
       <object>objects\obj_pointer_pidgeon</object>
       <object>objects\obj_instructions_pidgeon</object>
+      <object>objects\obj_Mgr_Pidgeon</object>
     </objects>
     <object>objects\obj_park_template</object>
     <objects name="Events">

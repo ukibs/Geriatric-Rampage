@@ -8,3 +8,4 @@ global.petanca_dificulty = 1;
 global.kotb_dificulty = 3;
 global.bocata_dificulty = 3;
 global.global_stage = 0;
+global.pidgeon_difficulty = 10;

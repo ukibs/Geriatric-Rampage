@@ -12,6 +12,7 @@
     global.kotb_dificulty = file_text_read_real(loadFile);
     global.bocata_dificulty = file_text_read_real(loadFile);
     global.global_stage = file_text_read_real(loadFile);
+    global.pidgeon_difficulty = file_text_read_real(loadFile);
     //And close
     file_text_close(loadFile);
 //}

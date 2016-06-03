@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(other)
+            <string>obj_MgrPidgeon.scorePidgeon -= 1;
+
+with(other)
 {
     instance_destroy();
 }

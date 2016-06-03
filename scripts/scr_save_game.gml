@@ -13,6 +13,7 @@ file_text_write_real(saveFile, global.petanca_dificulty);
 file_text_write_real(saveFile, global.kotb_dificulty);
 file_text_write_real(saveFile, global.bocata_dificulty);
 file_text_write_real(saveFile, global.global_stage);
+file_text_write_real(saveFile, global.pidgeon_difficulty);
 //And close
 file_text_close(saveFile);
 
