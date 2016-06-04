@@ -15,6 +15,7 @@
         <sprite>sprites\spr_generic_man_Right</sprite>
         <sprite>sprites\spr_generic_man_up</sprite>
         <sprite>sprites\spr_generic_man_Left</sprite>
+        <sprite>sprites\spr_generic_man_spinning</sprite>
       </sprites>
       <sprites name="police officers">
         <sprite>sprites\spr_police_officer_down</sprite>
@@ -98,6 +99,7 @@
       <sprite>sprites\spr_black_car</sprite>
       <sprite>sprites\spr_bus</sprite>
     </sprites>
+    <sprite>sprites\spr_crying_icon</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>

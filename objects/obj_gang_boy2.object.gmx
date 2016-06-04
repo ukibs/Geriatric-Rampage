@@ -312,6 +312,32 @@ if(status == 2){
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Draw crying icon
+if(status == 2){
+    draw_sprite(spr_crying_icon, 0, x, y - 40);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -330,11 +356,15 @@ if(status == 2){
           <argument>
             <kind>1</kind>
             <string>//Draw the player stationary
-if(speed == 0 || status == 3)
+if(speed == 0)
     draw_sprite(sprite_to_use, 2, x, y);
+//Draw it spinning (hay que revisarlo)
+else if (status == 3)
+    draw_sprite(spr_generic_man_spinning, delta_time%12, x, y);
 //Or in movement
 else
     draw_self();
+    
 </string>
           </argument>
         </arguments>
