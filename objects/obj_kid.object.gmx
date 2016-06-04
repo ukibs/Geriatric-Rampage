@@ -36,7 +36,10 @@ sprite_to_use = sprite_to_useDown;
 /* Status
     2 - Running &amp; crying
 */
+first_check = false;
 
+//Get the player
+player = instance_find(obj_bocata_player, 0);
 </string>
           </argument>
         </arguments>
@@ -62,7 +65,9 @@ sprite_to_use = sprite_to_useDown;
             <string>event_inherited();
 //
 if(status == 2){
-    
+    first_check = true;
+    direction += sign(random_range(-10, 10)) * 90;
+    alarm_set(0, 15);
 }
 </string>
           </argument>
@@ -87,10 +92,83 @@ if(status == 2){
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+//Get the player's position
+playerX = player.x;
+playerY = player.y;
+//Get the distance
+distanceX = playerX - x;
+distanceY = playerY - y;
+distance_to_player = distance_to_object(player);
 //
 if(status == 2){
-    //For the moment destroy it
-    instance_destroy();
+    //Destroy it if quits the room
+    if(x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height){
+        instance_destroy();
+    }
+    //Firstly run away from the player
+    if(first_check == false){
+        if(abs(distanceX) &gt; abs(distanceY)){
+            direction = 90 * sign(distanceX) + 90;
+        }
+        else{
+            direction = 90 * -sign(distanceY) + 180;
+        }
+    }
+    //Before that check it in alarm 2 and collisions
+    //
+    speed = movement_speed * 2;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_wall">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+//
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+//Draw crying icon
+if(status == 2){
+    draw_sprite(spr_crying_icon, 0, x, y - 40);
 }
 </string>
           </argument>

@@ -57,6 +57,7 @@ point_to_checkX1 = 0;
 point_to_checkX2 = 0;
 point_to_checkY1 = 0;
 point_to_checkY2 = 0;
+suspicious = false;
 </string>
           </argument>
         </arguments>
@@ -80,19 +81,22 @@ point_to_checkY2 = 0;
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+//Reset alerted
+suspicious = false;
 //Check if the player is in view when slap
-if(check_player == true){
-    var x1 = x + lengthdir_x(300, direction - 45);
-    var y1 = y + lengthdir_y(300, direction - 45);
-    var x2 = x + lengthdir_x(300, direction + 45);
-    var y2 = y + lengthdir_y(300, direction + 45);
-    //Make the triangle
-    if(point_in_triangle(player.x, player.y, 
-        x, y, x1, y1, x2, y2) == true){
+var x1 = x + lengthdir_x(300, direction - 45);
+var y1 = y + lengthdir_y(300, direction - 45);
+var x2 = x + lengthdir_x(300, direction + 45);
+var y2 = y + lengthdir_y(300, direction + 45);
+//Make the triangle
+if(point_in_triangle(player.x, player.y, 
+    x, y, x1, y1, x2, y2) == true){
+    if(check_player = true)
         status = 3;   
-    }
-    check_player = false;
+    else
+        suspicious = true;
 }
+check_player = false;
 //
 if(status == 3){
     manager.finished = true; 
@@ -127,6 +131,9 @@ if(status == 2){
 //
 if(status == 3){
     draw_sprite(spr_catch, 0, x, y-30);
+}
+else if(suspicious == true){
+    draw_sprite(spr_alert, 0, x, y-30);
 }
 </string>
           </argument>

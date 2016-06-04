@@ -38,6 +38,7 @@ for(i = 0; i &lt; global.bocata_dificulty; i++){
     kid = instance_create(spamX, spamY, obj_kid);
     mom = instance_create(spamX+32, spamY, obj_mother);
 }
+kids_for_slap = global.bocata_dificulty;
 //Set the time you have until fail
 alarm_set(0, room_speed * 60);
 //Start to play the music
@@ -91,7 +92,7 @@ finished = true;
             <string>//
 out_key = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0,gp_face1);
 //Count the amount of kids for slap
-kids_for_slap = instance_number(obj_kid);
+//kids_for_slap = instance_number(obj_kid);
 if(kids_for_slap == 0){
     //And end with victory when all are slapped
     finished = true;
