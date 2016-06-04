@@ -329,10 +329,8 @@ if(status == 2){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Draw crying icon
-if(status == 2){
-    draw_sprite(spr_crying_icon, 0, x, y - 40);
-}
+            <string>//De momento nada
+
 </string>
           </argument>
         </arguments>
@@ -364,7 +362,11 @@ else if (status == 3)
 //Or in movement
 else
     draw_self();
-    
+
+//Draw crying icon
+if(status == 2){
+    draw_sprite(spr_crying_icon, 0, x, y - 40);
+}
 </string>
           </argument>
         </arguments>

@@ -7,6 +7,10 @@
   <sounds name="sound">
     <sound>sound\snd_knock_knock</sound>
     <sound>sound\snd_door</sound>
+    <sound>sound\snd_petanca_music</sound>
+    <sound>sound\snd_kotb_music</sound>
+    <sound>sound\snd_menu_map_music</sound>
+    <sound>sound\snd_bocata_music</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Secondary Characters ">
@@ -137,7 +141,6 @@
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_menu_selector</object>
-    <object>objects\obj_map_selector</object>
     <object>objects\obj_preload</object>
     <object>objects\obj_hud</object>
     <object>objects\obj_save_cleaner</object>
@@ -151,11 +154,13 @@
       <object>objects\obj_park_marker</object>
       <object>objects\obj_place</object>
       <object>objects\obj_city_center_marker</object>
+      <object>objects\obj_car</object>
       <object>objects\obj_red_car</object>
       <object>objects\obj_white_car</object>
       <object>objects\obj_black_car</object>
-      <object>objects\obj_car</object>
+      <object>objects\obj_bus</object>
       <object>objects\obj_map_car_manager</object>
+      <object>objects\obj_map_selector</object>
     </objects>
     <objects name="People">
       <object>objects\obj_base_talker</object>
@@ -192,7 +197,6 @@
       <object>objects\obj_pared_Rodapie</object>
     </objects>
     <objects name="Petanca">
-      <object>objects\obj_petanca_square</object>
       <object>objects\obj_petanca_manager</object>
       <object>objects\obj_boliche</object>
       <object>objects\obj_pointer</object>
