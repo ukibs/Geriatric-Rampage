@@ -45,35 +45,6 @@ player = instance_find(obj_bocata_player, 0);
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>event_inherited();
-//
-if(status == 2){
-    first_check = true;
-    direction += sign(random_range(-10, 10)) * 90;
-    alarm_set(0, 15);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -92,31 +63,40 @@ if(status == 2){
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-//Get the player's position
-playerX = player.x;
-playerY = player.y;
-//Get the distance
-distanceX = playerX - x;
-distanceY = playerY - y;
-distance_to_player = distance_to_object(player);
+//Control to not go out of the place (revise)
+if(status == 2){
+    if(x &lt; sprite_width || x &gt; room_width - sprite_width
+            || y &lt; sprite_height || y &gt; room_height - sprite_height){
+        direction += 90
+        //alarm_set(0, 1);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_bocata_player">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
 //
 if(status == 2){
-    //Destroy it if quits the room
-    if(x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height){
-        instance_destroy();
-    }
-    //Firstly run away from the player
-    if(first_check == false){
-        if(abs(distanceX) &gt; abs(distanceY)){
-            direction = 90 * sign(distanceX) + 90;
-        }
-        else{
-            direction = 90 * -sign(distanceY) + 180;
-        }
-    }
-    //Before that check it in alarm 2 and collisions
-    //
-    speed = movement_speed * 2;
+    direction += 90;
 }
 </string>
           </argument>
@@ -142,7 +122,11 @@ if(status == 2){
             <kind>1</kind>
             <string>event_inherited();
 //
-
+if(status == 2){
+    move_outside_solid(direction + 180, 100);
+    //And turn
+    direction += 90;
+}
 </string>
           </argument>
         </arguments>

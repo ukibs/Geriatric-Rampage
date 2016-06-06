@@ -109,15 +109,20 @@ image_angle = direction;
             <kind>1</kind>
             <string>//Get the slap key
 slap_key = keyboard_check_pressed(vk_space) || gamepad_button_check(0,gp_face1);
-//
+//Slap the kid
 if(slap_key == true &amp;&amp; can_slap == true){
     if(other.status != 2){
         other.status = 2;
+        //Finish the normal walking cicle
+        other.alarm[0] = 0;
+        //
+        other.direction = direction;
+        //Provisional speed
+        other.speed_multiplier = 3;
         bocata_manager.kids_for_slap --;
         //Provisional
-        with(other) instance_destroy();
+        //with(other) instance_destroy();
     }    
-    //other.alarm[0] = 1;
     can_slap = false;
     alarm_set(0, 10);
     //Check if the mothers can see the player

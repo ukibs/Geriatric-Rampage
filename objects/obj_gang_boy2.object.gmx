@@ -33,6 +33,7 @@ proyectile_speed = 6;
 life = 100;
 distance_to_player = 0;
 first_check = false;
+defeated = false;
 
 /* Status (and speed multiplier)
     0 - Stopping for throwing stones
@@ -173,11 +174,7 @@ if(life &gt; 0){ //Control it is still not crying
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//
-if(life &lt;= 0){
-    //status = 2;
-}
-//Get the player's position
+            <string>//Get the player's position
 playerX = player.x;
 playerY = player.y;
 //Get the distance
@@ -196,6 +193,11 @@ if(status &lt;= 1){
 }
 //If going out
 if(status == 2){
+    //Mark it as defeated
+    if(defeated == false){
+        obj_kotb_manager.enemies_to_defeat --;
+        defeated = true;
+    }
     //Destroy it if quits the room
     if(x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height){
         instance_destroy();
@@ -279,7 +281,7 @@ if(other.distance_to_player &lt; distance_to_player &amp;&amp; status == 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Unblock it
+            <string>//Unstuck it
 switch(direction){
     case 0:
         x -= movement_speed * status;
@@ -294,6 +296,8 @@ switch(direction){
         y += movement_speed * status;
         break;
 }
+//Another way
+move_outside_solid(direction + 180, 100);
 //Stop for throwing the stone
 if(status == 1){
     status = 0;

@@ -51,6 +51,11 @@ if(place_meeting(x,y, obj_wall)){
     direction = point_direction(x, y, room_width/2, room_height/2);
     move_outside_solid(direction, 0);
 }
+//Relocate it if too near to the player
+while(distance_to_object(obj_bocata_player) &lt; 50){
+    x = random_range(room_width/2, room_width);
+    y = random_range(0, room_height/2);
+}
 </string>
           </argument>
         </arguments>
@@ -78,7 +83,8 @@ if(status == 1){
     //Decide a direction and move
     movementX = 0;
     movementY = 0;
-    direction_to_move = irandom(4);
+    direction_to_move = irandom(3);
+    direction = direction_to_move * 90;
     //And change status
     status = 0;
     speed_multiplier = 1;
@@ -111,45 +117,35 @@ alarm_set(0, random_range(10, 50));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Control to not collide, and change direction
-if(place_meeting(x+hspeed, y+vspeed, obj_wall)
-    /*|| place_meeting(x+hspeed, y+vspeed, obj_bocata_player)*/){
-    speed_multiplier = 0;
-    alarm_set(0, 1);
-}
-//Control to not go out of the place
-if(x+hspeed &lt; 50 || x+hspeed &gt; room_width - 50
-        || y+vspeed &lt; 50 || y+vspeed &gt; room_height - 50){
-    speed_multiplier = 0;
-    alarm_set(0, 1);
+            <string>//Control to not go out of the place (revise)
+if(status == 1){
+    if(x &lt; sprite_width || x &gt; room_width - sprite_width
+            || y &lt; sprite_height || y &gt; room_height - sprite_height){
+        speed_multiplier = 0;
+        //alarm_set(0, 1);
+    }
 }
 //Go according direction selected
-switch(direction_to_move){
-    case 0: //Left
-        movementX = -1;
-        sprite_to_use = sprite_to_useLeft;
-        direction = 180;
-        break;
-    case 1: //Right
-        movementX = 1;
+switch(direction){
+    case 0: //Right
         sprite_to_use = sprite_to_useRight;
-        direction = 0;
         break;
-    case 2: //Up
-        movementY = -1;
+    case 90: //Up
         sprite_to_use = sprite_to_useUp;
-        direction = 90;
         break;
-    case 3: //Down
-        movementY = 1;
+    case 180: //Left
+        sprite_to_use = sprite_to_useLeft;
+        break;
+    case 270: //Down
         sprite_to_use = sprite_to_useDown;
-        direction = 270;
         break;
 }
 sprite_index = sprite_to_use;
 //Set speeds
-hspeed = movementX * movement_speed * speed_multiplier;
-vspeed = movementY * movement_speed * speed_multiplier;
+//hspeed = movementX * movement_speed * speed_multiplier;
+//vspeed = movementY * movement_speed * speed_multiplier;
+//Alternate option
+speed = movement_speed * speed_multiplier;
 </string>
           </argument>
         </arguments>
@@ -173,8 +169,55 @@ vspeed = movementY * movement_speed * speed_multiplier;
           <argument>
             <kind>1</kind>
             <string>//
-x -= hspeed;
-y -= vspeed;
+if(status == 1){
+    //Unstuck
+    move_outside_solid(direction + 180, 100);
+    //And stop
+    speed_multiplier = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_player">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Unstuck
+while(place_meeting(x, y, obj_bocata_player)){
+    switch(direction){
+        case 0:
+            x--;
+        break;
+        case 90:
+            y++;
+        break;
+        case 180:
+            x++;
+        break;
+        case 270:
+            y--;
+        break;
+        }
+    }
+if(status == 1){
+    //
+    speed_multiplier = 0;
+}
 </string>
           </argument>
         </arguments>

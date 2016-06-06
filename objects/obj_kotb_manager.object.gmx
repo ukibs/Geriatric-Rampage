@@ -38,6 +38,8 @@ for(i = 0; i &lt; global.kotb_dificulty; i++){
     //distance_to_point(
     gang_boy = instance_create(spamX, spamY, obj_gang_boy2);
 }
+//
+enemies_to_defeat = global.kotb_dificulty;
 //Start to play the music
 audio_play_sound(snd_kotb_music, 1, true);
 </string>
@@ -65,7 +67,8 @@ audio_play_sound(snd_kotb_music, 1, true);
             <string>//
 out_key = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0,gp_face1);
 //The scenario ends when all the gang boys are defeated
-if(instance_number(obj_gang_boy2) = 0){
+//if(instance_number(obj_gang_boy2) == 0){
+if(enemies_to_defeat == 0){
     finished = true;
     victory = true;
 }

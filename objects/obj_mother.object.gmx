@@ -44,12 +44,7 @@ switch(skin){
 }
 //Set one
 sprite_to_use = sprite_to_useDown;
-/*
-    Status
-    2 - Alerted
-    3 - Calling police
-*/
-//
+//Vigilance variables
 player = instance_find(obj_bocata_player, 0);
 manager = instance_find(bocata_manager, 0);
 check_player = false;
@@ -57,7 +52,9 @@ point_to_checkX1 = 0;
 point_to_checkX2 = 0;
 point_to_checkY1 = 0;
 point_to_checkY2 = 0;
+//Alarm stats
 suspicious = false;
+alerted = false;
 </string>
           </argument>
         </arguments>
@@ -91,16 +88,15 @@ var y2 = y + lengthdir_y(300, direction + 45);
 //Make the triangle
 if(point_in_triangle(player.x, player.y, 
     x, y, x1, y1, x2, y2) == true){
-    if(check_player = true)
-        status = 3;   
+    if(check_player = true){
+        alerted = true;
+        manager.finished = true;
+    }
     else
         suspicious = true;
 }
 check_player = false;
-//
-if(status == 3){
-    manager.finished = true; 
-}
+
 </string>
           </argument>
         </arguments>
@@ -124,12 +120,8 @@ if(status == 3){
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-//
-if(status == 2){
-    //draw_sprite(spr_alert, 0, x, y-30);
-}
-//
-if(status == 3){
+//Alert and suspiction icons
+if(alerted == true){
     draw_sprite(spr_catch, 0, x, y-30);
 }
 else if(suspicious == true){
