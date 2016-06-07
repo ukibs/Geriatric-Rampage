@@ -11,6 +11,8 @@
     <sound>sound\snd_kotb_music</sound>
     <sound>sound\snd_menu_map_music</sound>
     <sound>sound\snd_bocata_music</sound>
+    <sound>sound\snd_Parque</sound>
+    <sound>sound\snd_Aplausos__victoria_</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Secondary Characters ">
@@ -46,6 +48,11 @@
         <sprite>sprites\spr_kid1_left</sprite>
         <sprite>sprites\spr_kid1_right</sprite>
         <sprite>sprites\spr_kid1_up</sprite>
+      </sprites>
+      <sprites name="Old mans">
+        <sprite>sprites\spr_Aged2Bald_Down</sprite>
+        <sprite>sprites\spr_AgedSemiNaked_Down</sprite>
+        <sprite>sprites\spr_OldMan2</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_text_background</sprite>
@@ -180,11 +187,18 @@
         </objects>
         <object>objects\obj_kid1</object>
         <object>objects\obj_girl1</object>
+        <object>objects\obj_police2_Park</object>
       </objects>
     </objects>
     <objects name="Examinable Stuff">
       <object>objects\obj_examinable_object</object>
       <object>objects\obj_bed</object>
+      <object>objects\obj_fridge</object>
+      <object>objects\obj_cans</object>
+      <object>objects\obj_grafiti</object>
+      <object>objects\obj_bearPark</object>
+      <object>objects\obj_StatuePark</object>
+      <object>objects\obj_toilet</object>
     </objects>
     <objects name="Managers">
       <object>objects\obj_menu_manager</object>

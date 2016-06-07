@@ -27,18 +27,19 @@
             <kind>1</kind>
             <string>//Arrays of starting positions
 startX[0] = -20;
-startY[0] = 448+16;
+startY[0] = 448+10;
 orientation[0] = 1;
 startX[1] = room_width + 20;
-startY[1] = 416+20;
+//Third position
+startY[1] = 416+15;
 orientation[1] = -1;
 startX[2] = -20;
-startY[2] = 256;
+//Second position
+startY[2] = 256+5;
 orientation[2] = 1;
 startX[3] = room_width + 20;
 startY[3] = 224+20;
 orientation[3] = -1;
-//
 positons_length = array_length_1d(startX);
 alarm_set(0, 1);
 </string>

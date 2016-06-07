@@ -68,7 +68,7 @@ if(player.inventory_open = true){
 }
 draw_set_font(font_SpeakAndText);
 //Show the actual reputation
-draw_text(500, 23, "Rep " + string(global.reputation));
+draw_text(510, 23, "Rep " + string(global.reputation));
 draw_sprite(spr_respect_hud, 0, 468, 10);
 </string>
           </argument>
