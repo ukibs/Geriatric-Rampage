@@ -48,6 +48,15 @@
         <sprite>sprites\spr_kid1_left</sprite>
         <sprite>sprites\spr_kid1_right</sprite>
         <sprite>sprites\spr_kid1_up</sprite>
+        <sprite>sprites\spr_kid_2_down</sprite>
+        <sprite>sprites\spr_kid_2_left</sprite>
+        <sprite>sprites\spr_kid_2_right</sprite>
+        <sprite>sprites\spr_kid_2_up</sprite>
+        <sprite>sprites\spr_kid_2_spinning</sprite>
+        <sprite>sprites\spr_kid_3_down</sprite>
+        <sprite>sprites\spr_kid_3_left</sprite>
+        <sprite>sprites\spr_kid_3_right</sprite>
+        <sprite>sprites\spr_kid_3_up</sprite>
       </sprites>
       <sprites name="Old mans">
         <sprite>sprites\spr_Aged2Bald_Down</sprite>
@@ -111,6 +120,7 @@
       <sprite>sprites\spr_bus</sprite>
     </sprites>
     <sprite>sprites\spr_crying_icon</sprite>
+    <sprite>sprites\spr_Roca</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -199,6 +209,7 @@
       <object>objects\obj_bearPark</object>
       <object>objects\obj_StatuePark</object>
       <object>objects\obj_toilet</object>
+      <object>objects\obj_Dolll</object>
     </objects>
     <objects name="Managers">
       <object>objects\obj_menu_manager</object>
