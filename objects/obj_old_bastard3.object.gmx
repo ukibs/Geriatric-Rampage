@@ -37,6 +37,7 @@ text[6] = "1I´m glad to hear that.";
 text[7] = "0And now... what.";
 text[8] = "1That was only the begining, Eustaquio.";
 text[9] = "1Your journey hasn´t done more than start";
+text[10] = "1Come. I will see you in the city center";
 
 text_length = array_length_1d(text);
 speaker_name = "Old Bastard";

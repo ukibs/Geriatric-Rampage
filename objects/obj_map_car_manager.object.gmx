@@ -77,6 +77,9 @@ switch(selected_car){
     case 2:
         selected_car = obj_black_car;
         break;
+    case 3:
+        selected_car = obj_bus
+        break;
 }
 car = instance_create(startX[starting_position], startY[starting_position], selected_car);
 car.hspeed = 5 * orientation[starting_position];

@@ -28,6 +28,7 @@
             <string>place_name = "Home";
 show_place = false;
 place_to_go = room_home;
+stage_to_access = 0;
 </string>
           </argument>
         </arguments>

@@ -118,7 +118,7 @@ if(slap_key == true &amp;&amp; can_slap == true){
         //
         other.direction = direction;
         //Provisional speed
-        other.speed_multiplier = 3;
+        other.speed_multiplier = 2;
         bocata_manager.kids_for_slap --;
         //Provisional
         //with(other) instance_destroy();

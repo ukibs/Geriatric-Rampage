@@ -157,6 +157,7 @@
       <object>objects\obj_interactor</object>
     </objects>
     <objects name="Map">
+      <object>objects\obj_map_selector</object>
       <object>objects\obj_home_marker</object>
       <object>objects\obj_park_marker</object>
       <object>objects\obj_place</object>
@@ -167,7 +168,6 @@
       <object>objects\obj_black_car</object>
       <object>objects\obj_bus</object>
       <object>objects\obj_map_car_manager</object>
-      <object>objects\obj_map_selector</object>
     </objects>
     <objects name="People">
       <object>objects\obj_base_talker</object>

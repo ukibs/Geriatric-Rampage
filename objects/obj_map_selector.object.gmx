@@ -32,8 +32,34 @@ h_direction = 0;
 v_direction = 0;
 //
 place_to_go = "None";
+blocked = false;
+displaying = false;
 //Start to play the music
 audio_play_sound(snd_menu_map_music, 1, true);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//
+displaying = false;
 </string>
           </argument>
         </arguments>
@@ -78,7 +104,12 @@ x += hsp;
 y += vsp;
 //To go to the place
 if(key_space = true &amp;&amp; place_to_go != "None"){
-    room_goto(place_to_go);
+    if(blocked == false)
+        room_goto(place_to_go);
+    else{
+        displaying = true;
+        alarm_set(0, 60);   
+    }
 }
 //Set show place to false when finish
 show_place = false;
@@ -139,6 +170,10 @@ draw_self();
 //draw_text(10, 10, global.last_place);
 //draw_text(10, 20, global.last_xPos);
 //draw_text(10, 30, global.last_yPos);
+if(displaying == true){
+    draw_sprite(spr_text_background, 0, 300, 480);
+    draw_text(300, 400, "I won´t go there without a good reason");
+}
 </string>
           </argument>
         </arguments>

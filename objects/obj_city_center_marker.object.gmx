@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>place_name = "City Center";
 show_place = false;
-place_to_go = room_city_center;
+place_to_go = room_toBeContinued;
+stage_to_access = 3;
 </string>
           </argument>
         </arguments>

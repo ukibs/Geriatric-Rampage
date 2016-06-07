@@ -66,8 +66,9 @@ else{   //Destroy it if not
             <kind>1</kind>
             <string>//
 if(player.status_still = false){
-    script_execute(scr_save_game);
-    room_goto(room_toBeContinued);
+    //script_execute(scr_save_game);
+    global.global_stage ++;
+    room_goto(room_map);
 }
 </string>
           </argument>

@@ -25,9 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>place_name = "Place";
+            <string>//Put these on each place
+place_name = "Place";
 show_place = false;
 place_to_go = "None";
+stage_to_access = 0;
 </string>
           </argument>
         </arguments>
@@ -77,6 +79,10 @@ show_place = false;
             <string>//when touching the slector show the name of the place
 show_place = true;
 other.place_to_go = place_to_go;
+if(stage_to_access &gt; global.global_stage)
+    other.blocked = true;
+else
+    other.blocked = false;
 </string>
           </argument>
         </arguments>

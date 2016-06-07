@@ -31,7 +31,9 @@ text[0] = "1Here we are";
 text[1] = "0For what?";
 text[2] = "1For testing your... spirit";
 text[3] = "0Go to the point";
-
+text[4] = "1We are going to test you, Eustaquio";
+text[5] = "1Search our pals and get over their challenges";
+text[6] = "1When we consider that you are ready, I will speak with you again";
 
 text_length = array_length_1d(text);
 speaker_name = "???";
