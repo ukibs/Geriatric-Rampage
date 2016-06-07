@@ -215,6 +215,7 @@
       <object>objects\obj_StatuePark</object>
       <object>objects\obj_toilet</object>
       <object>objects\obj_Dolll</object>
+      <object>objects\obj_desktop</object>
     </objects>
     <objects name="Managers">
       <object>objects\obj_menu_manager</object>

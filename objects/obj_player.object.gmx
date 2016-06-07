@@ -74,7 +74,6 @@ key_left = keyboard_check(vk_left) || gamepad_button_check(0,gp_padl);
 key_right = keyboard_check(vk_right) || gamepad_button_check(0,gp_padr);
 key_up = keyboard_check(vk_up) || gamepad_button_check(0,gp_padu);
 key_down = keyboard_check(vk_down) || gamepad_button_check(0,gp_padd);
-key_inventory = keyboard_check_pressed(ord("I"));
 //If we aren´t still by the pause or conversation
 if(status_still == false){
     //Move the player
@@ -145,22 +144,8 @@ if(status_still == false){
             break;
     }
     direction_looking = direction;
-    if(key_inventory == true){
-        status_still = true;
-        inventory_open = true;
-        //"Release" the key
-        key_inventory = false;
-    }
 }
-//Controls for the inventory
-if(inventory_open == true){
-    if(key_inventory == true){
-        status_still = false;
-        inventory_open = false;
-        //"Release" the key
-        key_inventory = false;
-    }
-}
+
 
 </string>
           </argument>

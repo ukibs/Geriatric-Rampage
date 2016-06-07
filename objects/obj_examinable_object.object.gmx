@@ -29,6 +29,7 @@
 text_counter = 0;
 status_acting = false;
 usable = true;
+
 //Get the player
 player = instance_find(obj_player, 0);
 interactor = instance_find(obj_interactor, 0);
@@ -36,6 +37,10 @@ interactor = instance_find(obj_interactor, 0);
 //These must be applied on each object
 text[0] = "This an examinable object";
 text_length = array_length_1d(text);
+
+//These must be applied on the ones that have a paper (true)
+contains_paper = false;
+paper_num = 0;
 </string>
           </argument>
         </arguments>
@@ -97,6 +102,10 @@ if(interaction_key == true &amp;&amp; status_acting = true){
         //Alarm to not overlap conversations
         usable = false;
         alarm[0] = 10;
+        //
+        if(contains_paper == true){
+            global.paper[paper_num] = 1;
+        }
     }
 }
 </string>

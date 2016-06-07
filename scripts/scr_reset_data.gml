@@ -9,3 +9,6 @@ global.kotb_dificulty = 3;
 global.bocata_dificulty = 3;
 global.global_stage = 0;
 global.pidgeon_difficulty = 10;
+global.paper[0] = 0;
+global.paper[1] = 0;
+global.paper[2] = 0;

@@ -13,6 +13,9 @@
     global.bocata_dificulty = file_text_read_real(loadFile);
     global.global_stage = file_text_read_real(loadFile);
     global.pidgeon_difficulty = file_text_read_real(loadFile);
+    global.paper[0] = file_text_read_real(loadFile);
+    global.paper[1] = file_text_read_real(loadFile);
+    global.paper[2] = file_text_read_real(loadFile);
     //And close
     file_text_close(loadFile);
 //}

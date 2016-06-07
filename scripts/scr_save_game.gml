@@ -14,6 +14,9 @@ file_text_write_real(saveFile, global.kotb_dificulty);
 file_text_write_real(saveFile, global.bocata_dificulty);
 file_text_write_real(saveFile, global.global_stage);
 file_text_write_real(saveFile, global.pidgeon_difficulty);
+file_text_write_real(saveFile, global.paper[0]);
+file_text_write_real(saveFile, global.paper[1]);
+file_text_write_real(saveFile, global.paper[2]);
 //And close
 file_text_close(saveFile);
 

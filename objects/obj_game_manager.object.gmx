@@ -34,6 +34,12 @@ if(global.last_place == room){
     player.x = global.last_xPos;
     player.y = global.last_yPos;
 }
+//
+selected_paper = 0;
+missing_paper = spr_no_letter;
+paper_picture[0] = spr_letter1;
+paper_picture[1] = spr_letter2;
+paper_picture[2] = spr_letter3;
 </string>
           </argument>
         </arguments>
@@ -61,6 +67,9 @@ key_pause = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0,
 key_confirm = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0,gp_face1);
 key_map = keyboard_check_pressed(ord("M")) || gamepad_button_check(0,gp_face3);
 key_inventory = keyboard_check_pressed(ord("I"));
+//Inventory keys
+key_left = keyboard_check_pressed(vk_left) || gamepad_button_check_pressed(0,gp_padl);
+key_right = keyboard_check_pressed(vk_right) || gamepad_button_check_pressed(0,gp_padr);
 //(Un)Pause the game
 if(key_pause == true){
     if(status_paused == false){
@@ -88,6 +97,26 @@ if(key_confirm == true &amp;&amp; status_paused == true){
 if(key_map == true &amp;&amp; status_paused == false &amp;&amp; player.status_still == false &amp;&amp; global.global_stage &gt; 0){
     room_goto(room_map);
     //global.last_place = room_get_name(room);
+}
+
+//Controls for the inventory
+if(key_inventory == true &amp;&amp; status_paused == false){
+    if(inventory_open == true){
+        player.status_still = false;
+        inventory_open = false;
+        //"Release" the key
+        key_inventory = false;
+    }
+    else{
+        player.status_still = true;
+        inventory_open = true;
+        //"Release" the key
+        key_inventory = false;
+    }
+}
+if(inventory_open == true){
+    selected_paper += -key_left + key_right;
+    selected_paper = clamp(selected_paper, 0, 2);
 }
 </string>
           </argument>
@@ -149,6 +178,14 @@ if(status_paused == true){
 }
 //Check stuff
 //draw_text(50,50,room);
+
+//
+if(inventory_open == true){
+    if(global.paper[selected_paper] == 1)
+        draw_sprite(paper_picture[selected_paper], 0, 0, 0);
+    else
+        draw_sprite(missing_paper, 0, 0, 0);
+}
 </string>
           </argument>
         </arguments>
