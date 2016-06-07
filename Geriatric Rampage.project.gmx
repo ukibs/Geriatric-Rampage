@@ -76,6 +76,7 @@
       <sprite>sprites\spr_walking_down</sprite>
       <sprite>sprites\spr_walking_up</sprite>
       <sprite>sprites\spr_walking_right</sprite>
+      <sprite>sprites\spr_slapping</sprite>
     </sprites>
     <sprites name="Interactors">
       <sprite>sprites\spr_wall</sprite>
@@ -93,9 +94,7 @@
       <sprite>sprites\spr_power_meter</sprite>
       <sprite>sprites\spr_tool_power</sprite>
     </sprites>
-    <sprite>sprites\spr_gallata</sprite>
     <sprite>sprites\spr_inventory_window</sprite>
-    <sprite>sprites\spr_Bench</sprite>
     <sprite>sprites\spr_life_icon</sprite>
     <sprite>sprites\spr_life_icon02</sprite>
     <sprite>sprites\spr_money_icon</sprite>
@@ -121,6 +120,12 @@
     </sprites>
     <sprite>sprites\spr_crying_icon</sprite>
     <sprite>sprites\spr_Roca</sprite>
+    <sprites name="Papers">
+      <sprite>sprites\spr_letter1</sprite>
+      <sprite>sprites\spr_letter2</sprite>
+      <sprite>sprites\spr_letter3</sprite>
+      <sprite>sprites\spr_no_letter</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -230,7 +235,6 @@
       <object>objects\obj_player_ball</object>
       <object>objects\obj_oponent_ball</object>
       <object>objects\obj_power_meter_frame</object>
-      <object>objects\obj_Instructions_petanca</object>
     </objects>
     <objects name="KingOfTheBarrio">
       <object>objects\obj_gang_boy</object>
@@ -239,7 +243,6 @@
       <object>objects\obj_kotb_player</object>
       <object>objects\obj_kotb_slapper</object>
       <object>objects\obj_throwing_stuff</object>
-      <object>objects\obj_instructions_king</object>
     </objects>
     <objects name="BocataTime">
       <object>objects\bocata_manager</object>
@@ -248,14 +251,12 @@
       <object>objects\obj_base_walker</object>
       <object>objects\obj_mother</object>
       <object>objects\obj_kid</object>
-      <object>objects\obj_instructions_Bocata</object>
     </objects>
     <objects name="Pidgeon Hunting">
       <object>objects\obj_pidgeon</object>
       <object>objects\obj_MgrPidgeon</object>
       <object>objects\obj_ball_pidgeon</object>
       <object>objects\obj_pointer_pidgeon</object>
-      <object>objects\obj_instructions_pidgeon</object>
       <object>objects\obj_Mgr_Pidgeon</object>
     </objects>
     <object>objects\obj_park_template</object>

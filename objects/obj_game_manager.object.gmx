@@ -28,6 +28,7 @@
             <string>//
 status_paused = false;
 player = instance_find(obj_player, 0);
+inventory_open = false;
 //Check if the player is returning to the place
 if(global.last_place == room){
     player.x = global.last_xPos;
@@ -59,6 +60,7 @@ if(global.last_place == room){
 key_pause = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0,gp_start);
 key_confirm = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0,gp_face1);
 key_map = keyboard_check_pressed(ord("M")) || gamepad_button_check(0,gp_face3);
+key_inventory = keyboard_check_pressed(ord("I"));
 //(Un)Pause the game
 if(key_pause == true){
     if(status_paused == false){

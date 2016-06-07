@@ -241,7 +241,7 @@ if(status == 1){
           <argument>
             <kind>1</kind>
             <string>//Draw the player stationary
-if(hspeed == 0 &amp;&amp; vspeed == 0)
+if(speed == 0)
     draw_sprite(sprite_to_use, 2, x, y);
 //Or in movement
 else

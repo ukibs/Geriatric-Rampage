@@ -100,6 +100,21 @@ if(status_paused == true){
     draw_set_font(font_SpeakAndText);
     draw_text(room_width/2, room_height/2 + 40, "ESC to return");
     draw_text(room_width/2, room_height/2 + 80, "Enter to quit");
+    //Draw instruction depending of the minigame
+    switch(room){
+        case room_petanca:
+            draw_text(room_width/2, room_height/2 - 20, "Press Space to throw a ball as near as you can to the little one");
+        break;
+        case room_king_of_the_barrio:
+            draw_text(room_width/2, room_height/2 - 20, "Press Space to hit as much kids as you can");
+        break;
+        case room_bocata_time:
+            draw_text(room_width/2, room_height/2 - 20, "Press Space to steal the bocata's children. Be sure that the mothers don't see you");
+        break;
+        case room_pidgeon_hunting:
+            draw_text(room_width/2, room_height/2 - 20, "Press Space to shoot the pidgeons");
+        break;
+    }
 }
 </string>
           </argument>

@@ -27,10 +27,27 @@
             <kind>1</kind>
             <string>event_inherited();
 //Sprites for the character
-sprite_to_useUp     = spr_kid1_up;
-sprite_to_useDown   = spr_kid1_down;
-sprite_to_useLeft   = spr_kid1_left;
-sprite_to_useRight  = spr_kid1_right;
+skin = irandom(3);
+switch(skin){
+    case 0:
+        sprite_to_useUp     = spr_kid1_up;
+        sprite_to_useDown   = spr_kid1_down;
+        sprite_to_useLeft   = spr_kid1_left;
+        sprite_to_useRight  = spr_kid1_right;
+    break;
+    case 1:
+        sprite_to_useUp     = spr_kid_2_up;
+        sprite_to_useDown   = spr_kid_2_down;
+        sprite_to_useLeft   = spr_kid_2_left;
+        sprite_to_useRight  = spr_kid_2_right;
+    break;
+    case 2:
+        sprite_to_useUp     = spr_kid_3_up;
+        sprite_to_useDown   = spr_kid_3_down;
+        sprite_to_useLeft   = spr_kid_3_left;
+        sprite_to_useRight  = spr_kid_3_right;
+    break;
+}
 //Set one
 sprite_to_use = sprite_to_useDown;
 /* Status
