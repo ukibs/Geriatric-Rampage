@@ -177,10 +177,10 @@ if(key_space_pressed == true &amp;&amp; canShoot == true)
     //Throwing the ball
     ball = instance_create(obj_pointer_pidgeon.x, obj_pointer_pidgeon.y, obj_ball_pidgeon);
     ball.direction = obj_pointer_pidgeon.direction;
-    ball.speed = 10;
+    ball.speed = 30;
     image_angle = direction;
     canShoot = false;
-    alarm[3] = 10;
+    alarm[3] = 15;
 }
 
 //Number of dead pidgeons

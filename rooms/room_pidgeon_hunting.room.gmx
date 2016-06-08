@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_MgrPidgeon" x="64" y="32" name="inst_4BD135BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pointer_pidgeon" x="288" y="466" name="inst_8A96C8E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pointer_pidgeon" x="288" y="480" name="inst_8A96C8E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_minigame_manager" x="32" y="32" name="inst_E73CB11B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
