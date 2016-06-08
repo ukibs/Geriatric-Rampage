@@ -66,7 +66,7 @@ alarm_set(0, 1);
             <kind>1</kind>
             <string>//
 starting_position = irandom(positons_length-1);
-selected_car = irandom(2);
+selected_car = irandom(3);
 switch(selected_car){
     case 0:
         selected_car = obj_red_car;
@@ -78,7 +78,7 @@ switch(selected_car){
         selected_car = obj_black_car;
         break;
     case 3:
-        selected_car = obj_bus
+        selected_car = obj_bus;
         break;
 }
 car = instance_create(startX[starting_position], startY[starting_position], selected_car);
