@@ -120,6 +120,8 @@ if(status == 1){
     if(x &lt; sprite_width || x &gt; room_width - sprite_width
             || y &lt; sprite_height || y &gt; room_height - sprite_height){
         speed_multiplier = 0;
+        x = clamp(x, sprite_width, room_width - sprite_width);
+        y = clamp(y, sprite_height, room_height - sprite_height);
         //alarm_set(0, 1);
     }
 }
@@ -145,10 +147,6 @@ sprite_index = sprite_to_use;
 //Alternate option
 speed = movement_speed * speed_multiplier;
 
-//Control measure
-if(x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height){
-        instance_destroy();
-}
 </string>
           </argument>
         </arguments>
