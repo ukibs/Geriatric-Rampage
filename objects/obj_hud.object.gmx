@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>//Get the player
 player = instance_find(obj_player, 0);
+//Get the game manager
+manager = instance_find(obj_game_manager, 0);
 //Initalize text vector
 text[0] = "None";
 text[1] = "Nononon";
@@ -53,23 +55,27 @@ text_counter = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//
-draw_set_halign(fa_left);
-draw_set_colour(c_white);
-draw_set_font(font_culdesac);
-//Draw the map and inventory icons
-draw_sprite(spr_window_hud, 0, 0, 0);
-draw_sprite(spr_Window_hud_reputation, 0, 463, 0);
-draw_sprite(spr_map_icon, 0, 88, 38);
-draw_sprite(spr_inventory_icon, 0, 38, 38);
-//Draw the inventory
-if(player.inventory_open = true){
-    draw_sprite(spr_inventory_window, 0, room_width/2, room_height/2);
+            <string>//Draw if not showing the inventory
+if(manager.inventory_open == false){
+    //
+    draw_set_halign(fa_left);
+    draw_set_colour(c_white);
+    draw_set_font(font_culdesac);
+    //Draw the map and inventory icons
+    draw_sprite(spr_window_hud, 0, 0, 0);
+    draw_sprite(spr_Window_hud_reputation, 0, 463, 0);
+    draw_sprite(spr_map_icon, 0, 88, 38);
+    draw_sprite(spr_inventory_icon, 0, 38, 38);
+    
+    draw_set_font(font_SpeakAndText);
+    //Show the actual reputation
+    draw_text(510, 23, "Rep " + string(global.reputation));
+    draw_sprite(spr_respect_hud, 0, 468, 10);
 }
-draw_set_font(font_SpeakAndText);
-//Show the actual reputation
-draw_text(510, 23, "Rep " + string(global.reputation));
-draw_sprite(spr_respect_hud, 0, 468, 10);
+
+//view checks
+//draw_text(10, 10, view_xview);
+//draw_text(10, 30, view_yview);
 </string>
           </argument>
         </arguments>

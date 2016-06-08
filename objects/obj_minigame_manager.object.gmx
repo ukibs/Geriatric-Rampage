@@ -75,7 +75,7 @@ if(key_confirm == true &amp;&amp; status_paused == true)
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -98,21 +98,24 @@ if(status_paused == true){
     draw_set_valign(fa_center);
     draw_set_colour(c_white);
     draw_set_font(font_SpeakAndText);
-    draw_text(room_width/2, room_height/2 + 40, "ESC to return");
-    draw_text(room_width/2, room_height/2 + 80, "Enter to quit");
+    draw_text(300, 180, "ESC to return");
+    draw_text(300, 220, "Enter to quit");
     //Draw instruction depending of the minigame
     switch(room){
         case room_petanca:
-            draw_text(room_width/2, room_height/2 - 20, "Press Space to throw a ball as near as you can to the little one");
+            draw_text(300, 280, "First, point to the boliche");
+            draw_text(300, 320, "Second, hold space to add force to the throw");
+            draw_text(300, 360, "Be sure that your ball ends nearer to the boliche than then oponent´s");
         break;
         case room_king_of_the_barrio:
-            draw_text(room_width/2, room_height/2 - 20, "Press Space to hit as much kids as you can");
+            draw_text(300, 280, "Press Space to hit as much kids as you can");
         break;
         case room_bocata_time:
-            draw_text(room_width/2, room_height/2 - 20, "Press Space to steal the bocata's children. Be sure that the mothers don't see you");
+            draw_text(300, 280, "Press Space to steal the bocata's children.");
+            draw_text(300, 320, "Be sure that the mothers don't see you");
         break;
         case room_pidgeon_hunting:
-            draw_text(room_width/2, room_height/2 - 20, "Press Space to shoot the pidgeons");
+            draw_text(300, 280, "Press Space to shoot the pidgeons");
         break;
     }
 }

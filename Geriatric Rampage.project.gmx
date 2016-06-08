@@ -111,6 +111,7 @@
     <sprite>sprites\spr_stuff_shadow</sprite>
     <sprites name="Plantillas">
       <sprite>sprites\spr_park_templates</sprite>
+      <sprite>sprites\spr_map_template</sprite>
     </sprites>
     <sprite>sprites\spr_baston_pq</sprite>
     <sprites name="Cars">
@@ -129,11 +130,11 @@
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\background0</background>
+    <background>background\bg_menu</background>
     <background>background\bck_Sand</background>
     <background>background\bck_Grass</background>
     <background>background\bck_Petanca</background>
-    <background>background\background5</background>
+    <background>background\bg_map</background>
     <background>background\bck_park</background>
     <background>background\bck_home</background>
     <background>background\bck_sideWalk_down</background>
@@ -261,6 +262,7 @@
       <object>objects\obj_pointer_pidgeon</object>
       <object>objects\obj_Mgr_Pidgeon</object>
     </objects>
+    <object>objects\obj_map_template</object>
     <object>objects\obj_park_template</object>
     <objects name="Events">
       <object>objects\obj_event1</object>

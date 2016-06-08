@@ -46,7 +46,6 @@ sprite_to_use = spr_walking_down;
 direction_looking = 270;
 //Create and get the interactor
 interactor = instance_create(x,y,obj_interactor);
-
 </string>
           </argument>
         </arguments>

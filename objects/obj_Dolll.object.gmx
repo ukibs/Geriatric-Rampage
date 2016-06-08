@@ -29,7 +29,13 @@
 //These must be applied on each object
 text[0] = "What? That thing is a doll?";
 text[1] = "Wow. It's creepy as hell";
+text[2] = "Ey.";
+text[3] = "A letter.";
 text_length = array_length_1d(text);
+
+//These must be applied on the ones that have a paper (true)
+contains_paper = true;
+paper_num = 2;
 </string>
           </argument>
         </arguments>

@@ -27,9 +27,15 @@
             <kind>1</kind>
             <string>event_inherited();
 //These must be applied on each object
-text[0] = "The trash";
-text[1] = "Some brats should go there";
+text[0] = "The trash.";
+text[1] = "Some brats should go there.";
+text[2] = "Wait.";
+text[3] = "What´s this paper?";
 text_length = array_length_1d(text);
+
+//These must be applied on the ones that have a paper (true)
+contains_paper = true;
+paper_num = 1;
 </string>
           </argument>
         </arguments>

@@ -40,6 +40,10 @@ missing_paper = spr_no_letter;
 paper_picture[0] = spr_letter1;
 paper_picture[1] = spr_letter2;
 paper_picture[2] = spr_letter3;
+
+//Play ambient sound if in the park
+if(room == room_park)
+    audio_play_sound(snd_park_ambient, 1, true);
 </string>
           </argument>
         </arguments>
@@ -146,12 +150,16 @@ global.last_place = room;
 //global.last_room = asset_get_index(global.last_room);
 global.last_xPos = player.x;
 global.last_yPos = player.y;
+
+//Stop playing park sound
+if(room == room_park)
+    audio_stop_sound(snd_park_ambient);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -173,8 +181,8 @@ if(status_paused == true){
     draw_set_halign(fa_center);
     draw_set_valign(fa_center);
     draw_set_colour(c_white);
-    draw_text(room_width/2, room_height/2 - 20, "ESC to return");
-    draw_text(room_width/2, room_height/2 + 20, "ENTER to quit");
+    draw_text(300, 200, "ESC to return");
+    draw_text(300, 280, "ENTER to quit");
 }
 //Check stuff
 //draw_text(50,50,room);
