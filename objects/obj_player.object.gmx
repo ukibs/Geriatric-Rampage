@@ -94,18 +94,12 @@ if(status_still == false){
     if(v_direction = 0 &amp;&amp; vsp != 0)
         vsp -= sign(vsp);
     //(To not) collide control
-
     while(place_meeting(x + hsp, y, obj_wall) &amp;&amp; hsp != 0){
         hsp -= sign(hsp);
     }
     while(place_meeting(x, y + vsp, obj_wall) &amp;&amp; vsp != 0){
         vsp -= sign(vsp);
     }
-    /*if(!place_free(x + hsp, y))
-        hsp = 0;
-    if(!place_free(x, y + vsp))
-        vsp = 0;*/
-        
     //Control to not go out of the room
     while(x + hsp &lt; sprite_width/2 || x + hsp &gt; room_width - sprite_width/2){
         hsp -= sign(hsp);

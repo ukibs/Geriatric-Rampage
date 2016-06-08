@@ -128,6 +128,9 @@
       <sprite>sprites\spr_letter3</sprite>
       <sprite>sprites\spr_no_letter</sprite>
     </sprites>
+    <sprite>sprites\spr_inventory_char</sprite>
+    <sprite>sprites\spr_left_arrow</sprite>
+    <sprite>sprites\spr_right_arrow</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_menu</background>

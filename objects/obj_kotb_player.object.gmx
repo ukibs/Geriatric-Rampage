@@ -204,7 +204,9 @@ if(invincible == true &amp;&amp; delta_time % 2 = 0){
 }
 else{
     //
-    if(hsp == 0 &amp;&amp; vsp == 0)
+    if(interactor.alarm[0] &gt; 0)
+        draw_sprite(spr_slapping, direction/90, x, y);
+    else if(hsp == 0 &amp;&amp; vsp == 0)
         draw_sprite(sprite_to_use, 2, x, y);
     else
         draw_self();
