@@ -13,6 +13,7 @@
     <sound>sound\snd_bocata_music</sound>
     <sound>sound\snd_Parque</sound>
     <sound>sound\snd_Aplausos__victoria_</sound>
+    <sound>sound\snd_park_ambient</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Secondary Characters ">
