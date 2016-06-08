@@ -33,7 +33,31 @@ scorePidgeon = global.pidgeon_difficulty;
 alarm_set(2, 30*20);
 finished = false;
 victory = false;
-
+obj_pointer_pidgeon.direction = 90;
+canShoot = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canShoot = true;
 </string>
           </argument>
         </arguments>
@@ -86,7 +110,7 @@ alarm[1] = 0;
 
 instance_create(600, aleatory, obj_pidgeon);
 
-alarm[1] = 20;
+alarm[1] = 40;
 </string>
           </argument>
         </arguments>
@@ -114,7 +138,7 @@ alarm[1] = 20;
 pidgeon = instance_create(0, aleatory, obj_pidgeon);
 pidgeon.image_xscale = -1;
 
-alarm[0] = 20;
+alarm[0] = 40;
 </string>
           </argument>
         </arguments>
@@ -138,23 +162,25 @@ alarm[0] = 20;
           <argument>
             <kind>1</kind>
             <string>//Get the keys
-key_left = keyboard_check(vk_left);
-key_right = keyboard_check(vk_right);
-key_space_pressed = keyboard_check_pressed(vk_space);
-key_space_released = keyboard_check_released(vk_space);
+key_left = keyboard_check(vk_left) || gamepad_button_check(0, gp_padl);
+key_right = keyboard_check(vk_right) || gamepad_button_check( 0, gp_padr);
+key_space_pressed = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0, gp_face1);
+key_space_released = keyboard_check_released(vk_space) || gamepad_button_check_released(0, gp_face1);
    
     
 obj_pointer_pidgeon.direction -= -key_left + key_right;
 obj_pointer_pidgeon.direction = clamp(obj_pointer_pidgeon.direction, 10, 170);
 obj_pointer_pidgeon.image_angle = obj_pointer_pidgeon.direction;
 
-if(key_space_released == true)
+if(key_space_pressed == true &amp;&amp; canShoot == true)
 {
     //Throwing the ball
     ball = instance_create(obj_pointer_pidgeon.x, obj_pointer_pidgeon.y, obj_ball_pidgeon);
     ball.direction = obj_pointer_pidgeon.direction;
     ball.speed = 10;
     image_angle = direction;
+    canShoot = false;
+    alarm[3] = 10;
 }
 
 //Number of dead pidgeons
@@ -169,14 +195,14 @@ if((key_space_pressed == true) &amp;&amp; (finished == true))
 {
     if (victory == true)
     {
-        global.pidgeon_difficulty += 5;
+        global.pidgeon_difficulty += 2;
         global.reputation += 1;
     }
     else
     {
-        if (global.pidgeon_difficulty &gt; 5)
+        if (global.pidgeon_difficulty &gt; 2)
         {
-            global.pidgeon_difficulty -= 5;
+            global.pidgeon_difficulty -= 2;
             global.reputation -= 1;
         }
     }
@@ -208,6 +234,7 @@ if((key_space_pressed == true) &amp;&amp; (finished == true))
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 
+
 //If finished, show the winner
 if(finished == true)
 {
@@ -228,8 +255,9 @@ else
 {
     draw_set_font(font_culdesac);
     draw_set_colour(c_white);
-    draw_text(100, 10, "PIDGEONS TO KILL: "+string(scorePidgeon) );
-    draw_text(150, 50, "TIME: " + string(int64(alarm[2]/30)) );
+    draw_sprite(spr_window_pidgeon,0,325,5);
+    draw_text(440, 20, "PIDGEONS TO KILL: "+string(scorePidgeon) );
+    draw_text(440, 50, "TIME: " + string(int64(alarm[2]/30)) );
     
     
     

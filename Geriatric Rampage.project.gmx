@@ -64,6 +64,26 @@
         <sprite>sprites\spr_AgedSemiNaked_Down</sprite>
         <sprite>sprites\spr_OldMan2</sprite>
       </sprites>
+      <sprites name="young people">
+        <sprite>sprites\gangboy1</sprite>
+        <sprite>sprites\gangboy1_Right</sprite>
+        <sprite>sprites\gangboy1_left</sprite>
+        <sprite>sprites\gangboy1_up</sprite>
+        <sprite>sprites\gangboy1_down</sprite>
+        <sprite>sprites\gangboy1_spinning</sprite>
+        <sprite>sprites\gangboy2</sprite>
+        <sprite>sprites\gangboy2_right</sprite>
+        <sprite>sprites\gangboy2_left</sprite>
+        <sprite>sprites\gangboy2_up</sprite>
+        <sprite>sprites\gangboy2_down</sprite>
+        <sprite>sprites\gangboy2_spinning</sprite>
+        <sprite>sprites\ganboy3</sprite>
+        <sprite>sprites\gangboy3_right</sprite>
+        <sprite>sprites\gangboy3_left</sprite>
+        <sprite>sprites\gangboy3_up</sprite>
+        <sprite>sprites\gangboy3_down</sprite>
+        <sprite>sprites\gangboy3_spinning</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\spr_text_background</sprite>
     <sprite>sprites\spr_interacter</sprite>
@@ -95,16 +115,14 @@
       <sprite>sprites\spr_power_meter</sprite>
       <sprite>sprites\spr_tool_power</sprite>
     </sprites>
-    <sprite>sprites\spr_inventory_window</sprite>
     <sprite>sprites\spr_life_icon</sprite>
-    <sprite>sprites\spr_life_icon02</sprite>
     <sprite>sprites\spr_money_icon</sprite>
     <sprite>sprites\spr_baston</sprite>
     <sprites name="Pidgeon Hunting">
       <sprite>sprites\spr_pidgeon</sprite>
+      <sprite>sprites\spr_pidgeon_dead</sprite>
       <sprite>sprites\spr_ball_pidgeon</sprite>
-      <sprite>sprites\spr_pointer_pidgeon</sprite>
-      <sprite>sprites\spr_hand_animation</sprite>
+      <sprite>sprites\spr_window_pidgeon</sprite>
     </sprites>
     <sprite>sprites\spr_alert</sprite>
     <sprite>sprites\spr_catch</sprite>
@@ -131,6 +149,7 @@
     <sprite>sprites\spr_inventory_char</sprite>
     <sprite>sprites\spr_left_arrow</sprite>
     <sprite>sprites\spr_right_arrow</sprite>
+    <sprite>sprites\spr_pause_window</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_menu</background>
@@ -140,12 +159,6 @@
     <background>background\bg_map</background>
     <background>background\bck_park</background>
     <background>background\bck_home</background>
-    <background>background\bck_sideWalk_down</background>
-    <background>background\bck_sideWalk_upCorner</background>
-    <background>background\bck_sideWalk_downCorner</background>
-    <background>background\bck_brickWall</background>
-    <background>background\bck_Road</background>
-    <background>background\bck_roadCurve</background>
     <background>background\bck_pidgeon</background>
   </backgrounds>
   <paths name="paths">
@@ -263,7 +276,6 @@
       <object>objects\obj_MgrPidgeon</object>
       <object>objects\obj_ball_pidgeon</object>
       <object>objects\obj_pointer_pidgeon</object>
-      <object>objects\obj_Mgr_Pidgeon</object>
     </objects>
     <object>objects\obj_map_template</object>
     <object>objects\obj_park_template</object>

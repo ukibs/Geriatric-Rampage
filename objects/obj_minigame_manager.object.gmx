@@ -94,18 +94,25 @@ if(key_confirm == true &amp;&amp; status_paused == true)
             <kind>1</kind>
             <string>//Draw options
 if(status_paused == true){
+    draw_sprite(spr_pause_window,0,0,0);
     draw_set_halign(fa_center);
     draw_set_valign(fa_center);
+    draw_set_colour(c_black);
+    draw_set_font(font_demolition);
+    draw_text(300, 100, "PAUSED");
     draw_set_colour(c_white);
     draw_set_font(font_SpeakAndText);
-    draw_text(300, 180, "ESC to return");
-    draw_text(300, 220, "Enter to quit");
+    draw_text(300, 160, "ESC to return");
+    draw_text(300, 200, "Enter to quit");
+    draw_set_colour(c_orange);
+    draw_text(300, 240, "INSTRUCTIONS:");
     //Draw instruction depending of the minigame
     switch(room){
         case room_petanca:
             draw_text(300, 280, "First, point to the boliche");
             draw_text(300, 320, "Second, hold space to add force to the throw");
-            draw_text(300, 360, "Be sure that your ball ends nearer to the boliche than then oponent´s");
+            draw_text(300, 360, "Be sure that your ball ends nearer");
+            draw_text(300, 400, "to the boliche than then oponent´s");
         break;
         case room_king_of_the_barrio:
             draw_text(300, 280, "Press Space to hit as much kids as you can");

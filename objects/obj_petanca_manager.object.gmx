@@ -273,14 +273,14 @@ else{
         draw_text(50, room_height/2-30, "Your");
         draw_text(50, room_height/2+30, "turn");
         draw_set_font(font_culdesac);
-        draw_set_colour(c_white);
+        draw_set_colour(c_maroon);
     }
     else
     {
         draw_text(50, room_height/2-30, "Oponent");
         draw_text(50, room_height/2+30, "turn");
         draw_set_font(font_culdesac);
-        draw_set_colour(c_white);
+        draw_set_colour(c_maroon);
     }
 }
 </string>
