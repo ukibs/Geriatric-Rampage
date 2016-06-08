@@ -160,7 +160,7 @@ if(interaction_key == true &amp;&amp; usable == true){
             <kind>1</kind>
             <string>//To talk
 if(status_acting == true){
-    draw_sprite(spr_text_background, 0, view_xview[0]+300, view_yview[0]+480);
+    draw_sprite(spr_text_background, 0, 300, 480);
     //draw_sprite(spr_text_background, 0, room_width/2, room_height);
     draw_set_halign(fa_left);
     draw_set_colour(c_white);

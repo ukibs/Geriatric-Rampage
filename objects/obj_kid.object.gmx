@@ -84,7 +84,8 @@ player = instance_find(obj_bocata_player, 0);
 if(status == 2){
     if(x &lt; sprite_width || x &gt; room_width - sprite_width
             || y &lt; sprite_height || y &gt; room_height - sprite_height){
-        direction += 90
+        //direction += 90;
+        direction += sign(random_range(-10, 10)) * 90;
         //alarm_set(0, 1);
     }
 }

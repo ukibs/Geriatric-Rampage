@@ -69,8 +69,8 @@ if(room == room_park)
             <string>//Get the keys
 key_pause = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0,gp_start);
 key_confirm = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0,gp_face1);
-key_map = keyboard_check_pressed(ord("M")) || gamepad_button_check(0,gp_face3);
-key_inventory = keyboard_check_pressed(ord("I"));
+key_map = keyboard_check_pressed(ord("M")) || gamepad_button_check_pressed(0,gp_face3);
+key_inventory = keyboard_check_pressed(ord("I")) || gamepad_button_check_pressed(0,gp_face2);
 //Inventory keys
 key_left = keyboard_check_pressed(vk_left) || gamepad_button_check_pressed(0,gp_padl);
 key_right = keyboard_check_pressed(vk_right) || gamepad_button_check_pressed(0,gp_padr);

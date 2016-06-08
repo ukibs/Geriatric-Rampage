@@ -81,17 +81,15 @@ if(status_still == false){
     //Save the directions for control
     if(h_direction != 0) last_hDirection = h_direction;
     if(v_direction != 0) last_vDirection = v_direction; 
-    //hsp = (-key_left + key_right) * movement_speed;
-    //vsp = (-key_up + key_down) * movement_speed;
     //Acceleration
-    if(abs(hsp) &lt; movement_speed)
+    if(abs(hsp + h_direction) &lt; movement_speed)
         hsp += h_direction;
-    if(abs(vsp) &lt; movement_speed)
+    if(abs(vsp + v_direction) &lt; movement_speed)
         vsp += v_direction;
     //Decceleration
-    if(h_direction = 0 &amp;&amp; hsp != 0)
+    if(h_direction == 0 &amp;&amp; hsp != 0)
         hsp -= sign(hsp);
-    if(v_direction = 0 &amp;&amp; vsp != 0)
+    if(v_direction == 0 &amp;&amp; vsp != 0)
         vsp -= sign(vsp);
     //(To not) collide control
     while(place_meeting(x + hsp, y, obj_wall) &amp;&amp; hsp != 0){
@@ -163,8 +161,7 @@ if(status_still == false){
           <argument>
             <kind>1</kind>
             <string>//Unstuck the player
-x -= last_hDirection;
-y -= last_vDirection;
+move_outside_solid(direction+180, 100);
 </string>
           </argument>
         </arguments>

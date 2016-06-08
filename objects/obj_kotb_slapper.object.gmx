@@ -113,44 +113,11 @@ slap_key = keyboard_check_pressed(vk_space) || gamepad_button_check(0,gp_face1);
 //
 if(slap_key == true &amp;&amp; can_slap == true){
     other.status = 3;
-    other.direction = direction - 90;
-    other.alarm[1] = 3;
+    other.direction = direction + 90;
+    other.alarm[1] = 10;
     other.life -= slap_damage;
     can_slap = false;
-    alarm_set(0, 10);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_gang_boy">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//Get the slap key
-slap_key = keyboard_check_pressed(vk_space) || gamepad_button_check(0,gp_face1);
-//
-if(slap_key == true &amp;&amp; can_slap == true){
-    other.status = 1;
-    other.direction = direction - 90;
-    other.alarm[0] = 15;
-    other.life -= slap_damage;
-    can_slap = false;
-    alarm_set(0, 10);
+    alarm_set(0, 3);
 }
 </string>
           </argument>

@@ -225,15 +225,19 @@
     </objects>
     <objects name="Examinable Stuff">
       <object>objects\obj_examinable_object</object>
-      <object>objects\obj_bed</object>
-      <object>objects\obj_fridge</object>
-      <object>objects\obj_cans</object>
-      <object>objects\obj_grafiti</object>
-      <object>objects\obj_bearPark</object>
-      <object>objects\obj_StatuePark</object>
-      <object>objects\obj_toilet</object>
-      <object>objects\obj_Dolll</object>
-      <object>objects\obj_desktop</object>
+      <objects name="Home">
+        <object>objects\obj_desktop</object>
+        <object>objects\obj_toilet</object>
+        <object>objects\obj_fridge</object>
+        <object>objects\obj_bed</object>
+      </objects>
+      <objects name="Park">
+        <object>objects\obj_Dolll</object>
+        <object>objects\obj_StatuePark</object>
+        <object>objects\obj_bearPark</object>
+        <object>objects\obj_grafiti</object>
+        <object>objects\obj_cans</object>
+      </objects>
     </objects>
     <objects name="Managers">
       <object>objects\obj_menu_manager</object>
@@ -256,7 +260,6 @@
       <object>objects\obj_power_meter_frame</object>
     </objects>
     <objects name="KingOfTheBarrio">
-      <object>objects\obj_gang_boy</object>
       <object>objects\obj_gang_boy2</object>
       <object>objects\obj_kotb_manager</object>
       <object>objects\obj_kotb_player</object>
