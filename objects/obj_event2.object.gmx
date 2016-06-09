@@ -40,6 +40,11 @@ if(global.global_stage == 1){
     //Instance the old bastard
     old_bastard = instance_create(x, y, obj_old_bastard2);
     old_bastard.status_acting = true;
+    //Put the player looking right
+    player.sprite_index = spr_walking_right;
+    player.sprite_to_use = spr_walking_right;
+    //Put the old bastard looking left
+    old_bastard.sprite_index = spr_generic_man_Left;
 }
 else{   //Destroy it if not
     instance_destroy();
@@ -73,7 +78,6 @@ if(player.status_still = false &amp;&amp; stage = 0){
 }
 //The old bastard walks out
 if(stage == 1){
-    player.sprite_index = spr_walking_right;
     player.h_direction = 1;
     old_bastard.sprite_index = spr_generic_man_Right;
     old_bastard.hspeed = 1;
