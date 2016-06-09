@@ -28,9 +28,11 @@
             <string>//Inherit the create event from the parent
 event_inherited();
 //Apply your own text
-text[0] = "1¡¡¡Eustaquioooo!!!";
-text[1] = "1Those god damm brats!";
-text[2] = "1Teach them a lesson!";
+text[0] = "1Good day, pal";
+text[1] = "0What do you want?";
+text[2] = "1Do you see those brats there?";
+text[3] = "1They think that park is theirs.";
+text[4] = "1Do you wanna teach them?";
 
 text_length = array_length_1d(text);
 speaker_name = "Park defender";

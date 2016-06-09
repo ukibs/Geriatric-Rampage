@@ -28,8 +28,12 @@
             <string>event_inherited();
 //These must be applied on each character
 text[0] = "1Hey, dude";
-text[1] = "1These kid´s bocatas look so good";
-text[2] = "1Wanna get some of them?";
+text[1] = "1The bocatas of these kid look so good";
+text[2] = "0Do you want them?";
+text[3] = "1You would do me a favor taking some of them for me.";
+text[4] = "1Also, you coul teach some discipline to those kids.";
+text[5] = "1We don´t want them to grow without learning some respect.";
+text[6] = "1Wanna try?";
 
 text_length = array_length_1d(text);
 speaker_name = "Bocata claimer";

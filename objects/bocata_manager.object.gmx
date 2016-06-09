@@ -105,8 +105,11 @@ if(out_key == 1 &amp;&amp; finished == true){
         global.reputation ++;
     }
     else{
-        global.bocata_dificulty --;
-        global.reputation --;
+        //Control to not reach 0 kids
+        if(global.bocata_difficulty &gt; 1){
+            global.bocata_dificulty --;
+            global.reputation --;
+        }
     }
     room_goto(global.last_place);
 }

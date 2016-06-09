@@ -221,6 +221,8 @@
         <object>objects\obj_kid1</object>
         <object>objects\obj_girl1</object>
         <object>objects\obj_police2_Park</object>
+        <object>objects\obj_brat1</object>
+        <object>objects\obj_brat2</object>
       </objects>
     </objects>
     <objects name="Examinable Stuff">

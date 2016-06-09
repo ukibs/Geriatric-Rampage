@@ -109,20 +109,22 @@ if(status_paused == true){
     //Draw instruction depending of the minigame
     switch(room){
         case room_petanca:
-            draw_text(300, 280, "First, point to the boliche");
-            draw_text(300, 320, "Second, hold space to add force to the throw");
+            draw_text(300, 280, "First, point to the boliche.");
+            draw_text(300, 320, "Second, hold space to add force to the throw.");
             draw_text(300, 360, "Be sure that your ball ends nearer");
-            draw_text(300, 400, "to the boliche than then oponent´s");
+            draw_text(300, 400, "to the boliche than then oponent ones.");
         break;
         case room_king_of_the_barrio:
-            draw_text(300, 280, "Press Space to hit as much kids as you can");
+            draw_text(300, 280, "Defeat the gang boys slapping them with Space.");
+            draw_text(300, 320, "But beware of being outnumbered.");
+            draw_text(300, 360, "Be careful with rocks, too. The don´t play fair.");
         break;
         case room_bocata_time:
             draw_text(300, 280, "Press Space to steal the bocata's children.");
-            draw_text(300, 320, "Be sure that the mothers don't see you");
+            draw_text(300, 320, "Be sure that the mothers don't see you.");
         break;
         case room_pidgeon_hunting:
-            draw_text(300, 280, "Press Space to shoot the pidgeons");
+            draw_text(300, 280, "Press Space to throw balls to the pidgeons.");
         break;
     }
 }

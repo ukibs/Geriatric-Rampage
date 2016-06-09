@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 //These must be applied on each character
-text[0] = "1Im watching you Eustaquio";
-text[1] = "1Don't be an asshole";
+text[0] = "1I'm watching you Eustaquio";
+text[1] = "1Stay far from those kids";
 text_length = array_length_1d(text);
 speaker_name = "Police agent";
 

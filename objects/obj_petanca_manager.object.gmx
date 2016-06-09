@@ -89,19 +89,18 @@ key_space_released = keyboard_check_released(vk_space) || gamepad_button_check_r
 if(turn &lt; 3){
     switch(phase){
         case 0: //Oponent´s turn
-            //In higher dificulty, if the player have a ball nearer than the oponent´s
+            //If the player have a ball nearer than the oponent´s
             //he will try to move it out
-            if(turn &gt; 1){
-            script_execute(scr_ball_distance_check);
-            if(global.petanca_dificulty &gt; 2 &amp;&amp;
-                min_player_ball_distance &lt; min_oponent_ball_distance)
-                boliche_direction = point_direction(pointer.x, pointer.y, 
-                    player_ball[player_nearer_ball].x, 
-                    player_ball[player_nearer_ball].y); 
-            else
-                boliche_direction = point_direction(pointer.x, pointer.y, boliche.x, boliche.y);
-            }
-            else
+            /*if(turn &gt; 1){
+                script_execute(scr_ball_distance_check);
+                if(min_player_ball_distance &lt; min_oponent_ball_distance)
+                    boliche_direction = point_direction(pointer.x, pointer.y, 
+                        player_ball[player_nearer_ball].x, 
+                        player_ball[player_nearer_ball].y); 
+                else
+                    boliche_direction = point_direction(pointer.x, pointer.y, boliche.x, boliche.y);
+                }
+            else*/
                 boliche_direction = point_direction(pointer.x, pointer.y, boliche.x, boliche.y);
             //Habrá que revisar si la dificultad sube de 10
             throw_deviation = random(10 - global.petanca_dificulty);
