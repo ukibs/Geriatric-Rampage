@@ -14,6 +14,7 @@
     <sound>sound\snd_Parque</sound>
     <sound>sound\snd_Aplausos__victoria_</sound>
     <sound>sound\snd_park_ambient</sound>
+    <sound>sound\snd_cough</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Secondary Characters ">

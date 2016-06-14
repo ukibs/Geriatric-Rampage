@@ -90,13 +90,15 @@ if(point_in_triangle(player.x, player.y,
     x, y, x1, y1, x2, y2) == true){
     if(check_player = true){
         alerted = true;
-        manager.finished = true;
     }
     else
         suspicious = true;
 }
 check_player = false;
-
+//
+if(alerted == true){
+    manager.finished = true;
+}
 </string>
           </argument>
         </arguments>

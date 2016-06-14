@@ -368,16 +368,16 @@ if(status_acting == true){
     //Show the text
     string_to_show = string_delete(text[text_counter], 1, 1);
     string_to_show1 = string_copy(string_to_show, 1, 40);
-    draw_text(100, 380, string(string_to_show1));
+    draw_text(100, 390, string(string_to_show1));
     if(string_length(string_to_show) &gt; 40){
         string_to_show2 = string_copy(string_to_show, 41, 40);
-        draw_text(100, 420, string(string_to_show2));
+        draw_text(100, 430, string(string_to_show2));
     }
     //Show the option
     if(show_option == true){
-        draw_text(150, 400, "Yes");
-        draw_text(250, 400, "No");
-        draw_sprite(spr_baston_pq, 0, 120 + selected_option * 100, 400);
+        draw_text(150, 420, "Yes");
+        draw_text(250, 420, "No");
+        draw_sprite(spr_baston_pq, 0, 120 + selected_option * 100, 420);
     }
 }
 </string>

@@ -106,7 +106,7 @@ if(out_key == 1 &amp;&amp; finished == true){
     }
     else{
         //Control to not reach 0 kids
-        if(global.bocata_difficulty &gt; 1){
+        if(global.bocata_dificulty &gt; 1){
             global.bocata_dificulty --;
             global.reputation --;
         }
@@ -166,6 +166,7 @@ draw_set_font(font_culdesac);
 
 //Show the timer
 if(finished == false){
+    draw_sprite(spr_window_hud, 0, 450, 0);
     draw_text(500, 20, string(int64(alarm[0]/30)));
 }
 

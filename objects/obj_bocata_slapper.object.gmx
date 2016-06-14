@@ -155,7 +155,7 @@ if(slap_key == true &amp;&amp; can_slap == true){
 slap_key = keyboard_check_pressed(vk_space) || gamepad_button_check(0,gp_face1);
 //
 if(slap_key == true &amp;&amp; can_slap == true){
-    other.status = 3;
+    other.alerted = true;
     can_slap = false;
 }
 </string>

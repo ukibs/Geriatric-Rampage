@@ -69,7 +69,7 @@ if(manager.inventory_open == false){
     
     draw_set_font(font_SpeakAndText);
     //Show the actual reputation
-    draw_text(510, 23, "Rep " + string(global.reputation));
+    draw_text(505, 23, "Rep " + string(global.reputation));
     draw_sprite(spr_respect_hud, 0, 468, 10);
 }
 
